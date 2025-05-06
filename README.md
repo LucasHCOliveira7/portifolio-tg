@@ -17,9 +17,7 @@
 
 ## Meus Principais Conhecimentos:
 <div class="skills" align="left">
-  <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
-  <img src="https://img.shields.io/badge/Apache%20Spark-FDEE21?style=for-the-badge&logo=apachespark&logoColor=black">
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
   <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
   <img src="https://img.shields.io/badge/github-0D1117.svg?style=for-the-badge&logo=github&logoColor=white">
@@ -2271,6 +2269,162 @@ useSSL=false
     <tr>
       <td>Organização, Planejamento e Entrega</td>
       <td>Tenho um bom planejamento e entrego tarefas dentro dos prazos acordados, sempre priorizando qualidade. Estou buscando melhorar em gestão de prioridades e adaptação a mudanças.</td
+    </tr>
+ </table>
+</details>
+
+<br>
+
+<div align=center><h1>GeoTrack</h1></div>
+
+<h4> 4º Semestre • <a href="https://github.com/iNineBD/GeoTrack-4Sem2024Main">Repositório Github</a></h4>
+
+<p align="justify"> Empresa Parceira • <a href="https://www.ito1.com.br/">ITO1</a></p>
+
+<p align="center"><img src="https://github.com/user-attachments/assets/acadee14-1bdd-4d6a-86ec-05689dcb3041" widht="20%"></img>
+
+<p align="justify">O sistema GeoTrack é uma aplicação web desenvolvida que visa automatizar o gerenciamento e a configuração de dados de geolocalização em tempo real, gerados continuamente por dispositivos IoT como wearables, tags e smartphones. Com foco em escalabilidade, confiabilidade e segurança, o sistema permitirá armazenar e consultar grandes volumes de dados com eficiência, otimizando o monitoramento de pessoas e ativos. Ao reduzir a necessidade de intervenção técnica especializada, a solução agiliza a implantação das operações, assegurando a integridade e a consistência das informações, e tornando o rastreamento mais ágil e eficiente.</p>
+
+<details>
+
+  <summary align="center">VER MAIS DETALHES</summary>
+  
+  <h2>Objetivo</h2>
+
+#### Após a finalização do projeto pela equipe iNine:
+* O sistema permitirá o cadastro e a gestão de clientes, soluções e usuários autorizados, com autenticação segura por login e senha.
+* Os usuários poderão realizar upload de dados, com validação automática da estrutura, incluindo campos, tipos e regras de negócio.
+* O sistema contará com um dashboard analítico que fornecerá uma visão quantitativa e abrangente das configurações realizadas e dos dados coletados.
+* Os usuários poderão interagir com o mapa utilizando funções como arrastar, zoom e visualização de pinos para pontos de parada.
+* Filtros estarão disponíveis para refinar os dados por pessoa, período de tempo (via calendário), seções geográficas e tags rápidas (como "Hoje" e "Últimos 3 dias").
+* O sistema permitirá a criação, visualização e exclusão de seções geográficas com formas geométricas para facilitar a análise por regiões específicas.
+* O usuário poderá visualizar relatórios detalhados e traçar rotas de pessoas ou ativos no mapa, com base nos filtros aplicados.
+* A solução será escalável, robusta e de alta disponibilidade, garantindo o processamento e acesso eficiente a grandes volumes de dados de geolocalização em tempo real.
+
+<br>
+
+<h2>Tecnologias Utilizadas no Projeto</h2>
+<p align="justify"><strong>Java JDK 21.0.2:</strong> Linguagem utilizada para o desenvolvimento do backend.</p>
+<p align="justify"><strong>Spring Boot 3.3.2:</strong> Framework utilizado para estruturar e agilizar o desenvolvimento do backend.</p>
+<p align="justify"><strong>Oracle:</strong> Sistema Gerenciador de Banco de Dados (SGBD) utilizado para armazenar e gerenciar os dados da aplicação.</p>
+<p align="justify"><strong>Vue.js 2.6.12:</strong> Framework JavaScript utilizado para o desenvolvimento do frontend.</p>
+<p align="justify"><strong>Node.js 22.15.0:</strong> Ambiente de execução JavaScript utilizado para suporte ao frontend e gerenciamento de pacotes.</p>
+<p align="justify"><strong>YouTrack:</strong> Ferramenta utilizada para o gerenciamento ágil do projeto, incluindo tarefas e sprints.</p>
+<p align="justify"><strong>Figma:</strong> Ferramenta utilizada para o design e prototipação das interfaces da aplicação.</p>
+<p align="justify"><strong>IntelliJ IDEA:</strong> IDE utilizada no desenvolvimento backend.</p>
+<p align="justify"><strong>Visual Studio Code:</strong> IDE utilizada no desenvolvimento frontend.</p>
+<p align="justify"><strong>Postman:</strong> Ferramenta utilizada para criação, teste e documentação de APIs REST.</p>
+
+<!-- Badges -->
+<img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white">
+<img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white">
+<img src="https://img.shields.io/badge/oracle-%23F80000.svg?style=for-the-badge&logo=oracle&logoColor=white">
+<img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D">
+<img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white">
+<img src="https://img.shields.io/badge/youtrack-000000.svg?style=for-the-badge&logo=youtrack&logoColor=white">
+<img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
+<img src="https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white">
+<img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
+<img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white">
+
+<br>
+<br>
+
+<h2>Minhas Contribuições</h2>
+
+ > Contribuí ativamente como desenvolvedor frontend, desempenhando um papel crucial na arquitetura e estilização das páginas, como também a prototipação das telas.
+
+### 1. **Prototipação e criação das telas**
+   - descrever...
+
+<details>
+  <summary>Detalhes 1</summary>
+  <img src="">
+</details>
+
+<details>
+  <summary>Detalhes 2</summary>
+  <img src="">
+</details>
+
+### 2. **Desenvolvimento da ....**
+  - descrever...
+
+<details>
+  <summary>Detalhes</summary>
+  
+  ~~~~html
+  <!DOCTYPE html>
+  </html>
+  ~~~~~
+</details>
+
+<br>
+
+<h2>Conhecimentos Obtidos</h2>
+<p align="justify">Durante o desenvolvimento dessa aplicação, a experiência me proporcionou uma compreensão abrangente do ciclo de vida do desenvolvimento de software, desde a gestão ágil do projeto até a implementação eficaz no frontend, o trabalho em equipe e todo o conhecimento que adquiri sobre experiência de usuário para ter telas bem intuitivas e fáceis de usar e entender.</p>
+
+<h3>Hard Skills</h3>
+  <table>
+    <tr>
+      <th width="300px">Tecnologia/Metodologia</th>
+      <th width="600px">Classificação</th>
+    </tr>
+    <tr>
+      <td>Oracle</td>
+      <td>Trabalhei com o banco de dados Oracle, realizando modelagem relacional, criação de tabelas e execução de queries SQL para persistência e consulta de dados.</td>
+    </tr>
+    <tr>
+      <td>Vue.js (2.6.12)</td>
+      <td>Desenvolvi interfaces interativas utilizando Vue.js, com ênfase em componentes reutilizáveis. Estou evoluindo no uso de Vue Router e Vuex.</td>
+    </tr>
+    <tr>
+      <td>Node.js (22.15.0)</td>
+      <td>Utilizei Node.js como ambiente de execução para ferramentas de frontend, gerenciando dependências e scripts via npm.</td>
+    </tr>
+    <tr>
+      <td>YouTrack</td>
+      <td>Utilizei o YouTrack para acompanhamento de tarefas, organização de sprints e gestão ágil do projeto.</td>
+    </tr>
+    <tr>
+      <td>Figma</td>
+      <td>Participei do design de interfaces utilizando o Figma, contribuindo para a criação de protótipos funcionais e alinhados à experiência do usuário.</td>
+    </tr>
+    <tr>
+      <td>IntelliJ IDEA</td>
+      <td>Utilizei o IntelliJ IDEA como IDE principal para desenvolvimento backend, aproveitando seus recursos avançados de refatoração e integração com o Spring.</td>
+    </tr>
+    <tr>
+      <td>Visual Studio Code</td>
+      <td>Utilizei o VS Code para desenvolvimento frontend, com extensões e configurações personalizadas para Vue.js.</td>
+    </tr>
+    <tr>
+      <td>Postman</td>
+      <td>Utilizei o Postman para testar e documentar APIs, validando requisições HTTP e simulando fluxos completos de consumo das rotas backend.</td>
+    </tr>
+  </table>
+
+<h3>Soft Skills </h3>
+  <table>
+    <tr>
+      <th width="300px">Habilidade</th>
+      <th width="600px">Classificação</th>
+    </tr>
+    <tr>
+      <td>Proatividade</td>
+      <td>descrever...</td>
+    </tr>
+    <tr>
+      <td>Autonomia e Visão de Negócio</td>
+      <td>descrever...</td>
+    </tr>
+    <tr>
+      <td>Comunicação e Colaboração</td>
+      <td>descrever...</td>
+    </tr>
+    <tr>
+      <td>Organização, Planejamento e Entrega</td>
+      <td>descrever...</td
     </tr>
  </table>
 </details>
