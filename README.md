@@ -1,33 +1,34 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=transparent&height=100&color=gradient&text=Portifólio&fontSize=50&fontColor=1A4870">
 
+<h1 align="center">Lucas Henrique Costa de Oliveira</h1>
+
 <p align="justify">
-  Sou Lucas Henrique, profissional em formação e estudante de Tecnologia em Banco de Dados na FATEC - Prof. Jessen Vidal.
-  Tenho experiência prática no desenvolvimento de soluções tecnológicas, com foco crescente em engenharia de dados, machine learning, infraestrutura em nuvem e banco de dados.<br>
-  Apaixonado por tecnologia, estou em constante busca por aprendizado e desafios que me permitam crescer tecnicamente e colaborar de forma impactante.
-  Tenho um perfil analítico, curioso e colaborativo, com interesse em resolver problemas complexos por meio de soluções inovadoras e eficientes.
+  Olá! Sou Lucas Henrique, profissional em formação e estudante de Tecnologia em Banco de Dados na FATEC - Prof. Jessen Vidal. Meu interesse por tecnologia surgiu por meio dos games, que despertaram minha curiosidade pela área de TI. Ingressei na FATEC em 2023 e, desde então, tive a oportunidade de participar de projetos relevantes em parceria com empresas do setor tecnológico.
+  
+  <br>
+  
+  Durante essa jornada, iniciei meu estágio e descobri uma grande paixão pela área de Ciência de Dados, com um foco cada vez maior em Engenharia de Dados e Machine Learning. Estou sempre em busca de aprendizado constante e desafios que me permitam evoluir tecnicamente e contribuir de forma significativa nos projetos em que atuo.
 </p>
 
-## Contatos:
+## Contatos
+<div align="left">
   <a href="https://www.linkedin.com/in/lucas-henrique-9a557620b/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"></a> 
   <a href="https://www.instagram.com/_lucasshcosta/"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white"></a>
-  <a href="https://web.facebook.com/profile.php?id=61555374938614"><img src="https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white"></a> 
-  <a href="mailto:lucashcoliveira7@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
-  <a href="https://github.com/LucasHCOliveira7"><img src="https://img.shields.io/badge/github-0D1117.svg?style=for-the-badge&logo=github&logoColor=white"></a>
-  <a href="https://discord.com/channels/@me/721747501086146642"><img src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white"></a>
+</div>
 
 ## Meus Principais Conhecimentos:
-<div class="skills" align="left">
+<div align="left">
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">
+  <img src="https://img.shields.io/badge/Pandas-150458.svg?style=for-the-badge&logo=pandas&logoColor=white">
+  <img src="https://img.shields.io/badge/Apache%20Spark-E25A1C.svg?style=for-the-badge&logo=apachespark&logoColor=white">
+  <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white">
+  <img src="https://img.shields.io/badge/Terraform-844FBA.svg?style=for-the-badge&logo=terraform&logoColor=white">
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
   <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
   <img src="https://img.shields.io/badge/github-0D1117.svg?style=for-the-badge&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white">
-  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
-  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
-  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
-  <img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D">
-  <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
   <img src="https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white">
+  <img src="https://img.shields.io/badge/Azure%20DevOps-0078D7.svg?style=for-the-badge&logo=azuredevops&logoColor=white">
 </div>
 
 <br>
@@ -45,7 +46,7 @@
 
 <details>
 
-  <summary align="center">VER MAIS DETALHES</summary>
+  <summary align="center">SABER MAIS SOBRE O PROJETO</summary>
   
   <h2>Objetivo</h2>
 
@@ -536,7 +537,7 @@ useSSL=false
 
 <details>
 
-  <summary align="center">VER MAIS DETALHES</summary>
+  <summary align="center">SABER MAIS SOBRE O PROJETO</summary>
   
   <h2>Objetivo</h2>
 
@@ -2287,7 +2288,7 @@ useSSL=false
 
 <details>
 
-  <summary align="center">VER MAIS DETALHES</summary>
+  <summary align="center">SABER MAIS SOBRE O PROJETO</summary>
   
   <h2>Objetivo</h2>
 
