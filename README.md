@@ -42,30 +42,34 @@
 
 <p align="center"><img src="https://github.com/user-attachments/assets/6c18e96c-193b-4e92-a490-c7829962176c" widht="20%"></img>
 
-<p align="justify">O Sistema Gerenciador de TGs é uma aplicação desktop que teve como objetivo simplificar e direcionar a administração dos trabalhos de graduação, permitindo que o professor acompanhasse com eficiencia as etapas, prazos de entregas e status do projeto realizado pelo aluno.</p>
+<p align="justify">O Sistema Gerenciador de TGs é uma aplicação desktop desenvolvida para simplificar a administração dos trabalhos de graduação (TGs) na FATEC, permitindo que professores acompanhem com eficiência as etapas, prazos e status dos projetos realizados pelos alunos.</p>
 
 <details>
 
   <summary align="center">SABER MAIS SOBRE O PROJETO</summary>
   
-  <h2>Objetivo</h2>
+  <h2>Objetivos do Sistema</h2>
 
 #### Após a finalização do projeto pela equipe iNine:
-* O sistema poderá armazenará informações de alunos, orientadores e TGs;
-* O usuário conseguirá fazer o lançamento de notas de atividades;
-* O usuário conseguirá realizar a gestão de alunos, orientadores, TGs e entregas;
-* O usuário conseguirá gerar relatórios para acompanhamento de entregas, agendamento de bancas de defesa, fechamento de semestre e transporte de notas.
+* Armazenar informações de alunos, orientadores e trabalhos de graduação;
+* Lançar notas e feedbacks das atividades entregues pelos alunos;
+* Realizar a gestão de alunos, orientadores, TGs e entregas;
+* Gerar relatórios para:
+  - Acompanhamento de entregas;
+  - Agendamento de bancas de defesa;
+  - Fechamento de semestre;
+  - Transporte de notas.
 
 <br>
 
 <h2>Tecnologias Utilizadas no Projeto</h2>
-<p align="justify"><strong>Java JDK 17.0.3:</strong> linguagem utilizada para desenvolvimento do backend.</p>
-<p align="justify"><strong>JavaFX SDK 17.0.8:</strong> linguagem utilizada para desenvolvimento do backend.</p>
-<p align="justify"><strong>Scene Builder:</strong> ferramenta utilizada para criação das telas.</p>
-<p align="justify"><strong>MySQL:</strong> SGBD para desenvolvimento do Banco de Dados.</p>
-<p align="justify"><strong>Eclipse:</strong> IDE utilizada para o desenvolvimento dos códigos da aplicação.</p>
-<p align="justify"><strong>ClickUp:</strong> ferramenta utilizada para o gerenciamento do projeto.</p>
-<p align="justify"><strong>Figma:</strong> ferramenta utilizada para prototipar as telas.</p>
+<p align="justify"><strong>Java JDK 17.0.3:</strong> Linguagem principal para desenvolvimento da lógica da aplicação (backend).</p>
+<p align="justify"><strong>JavaFX SDK 17.0.8:</strong> Utilizada para o desenvolvimento da interface gráfica (frontend).</p>
+<p align="justify"><strong>Scene Builder:</strong> Ferramenta para construção visual das telas JavaFX.</p>
+<p align="justify"><strong>MySQL:</strong> Sistema Gerenciador de Banco de Dados utilizado para armazenar as informações do sistema.</p>
+<p align="justify"><strong>Eclipse:</strong> IDE utilizada para codificação e organização do projeto.</p>
+<p align="justify"><strong>ClickUp:</strong> Ferramenta usada para a gestão ágil do projeto e acompanhamento das tarefas.</p>
+<p align="justify"><strong>Figma:</strong> Ferramenta para prototipação das interfaces e definição de padrões visuais.</p>
 
 <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white">
 <img src="https://img.shields.io/badge/scene_builder-orange.svg?style=for-the-badge&logo=&logoColor=orange">
@@ -75,14 +79,13 @@
 <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
 
 <br>
-<br>
 
 <h2>Minhas Contribuições</h2>
 
  > Contribuí ativamente com a prototipação, criação e padronização das telas, a conexão com o banco de dados, uma das rotas da aplicação e por fim a criação de dois manuais, um para a instalação do MySQL Workbench e outro para ajudar o usuário a mexer na aplicação.
 
 ### 1. **Prototipação e criação das telas**
-   - Contribuí ativamente com a prototipação, criação e correção das telas para manter um padrão no frontend e melhorar a usabilidade do usuário.
+   - Participei ativamente do design e da prototipação das telas no Figma, além da criação e correção das interfaces no JavaFX, garantindo um padrão visual coeso e melhorando a experiência do usuário.
 
 <details>
   <summary>Detalhes</summary>
@@ -90,7 +93,7 @@
 </details>
 
 ### 2. **Conexão com o banco de dados**
-   - Contribuí ativamente com o desenvolvimento da funcionalide de conexão com banco.
+   - Implementei a funcionalidade de conexão com o banco de dados MySQL, incluindo o suporte à troca de dados entre as interfaces gráficas e a base relacional.
 
 <details>
   <summary>Detalhes</summary>
@@ -108,8 +111,8 @@ useSSL=false
 ~~~~~
 </details>
 
-### 3. **Criação da rota de feedback e lançamento de notas**
-  - Contribuí ativamente com o desenvolvimento de uma etapa onde o usuário (professor) lançaria as notas do aluno sobre a entrega da atividade e colocaria um comentário para explicar o porque daquela avaliação.
+### 3. **Desenvolvimento das Funcionalidade: Feedback e Notas**
+  - Implementei a funcionalidade que permite aos professores registrarem as notas e adicionarem comentários de feedback para cada entrega realizada pelos alunos.
 
 <details>
   <summary>Detalhes pt1</summary>
@@ -454,8 +457,8 @@ useSSL=false
   ~~~~
 </details>
 
-### 4. **Documentação da aplicação**
-  - Contribuí ativamente criando um manual sobre a instalação e configuração do MySQL Workbench e um manual de usuário para o mesmo saber como mexer na aplicação.
+### 4. **Documentação Técnica e de Usuário**
+  - Um manual técnico com o passo a passo para instalação e configuração do MySQL Workbench e um manual de usuário com instruções práticas para utilização do sistema.
 
 <details>
   <summary>Detalhes MySQL</summary>
@@ -472,53 +475,45 @@ useSSL=false
 <br>
 
 <h2>Conhecimentos Obtidos</h2>
-<p align="justify">Durante o desenvolvimento dessa aplicação, a experiência me proporcionou uma compreensão abrangente sobre como é o desenvolvimento de software, desde a gestão ágil do projeto até a prototipação das telas e implementação eficaz no frontend, conexão e relação entre o backend, frontend e banco de dados e também o trabalho em equipe.</p>
+<p align="justify">Durante o desenvolvimento desta aplicação, a experiência me proporcionou uma compreensão abrangente sobre o processo de desenvolvimento de software — desde a gestão ágil do projeto, passando pela prototipação das telas, implementação eficaz no frontend, conexão com o banco de dados, até o trabalho em equipe e a entrega de um produto funcional e documentado.</p>
 
-<h3>Hard Skills</h3>
+<h3>Hard Skills Desenvolvidas</h3>
   <table>
     <tr>
-      <th width="300px">Tecnologia/Metodologia</th>
-      <th width="300px">Classificação</th>
+      <th width="400px">Aprendizado</th>
+      <th width="1000px">Descrição</th>
     </tr>
     <tr>
-      <td>Java</td>
-      <td align="center">★★★☆☆☆</td>
+      <td>Conexão entre Interface e Banco de Dados (JavaFX + MySQL)</td>
+      <td align="justify">Aprendi a conectar a interface gráfica ao banco de dados, garantindo a integração eficaz entre frontend e backend, e contribuí com a modelagem da estrutura de dados.</td>
     </tr>
     <tr>
-      <td>Scene Builder</td>
-      <td align="center">★★★☆☆☆</td>
-    </tr>
-    <tr>
-      <td>MySQL</td>
-      <td align="center">★★★★☆☆</td>
-    </tr>
-    <tr>
-      <td>Figma</td>
-      <td align="center">★★★★☆☆</td>
+      <td>Design de Interface e Prototipação (Figma + JavaFX)</td>
+      <td align="justify">Desenvolvi protótipos funcionais e estabeleci padrões visuais utilizados por toda a equipe, aprimorando a usabilidade da aplicação.</td>
     </tr>
   </table>
 
-<h3>Soft Skills </h3>
+<h3>Soft Skills Desenvolvidas</h3>
   <table>
     <tr>
-      <th width="300px">Habilidade</th>
-      <th width="300px">Classificação</th>
+      <th width="400px">Habilidade</th>
+      <th width="1000px">Descrição</th>
     </tr>
     <tr>
       <td>Proatividade</td>
-      <td align="center">★★★★★☆</td>
+      <td align="justify">Defini padrões de interface e revisei implementações da equipe, garantindo consistência visual e técnica no produto final.</td>
     </tr>
     <tr>
       <td>Autonomia e Visão de Negócio</td>
-      <td align="center">★★★★☆☆</td>
+      <td align="justify">Trabalhando diretamente com professores-clientes, desenvolvi a capacidade de entender as necessidades reais do usuário final, sugerindo melhorias fora do escopo inicial que agregaram valor significativo ao sistema.</td>
     </tr>
     <tr>
       <td>Comunicação e Colaboração</td>
-      <td align="center">★★★★☆☆</td>
+      <td align="justify">Elaborei manuais detalhados e mantive comunicação clara e objetiva com a equipe, contribuindo para o bom andamento do projeto.</td>
     </tr>
     <tr>
       <td>Organização, Planejamento e Entrega</td>
-      <td align="center">★★★☆☆☆</td
+      <td align="justify">Mantive o controle do andamento das tarefas, participei ativamente do planejamento das entregas e garanti que os prazos fossem cumpridos com qualidade.</td
     </tr>
  </table>
 </details>
@@ -533,20 +528,20 @@ useSSL=false
 
 <p align="center"><img src="https://github.com/user-attachments/assets/28df1878-1026-45f5-b395-d37a48e1e385" widht="20%"></img>
 
-<p align="justify">O sistema DataFlow é uma aplicação web desenvolvida para otimizar a configuração de fontes de dados em pipelines de processamento de dados em cascata. Esse sistema permite que clientes e usuários autorizados configurem dados de forma intuitiva, utilizando interfaces para cadastro de clientes, upload de dados e mapeamento de chaves de identificação, além de aplicar regras de negócios comuns. Com um dashboard analítico completo, o DataFlow proporciona uma visão detalhada das configurações realizadas, facilitando a gestão e reduzindo a dependência de técnicos especializados.</p>
+<p align="justify">O DataFlow é uma aplicação web desenvolvida para otimizar a configuração de fontes de dados em pipelines de processamento de dados em cascata. O sistema permite que usuários autorizados realizem o cadastro de clientes, façam o upload de dados, mapeiem chaves de identificação e apliquem regras de negócio com facilidade. Com um dashboard analítico completo, a solução oferece uma visão detalhada das configurações realizadas, facilitando a gestão e reduzindo a dependência de técnicos especializados.</p>
 
 <details>
 
   <summary align="center">SABER MAIS SOBRE O PROJETO</summary>
   
-  <h2>Objetivo</h2>
+  <h2>Objetivos do Sistema</h2>
 
 #### Após a finalização do projeto pela equipe iNine:
-* O sistema permitirá o cadastro e gestão de clientes, soluções e usuários autorizados a configurar os dados.
-* O usuário poderá realizar upload de dados com visualização e validação da estrutura dos dados, incluindo campos, tipos e regras de negócios.
-* O usuário poderá aplicar regras de negócios, como mapeamento “de/para”, facilitando a padronização dos dados.
-* O sistema disponibilizará um dashboard analítico que permitirá uma visão quantitativa e completa das configurações realizadas.
-* O usuário poderá acompanhar e gerenciar a configuração completa dos dados através de uma interface analítica, proporcionando uma visão detalhada e consolidada de todo o processo.
+* Cadastro e gestão de clientes, soluções e usuários.
+* Upload de arquivos com visualização e validação da estrutura de dados.
+* Aplicação de regras de negócios, como mapeamento “de/para”.
+* Disponibilização de um dashboard analítico completo.
+* Acompanhamento e gestão da configuração dos dados via interface intuitiva.
 
 <br>
 
@@ -578,14 +573,13 @@ useSSL=false
 <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white">
 
 <br>
-<br>
 
 <h2>Minhas Contribuições</h2>
 
- > Contribuí ativamente como desenvolvedor frontend, desempenhando um papel crucial na arquitetura e estilização das páginas, como também a prototipação das telas.
+ > Contribuí ativamente como desenvolvedor frontend, sendo responsável por funcionalidades importantes, pela padronização da interface da aplicação e da prototipação das telas:
 
 ### 1. **Prototipação e criação das telas**
-   - Contribuí ativamente com a prototipação, criação e correção das telas para manter um padrão no frontend e melhorar a usabilidade do usuário.
+   - Ajudei a manter a consistência visual e a melhorar a usabilidade por meio da prototipação e criação das interfaces.
 
 <details>
   <summary>Detalhes 1</summary>
@@ -597,8 +591,8 @@ useSSL=false
   <img src="https://github.com/user-attachments/assets/c90edb98-342c-4bd3-bc55-9dbe138573d7">
 </details>
 
-### 2. **Desenvolvimento da tela de carregar arquivo csv**
-   - Contribuí ativamente com o desenvolvimento da criação da tela de carregar csv, onde além da opção de abrir o explorer e carregar o csv, também temos a opção de selecionar o delimitador de colunas e se o arquivo tem cabeçalho ou não.
+### 2. **Desenvolvimento da Funcionalidade: Upload CSV**
+   - Desenvolvi a interface para carregamento de arquivos CSV, permitindo ao usuário selecionar delimitador de colunas e indicar presença de cabeçalho.
 
 <details>
   <summary>Detalhes</summary>
@@ -799,8 +793,8 @@ useSSL=false
 ~~~~~
 </details>
 
-### 3. **Desenvolvimento da tela de criar, editar e visualizar hash**
-   - Contribuí ativamente com o desenvolvimento da tela de criar, editar e visualizar hash, onde nelas temos as opções de ver o nome do item, se é ativo ou não, selecionar o seu tipo, se ele terá algum valor padrão e uma descrição caso necessário.
+### 3. **Desenvolvimento das Funcionalidades: Criar, Editar e Visualizar HASH**
+   - Implementei a interface para gerenciamento de hash, permitindo configurar nome, status, tipo, valor padrão e descrição.
 
 <details>
   <summary>Detalhes Criar Hash</summary>
@@ -1418,9 +1412,9 @@ useSSL=false
 ~~~~~
 </details>
 
-### 4. **Desenvolvimento da tela de criar e visualizar de-para**
-   - Contribuí ativamente com o desenvolvimento da tela de criar e visualizar de-para, onde temos a opção de selecionar nosso metadado e a partir dele, passar as informações dos de-paras.
-   > Exemplo: de - para = SP - São Paulo
+### 4. **Desenvolvimento das Funcionalidades: Criar e Visualizar DE-PARA**
+   - Desenvolvi a tela onde o usuário pode selecionar um metadado e definir pares de valores, por exemplo: SP → São Paulo.
+   > Exemplo: DE → PARA = SP → São Paulo
 
 <details>
   <summary>Detalhes Criar de-para</summary>
@@ -2132,8 +2126,8 @@ useSSL=false
 ~~~~~
 </details>
 
-### 5. **Desenvolvimento da funcionalidade de carregar arquivo direto na etapa de-para**
-   - Contribuí ativamente com o desenvolvimento da etapa de carregar arquivo direto na etapa de-para, onde eu adicionei um botão onde abre o modal para carregar um csv (igual a contribuição 2 descrita acima).
+### 5. **Desenvolvimento da Funcionalidade: Upload direto de CSV na etapa “de/para”
+   - Adicionei funcionalidade que permite o carregamento direto de arquivos CSV no processo de configuração “de/para”, melhorando a fluidez do uso.
 
 <details>
   <summary>Detalhes do modal</summary>
@@ -2207,13 +2201,13 @@ useSSL=false
 <br>
 
 <h2>Conhecimentos Obtidos</h2>
-<p align="justify">Durante o desenvolvimento dessa aplicação, a experiência me proporcionou uma compreensão abrangente do ciclo de vida do desenvolvimento de software, desde a gestão ágil do projeto até a implementação eficaz no frontend, o trabalho em equipe e todo o conhecimento que adquiri sobre experiência de usuário para ter telas bem intuitivas e fáceis de usar e entender.</p>
+<p align="justify">A experiência me proporcionou uma visão completa do ciclo de vida de desenvolvimento, participação em metodologias ágeis, o desenvolvimento de interfaces intuitivas e responsivas com foco em experiência do usuário e a colaboração em equipe e adaptação a padrões de projeto frontend.</p>
 
-<h3>Hard Skills</h3>
+<h3>Hard Skills Desenvolvidas</h3>
   <table>
     <tr>
-      <th width="300px">Tecnologia/Metodologia</th>
-      <th width="600px">Classificação</th>
+      <th width="400px">Tecnologia/Metodologia</th>
+      <th width="1000px">Descrição</th>
     </tr>
     <tr>
       <td>HTML5</td>
@@ -2252,8 +2246,8 @@ useSSL=false
 <h3>Soft Skills </h3>
   <table>
     <tr>
-      <th width="300px">Habilidade</th>
-      <th width="600px">Classificação</th>
+      <th width="400px">Habilidade</th>
+      <th width="1000px">Descrição</th>
     </tr>
     <tr>
       <td>Proatividade</td>
