@@ -7,7 +7,7 @@
   
   <br>
   
-  Durante essa jornada, iniciei meu estágio e descobri uma grande paixão pela área de Ciência de Dados, com um foco cada vez maior em Engenharia de Dados e Machine Learning. Estou sempre em busca de aprendizado constante e desafios que me permitam evoluir tecnicamente e contribuir de forma significativa nos projetos em que atuo.
+  Durante essa jornada, iniciei meu estágio e descobri uma grande paixão pela área de Ciência de Dados, com um foco cada vez maior em Engenharia de Dados e Machine Learning. Estou sempre em busca de aprendizado constante e desafios que me permitam evoluir tecnicamente e contribuir de forma significativa nos projetos em que atuo. 
 </p>
 
 ## Contatos
@@ -31,7 +31,6 @@
   <img src="https://img.shields.io/badge/Azure%20DevOps-0078D7.svg?style=for-the-badge&logo=azuredevops&logoColor=white">
 </div>
 
-<br>
 <br>
 
 <div align=center><h1>Sistema Gerenciador de TGs</h1></div>
@@ -78,6 +77,7 @@
 <img src="https://img.shields.io/badge/clickup-%237B68EE.svg?&style=for-the-badge&logo=clickup&logoColor=white">
 <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
 
+<br>
 <br>
 
 <h2>Minhas Contribuições</h2>
@@ -171,6 +171,7 @@ useSSL=false
   }
   ~~~~
 </details>
+
 <details>
   <summary>Detalhes pt2</summary>
 
@@ -546,18 +547,18 @@ useSSL=false
 <br>
 
 <h2>Tecnologias Utilizadas no Projeto</h2>
-<p align="justify"><strong>Java JDK 21.0.2:</strong> linguagem utilizada para desenvolvimento do backend.</p>
-<p align="justify"><strong>Spring Boot 3.3.2:</strong> framework utilizado para desenvolvimento do backend.</p>
-<p align="justify"><strong>MySQL:</strong> SGBD para desenvolvimento do Banco de Dados.</p>
-<p align="justify"><strong>HTML5:</strong> linguagem de marcação utilizada para o desenvolvimento do frontend.</p>
-<p align="justify"><strong>CSS3:</strong> linguagem de estilização utilizada para o desenvolvimento do frontend.</p>
-<p align="justify"><strong>JavaScript:</strong> linguagem utilizada para desenvolvimento do frontend.</p>
-<p align="justify"><strong>Vue.js 2.6.12:</strong> framework utilizado para desenvolvimenton do frontend.</p>
-<p align="justify"><strong>ClickUp:</strong> ferramenta utilizada para o gerenciamento do projeto.</p>
-<p align="justify"><strong>Figma:</strong> ferramenta utilizada para prototipar as telas.</p>
-<p align="justify"><strong>IntelliJ IDEA:</strong> IDE utilizada para o desenvolvimento backend dos códigos da aplicação.</p>
-<p align="justify"><strong>Visual Studio Code:</strong> IDE utilizada para o desenvolvimento frontend dos códigos da aplicação.</p>
-<p align="justify"><strong>Postman:</strong> ferramenta utilizada para criar, compartilhar, testar e documentar APIs.</p>
+<p align="justify"><strong>Java JDK 21.0.2:</strong> Linguagem utilizada para desenvolvimento do backend.</p>
+<p align="justify"><strong>Spring Boot 3.3.2:</strong> Framework utilizado para desenvolvimento do backend.</p>
+<p align="justify"><strong>MySQL:</strong> Sistema Gerenciador de Banco de Dados utilizado para armazenar as informações do sistema.</p>
+<p align="justify"><strong>HTML5:</strong> Linguagem de marcação utilizada para o desenvolvimento do frontend.</p>
+<p align="justify"><strong>CSS3:</strong> Linguagem de estilização utilizada para o desenvolvimento do frontend.</p>
+<p align="justify"><strong>JavaScript:</strong> Linguagem utilizada para desenvolvimento do frontend.</p>
+<p align="justify"><strong>Vue.js 2.6.12:</strong> Framework utilizado para desenvolvimento do frontend.</p>
+<p align="justify"><strong>ClickUp:</strong> Ferramenta usada para a gestão ágil do projeto e acompanhamento das tarefas.</p>
+<p align="justify"><strong>Figma:</strong> Ferramenta para prototipação das interfaces e definição de padrões visuais.</p>
+<p align="justify"><strong>IntelliJ IDEA:</strong> IDE utilizada para codificação e organização do projeto backend.</p>
+<p align="justify"><strong>Visual Studio Code:</strong> IDE utilizada para codificação e organização do projeto frontend.</p>
+<p align="justify"><strong>Postman:</strong> Ferramenta utilizada para criar, compartilhar, testar e documentar APIs.</p>
 
 <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white">
 <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white">
@@ -573,13 +574,14 @@ useSSL=false
 <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white">
 
 <br>
+<br>
 
 <h2>Minhas Contribuições</h2>
 
- > Contribuí ativamente como desenvolvedor frontend, sendo responsável por funcionalidades importantes, pela padronização da interface da aplicação e da prototipação das telas:
+ > Contribuí ativamente como desenvolvedor frontend, sendo responsável por funcionalidades importantes, pela padronização da interface da aplicação e da prototipação das telas.
 
 ### 1. **Prototipação e criação das telas**
-   - Ajudei a manter a consistência visual e a melhorar a usabilidade por meio da prototipação e criação das interfaces.
+   - Participei ativamente do design e da prototipação das telas no Figma, além da criação e correção das interfaces em Vue.js, garantindo um padrão visual coeso e melhorando a experiência do usuário.
 
 <details>
   <summary>Detalhes 1</summary>
@@ -592,1597 +594,1597 @@ useSSL=false
 </details>
 
 ### 2. **Desenvolvimento da Funcionalidade: Upload CSV**
-   - Desenvolvi a interface para carregamento de arquivos CSV, permitindo ao usuário selecionar delimitador de colunas e indicar presença de cabeçalho.
+   - Desenvolvi a interface para carregamento de arquivos CSV, permitindo ao usuário selecionar delimitador de colunas e indicar presença de cabeçalho, incluindo validação de formato e feedback visual.
 
 <details>
   <summary>Detalhes</summary>
   
-~~~~html
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="../utils/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <link rel="stylesheet" href="../assets/style/upload-csv.css" />
-  <script src="../utils/logout.js"></script>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <title>Upload Arquivo - Landing Zone</title>
-  <link rel="shortcut icon" href="../assets/images/favicon.ico">
-
-</head>
-
-<body>
-  <div id="app">
-    <header>
-      <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
-      <nav>
-        <a href="home.html">Home</a>
-        <a href="upload-csv.html">Importar Arquivo</a>
-        <a @click="deslogar()">
-          <span class="material-symbols-outlined">logout</span>
-        </a>
-      </nav>
-    </header>
-    <main>
-      <form @submit.prevent="submitForm" enctype="multipart/form-data" @dragover.prevent @drop="handleDrop">
-        <div id="fileUploadModal">
-          <div class="retangulo-align">
-            <div class="retangulo">
-              <label for="cabecalhoDropdown">O Arquivo tem Cabeçalho?</label><br />
-              <select id="cabecalhoDropdown" v-model="cabecalho">
-                <option value="true">Sim</option>
-                <option value="false">Não</option>
-              </select>
+  ~~~~html
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../utils/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="../assets/style/upload-csv.css" />
+    <script src="../utils/logout.js"></script>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Upload Arquivo - Landing Zone</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  
+  </head>
+  
+  <body>
+    <div id="app">
+      <header>
+        <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
+        <nav>
+          <a href="home.html">Home</a>
+          <a href="upload-csv.html">Importar Arquivo</a>
+          <a @click="deslogar()">
+            <span class="material-symbols-outlined">logout</span>
+          </a>
+        </nav>
+      </header>
+      <main>
+        <form @submit.prevent="submitForm" enctype="multipart/form-data" @dragover.prevent @drop="handleDrop">
+          <div id="fileUploadModal">
+            <div class="retangulo-align">
+              <div class="retangulo">
+                <label for="cabecalhoDropdown">O Arquivo tem Cabeçalho?</label><br />
+                <select id="cabecalhoDropdown" v-model="cabecalho">
+                  <option value="true">Sim</option>
+                  <option value="false">Não</option>
+                </select>
+              </div>
+              <div class="retangulo">
+                <label for="delimitadorDropdown">Delimitador das Colunas:</label><br /><br />
+                <select id="delimitadorDropdown" v-model="delimiter">
+                  <option value=",">Vírgula (,)</option>
+                  <option value=".">Ponto (.)</option>
+                  <option value="/">Barra (/)</option>
+                  <option value=";">Ponto e Vírgula (;)</option>
+                </select>
+              </div>
             </div>
-            <div class="retangulo">
-              <label for="delimitadorDropdown">Delimitador das Colunas:</label><br /><br />
-              <select id="delimitadorDropdown" v-model="delimiter">
-                <option value=",">Vírgula (,)</option>
-                <option value=".">Ponto (.)</option>
-                <option value="/">Barra (/)</option>
-                <option value=";">Ponto e Vírgula (;)</option>
-              </select>
-            </div>
+            <input type="file" name="csvfile" accept=".csv, .xlsx" hidden id="fileInput" @change="updateUploadArea" />
+            <label for="fileInput">
+              <div id="uploadArea">
+                <img src="../assets/images/csv-azul.png" alt="csv-azul" />
+                <h2>
+                  {{ fileName || 'Clique para selecionar um arquivo Arquivo' }}
+                </h2>
+                <p>{{ paragraph || 'ou arraste e solte aqui' }}</p>
+              </div>
+            </label>
+            <button type="button" @click="cancelUpload">Cancelar</button>
+            <button type="submit">Fazer Upload</button>
           </div>
-          <input type="file" name="csvfile" accept=".csv, .xlsx" hidden id="fileInput" @change="updateUploadArea" />
-          <label for="fileInput">
-            <div id="uploadArea">
-              <img src="../assets/images/csv-azul.png" alt="csv-azul" />
-              <h2>
-                {{ fileName || 'Clique para selecionar um arquivo Arquivo' }}
-              </h2>
-              <p>{{ paragraph || 'ou arraste e solte aqui' }}</p>
-            </div>
-          </label>
-          <button type="button" @click="cancelUpload">Cancelar</button>
-          <button type="submit">Fazer Upload</button>
-        </div>
-      </form>
-    </main>
-  </div>
-
-  <script>
-    const app = new Vue({
-      el: "#app",
-      data: {
-        fileName: null,
-        file: null,
-        paragraph: null,
-        cabecalho: null,
-        delimiter: null,
-      },
-      mounted: console.log(sessionStorage.getItem("usuario")),
-      methods: {
-        deslogar() {
-          logoutUser(sessionStorage.getItem("usuario"))
-          sessionStorage.removeItem("usuario")
-
-          Swal.fire({
-            title: "Deseja realmente sair?",
-            showDenyButton: true,
-            confirmButtonText: `Sim`,
-            denyButtonText: `Não`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = "../../public/index.html";
-            }
-          });
+        </form>
+      </main>
+    </div>
+  
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          fileName: null,
+          file: null,
+          paragraph: null,
+          cabecalho: null,
+          delimiter: null,
         },
-        submitForm() {
-          const formData = new FormData();
-          formData.append("multipartFile", this.file);
-
-          // Verificar a extensão do arquivo
-          const fileExtension = this.file.name.split(".").pop().toLowerCase();
-          let contentType = "";
-          if (fileExtension === "csv") {
-            contentType = "text/csv";
-          } else if (fileExtension === "xlsx") {
-            contentType =
-              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-          }
-
-          console.log("cabeca: ", this.cabecalho);
-
-          fetch(
-            "http://localhost:8080/landing/upload?delimiter=" +
-            this.delimiter +
-            "&header=" +
-            this.cabecalho +
-            "&email=" +
-            sessionStorage.getItem("usuario"),
-            {
-              method: "POST",
-              body: formData,
-              headers: {
-                'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-              },
-            }
-          )
-            .then((response) => {
-              console.log("STATUS: " + response.status);
-              return response.json();
-            })
-            .then((data) => {
-              if (data.critica != "Processamento efetuado com sucesso") {
-                Swal.fire({
-                  title: "Erro",
-                  text: data.critica,
-                  icon: "error",
-                  confirmButtonText: "OK",
-                });
-                console.log(data.critica);
-                return;
+        mounted: console.log(sessionStorage.getItem("usuario")),
+        methods: {
+          deslogar() {
+            logoutUser(sessionStorage.getItem("usuario"))
+            sessionStorage.removeItem("usuario")
+  
+            Swal.fire({
+              title: "Deseja realmente sair?",
+              showDenyButton: true,
+              confirmButtonText: `Sim`,
+              denyButtonText: `Não`,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "../../public/index.html";
               }
-              console.log("Arquivo carregado com sucesso!");
-
-              const arquivo = {
-                nome: {
-                  fileName: data.response.fileName,
-                  fileSize: data.response.fileSize,
-                  columns: data.response.columns,
-                },
-              };
-              localStorage.setItem("arquivoCSV", JSON.stringify(arquivo));
-
-              console.log(localStorage);
-              console.log("Arquivo salvo no localStorage");
-
-              window.location.href = "landing_zone.html";
-            })
-            .catch((error) => {
-              console.error("Erro:", error);
             });
-        },
-        cancelUpload() {
-          console.log("Upload cancelado");
-          window.location.href = "home.html";
-        },
-        updateUploadArea(event) {
-          this.fileName = event.target.files[0].name;
-          this.file = event.target.files[0];
-
-          const uploadArea = document.getElementById("uploadArea");
-          const textParagraphElement = uploadArea.querySelector("p");
-
-          textParagraphElement.textContent =
-            this.paragraph || "Clique para selecionar outro ou arraste aqui";
-        },
-        handleDrop(event) {
-          event.preventDefault();
-          const file = event.dataTransfer.files[0];
-          const textParagraphElement = uploadArea.querySelector("p");
-          if (file) {
-            this.fileName = file.name;
-            this.file = file;
+          },
+          submitForm() {
+            const formData = new FormData();
+            formData.append("multipartFile", this.file);
+  
+            // Verificar a extensão do arquivo
+            const fileExtension = this.file.name.split(".").pop().toLowerCase();
+            let contentType = "";
+            if (fileExtension === "csv") {
+              contentType = "text/csv";
+            } else if (fileExtension === "xlsx") {
+              contentType =
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            }
+  
+            console.log("cabeca: ", this.cabecalho);
+  
+            fetch(
+              "http://localhost:8080/landing/upload?delimiter=" +
+              this.delimiter +
+              "&header=" +
+              this.cabecalho +
+              "&email=" +
+              sessionStorage.getItem("usuario"),
+              {
+                method: "POST",
+                body: formData,
+                headers: {
+                  'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                },
+              }
+            )
+              .then((response) => {
+                console.log("STATUS: " + response.status);
+                return response.json();
+              })
+              .then((data) => {
+                if (data.critica != "Processamento efetuado com sucesso") {
+                  Swal.fire({
+                    title: "Erro",
+                    text: data.critica,
+                    icon: "error",
+                    confirmButtonText: "OK",
+                  });
+                  console.log(data.critica);
+                  return;
+                }
+                console.log("Arquivo carregado com sucesso!");
+  
+                const arquivo = {
+                  nome: {
+                    fileName: data.response.fileName,
+                    fileSize: data.response.fileSize,
+                    columns: data.response.columns,
+                  },
+                };
+                localStorage.setItem("arquivoCSV", JSON.stringify(arquivo));
+  
+                console.log(localStorage);
+                console.log("Arquivo salvo no localStorage");
+  
+                window.location.href = "landing_zone.html";
+              })
+              .catch((error) => {
+                console.error("Erro:", error);
+              });
+          },
+          cancelUpload() {
+            console.log("Upload cancelado");
+            window.location.href = "home.html";
+          },
+          updateUploadArea(event) {
+            this.fileName = event.target.files[0].name;
+            this.file = event.target.files[0];
+  
+            const uploadArea = document.getElementById("uploadArea");
+            const textParagraphElement = uploadArea.querySelector("p");
+  
             textParagraphElement.textContent =
-              this.paragraph ||
-              "Clique para selecionar outro ou arraste aqui";
-          }
+              this.paragraph || "Clique para selecionar outro ou arraste aqui";
+          },
+          handleDrop(event) {
+            event.preventDefault();
+            const file = event.dataTransfer.files[0];
+            const textParagraphElement = uploadArea.querySelector("p");
+            if (file) {
+              this.fileName = file.name;
+              this.file = file;
+              textParagraphElement.textContent =
+                this.paragraph ||
+                "Clique para selecionar outro ou arraste aqui";
+            }
+          },
         },
-      },
-    });
-  </script>
-</body>
-
-</html>
-~~~~~
+      });
+    </script>
+  </body>
+  
+  </html>
+  ~~~~~
 </details>
 
 ### 3. **Desenvolvimento das Funcionalidades: Criar, Editar e Visualizar HASH**
-   - Implementei a interface para gerenciamento de hash, permitindo configurar nome, status, tipo, valor padrão e descrição.
+   - Implementei a interface completa para gerenciamento de hash, permitindo configurar nome, status, tipo, valor padrão e descrição, com funcionalidades de criação, edição e visualização.
 
 <details>
   <summary>Detalhes Criar Hash</summary>
 
-~~~~html
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="../utils/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <script src="../utils/logout.js"></script>
-  <link rel="stylesheet" href="../assets/style/bronze-zone-criar-hash.css" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <title>Criar Hash - Bronze Zone</title>
-  <link rel="shortcut icon" href="../assets/images/favicon.ico">
-</head>
-
-<body>
-  <div id="app">
-    <header>
-      <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
-      <nav>
-        <a href="home.html">Home</a>
-        <a @click="deslogar()">
-          <span class="material-symbols-outlined">logout</span>
-        </a>
-      </nav>
-    </header>
-
-    <main>
-      <h1 id="h1BronzeHash">Criar Hash - Bronze Zone</h1>
-
-      <p id="pBronzeHash">
-        Marque o(s) checkbox da coluna "Agrupar colunas" que serão usados para
-        gerar o hash
-      </p>
-
-      <div id="alinhamentos">
-        <h2 id="h2BronzeHash">Nome do arquivo:</h2>
-        <p id="parchive" v-text="nameFile"></p>
-      </div>
-      <div id="table-container" style="overflow-x: auto">
-        <table>
-          <thead>
-            <tr>
-              <th v-for="(head, index) in headTabela" :key="index">
-                {{ head }}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in dataFiltrada" :key="index"
-              :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }">
-              <td>{{ item.nome }}</td>
-              <td>{{ item.ativo }}</td>
-              <td>{{ item.tipo }}</td>
-              <td>{{ item.valorPadrao }}</td>
-              <td>{{ item.descricao }}</td>
-              <td id="checkbox-cell">
-                <input type="checkbox" v-model="item.agrupar" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div id="buttons">
-        <a href="navegation.html"><button id="btnCancelar">Voltar</button></a>
-        <button id="btnSalvar" @click="salvarHash()">Salvar</button>
-      </div>
-    </main>
-  </div>
-
-
-  <script>
-    const app = new Vue({
-      el: "#app",
-      data: {
-        nameFile: "",
-        userFile: "",
-        data: [],
-        colunasDisponiveis: [],
-        headTabela: [
-          "Nome",
-          "Ativo",
-          "Tipo",
-          "Valor Padrão",
-          "Descrição",
-          "Agrupar colunas",
-        ],
-      },
-      computed: {
-        deslogar() {
-          logoutUser(sessionStorage.getItem("usuario"))
-          sessionStorage.removeItem("usuario")
-
-          Swal.fire({
-            title: "Deseja realmente sair?",
-            showDenyButton: true,
-            confirmButtonText: `Sim`,
-            denyButtonText: `Não`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = "../../public/index.html";
-            }
-          });
+  ~~~~html
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../utils/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../utils/logout.js"></script>
+    <link rel="stylesheet" href="../assets/style/bronze-zone-criar-hash.css" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Criar Hash - Bronze Zone</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  </head>
+  
+  <body>
+    <div id="app">
+      <header>
+        <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
+        <nav>
+          <a href="home.html">Home</a>
+          <a @click="deslogar()">
+            <span class="material-symbols-outlined">logout</span>
+          </a>
+        </nav>
+      </header>
+  
+      <main>
+        <h1 id="h1BronzeHash">Criar Hash - Bronze Zone</h1>
+  
+        <p id="pBronzeHash">
+          Marque o(s) checkbox da coluna "Agrupar colunas" que serão usados para
+          gerar o hash
+        </p>
+  
+        <div id="alinhamentos">
+          <h2 id="h2BronzeHash">Nome do arquivo:</h2>
+          <p id="parchive" v-text="nameFile"></p>
+        </div>
+        <div id="table-container" style="overflow-x: auto">
+          <table>
+            <thead>
+              <tr>
+                <th v-for="(head, index) in headTabela" :key="index">
+                  {{ head }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in dataFiltrada" :key="index"
+                :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }">
+                <td>{{ item.nome }}</td>
+                <td>{{ item.ativo }}</td>
+                <td>{{ item.tipo }}</td>
+                <td>{{ item.valorPadrao }}</td>
+                <td>{{ item.descricao }}</td>
+                <td id="checkbox-cell">
+                  <input type="checkbox" v-model="item.agrupar" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="buttons">
+          <a href="navegation.html"><button id="btnCancelar">Voltar</button></a>
+          <button id="btnSalvar" @click="salvarHash()">Salvar</button>
+        </div>
+      </main>
+    </div>
+  
+  
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          nameFile: "",
+          userFile: "",
+          data: [],
+          colunasDisponiveis: [],
+          headTabela: [
+            "Nome",
+            "Ativo",
+            "Tipo",
+            "Valor Padrão",
+            "Descrição",
+            "Agrupar colunas",
+          ],
         },
-        dataFiltrada() {
-          return this.data.filter((item) => item.ativo);
-        },
-      },
-      mounted() {
-        this.nameFile = localStorage.getItem("fileName") || "";
-        this.userFile = sessionStorage.getItem("usuario") || "";
-
-        this.adicionarMetadados();
-      },
-      methods: {
-        adicionarMetadados() {
-          const objetoCompleto = {
-            nomeArquivo: this.nameFile,
-            usuario: this.userFile,
-            cnpj: localStorage.getItem("cnpjFile")
-          };
-
-          // Enviar requisição para a criação do hash
-          fetch("http://localhost:8080/bronze/createHash", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-            },
-            body: JSON.stringify(objetoCompleto),
-          })
-            .then((response) => {
-              if (!response.ok) {
-                console.log(
-                  Error + " erro na requisição: " + response.status
-                );
+        computed: {
+          deslogar() {
+            logoutUser(sessionStorage.getItem("usuario"))
+            sessionStorage.removeItem("usuario")
+  
+            Swal.fire({
+              title: "Deseja realmente sair?",
+              showDenyButton: true,
+              confirmButtonText: `Sim`,
+              denyButtonText: `Não`,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "../../public/index.html";
               }
-              console.log("Requisição feita com sucesso: " + response.status);
-              return response.json();
-            })
-            .then((data) => {
-              if (data && data.response && data.response.meta) {
-                this.data = data.response.meta.map((coluna) => ({
-                  ...coluna,
-                  agrupar: false,
-                }));
-                console.log(data.response);
-              } else {
-                console.log(Error + " Resposta da requisição inválida");
-              }
-            })
-            .catch((error) => {
-              console.error("Erro ao criar hash:", error);
             });
+          },
+          dataFiltrada() {
+            return this.data.filter((item) => item.ativo);
+          },
         },
-        salvarHash() {
-          const metadadosSelecionados = this.dataFiltrada
-            .filter((item) => item.agrupar)
-            .map(({ nome, valorPadrao }) => ({
-              nome,
-              valorPadrao: valorPadrao || "",
-            }));
-
-          const objetoParaEnviar = {
-            nomeArquivo: this.nameFile,
-            usuario: this.userFile,
-            metadados: metadadosSelecionados,
-            cnpj: localStorage.getItem("cnpjFile"),
-          };
-
-          console.log(objetoParaEnviar);
-
-          // Enviar requisição para salvar hash
-          fetch("http://localhost:8080/bronze/saveHash", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-            },
-            body: JSON.stringify(objetoParaEnviar),
-          })
-            .then((response) => {
-              return response.json();
-            })
-            .then((responseJson) => {
-              if (
-                responseJson.critica !== "Processamento efetuado com sucesso"
-              ) {
-                console.log(
-                  Error + " erro na requisição: " + responseJson.critica
-                );
-
-                Swal.fire({
-                  title: "Erro",
-                  text: responseJson.critica,
-                  icon: "error",
-                  confirmButtonText: "OK",
-                });
-                return;
-              } else {
-                Swal.fire({
-                  title: "Sucesso",
-                  text: responseJson.critica,
-                  icon: "success",
-                  confirmButtonText: "OK",
-                }).then((result) => {
-                  window.location.href = "home.html";
-                });
-              }
-              console.log("Requisição feita com sucesso");
-            })
-            .catch((error) => {
-              console.error("Erro ao salvar hash:", error);
-            });
+        mounted() {
+          this.nameFile = localStorage.getItem("fileName") || "";
+          this.userFile = sessionStorage.getItem("usuario") || "";
+  
+          this.adicionarMetadados();
         },
-      },
-    });
-  </script>
-</body>
-
-</html>
-~~~~~
+        methods: {
+          adicionarMetadados() {
+            const objetoCompleto = {
+              nomeArquivo: this.nameFile,
+              usuario: this.userFile,
+              cnpj: localStorage.getItem("cnpjFile")
+            };
+  
+            // Enviar requisição para a criação do hash
+            fetch("http://localhost:8080/bronze/createHash", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+              },
+              body: JSON.stringify(objetoCompleto),
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  console.log(
+                    Error + " erro na requisição: " + response.status
+                  );
+                }
+                console.log("Requisição feita com sucesso: " + response.status);
+                return response.json();
+              })
+              .then((data) => {
+                if (data && data.response && data.response.meta) {
+                  this.data = data.response.meta.map((coluna) => ({
+                    ...coluna,
+                    agrupar: false,
+                  }));
+                  console.log(data.response);
+                } else {
+                  console.log(Error + " Resposta da requisição inválida");
+                }
+              })
+              .catch((error) => {
+                console.error("Erro ao criar hash:", error);
+              });
+          },
+          salvarHash() {
+            const metadadosSelecionados = this.dataFiltrada
+              .filter((item) => item.agrupar)
+              .map(({ nome, valorPadrao }) => ({
+                nome,
+                valorPadrao: valorPadrao || "",
+              }));
+  
+            const objetoParaEnviar = {
+              nomeArquivo: this.nameFile,
+              usuario: this.userFile,
+              metadados: metadadosSelecionados,
+              cnpj: localStorage.getItem("cnpjFile"),
+            };
+  
+            console.log(objetoParaEnviar);
+  
+            // Enviar requisição para salvar hash
+            fetch("http://localhost:8080/bronze/saveHash", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+              },
+              body: JSON.stringify(objetoParaEnviar),
+            })
+              .then((response) => {
+                return response.json();
+              })
+              .then((responseJson) => {
+                if (
+                  responseJson.critica !== "Processamento efetuado com sucesso"
+                ) {
+                  console.log(
+                    Error + " erro na requisição: " + responseJson.critica
+                  );
+  
+                  Swal.fire({
+                    title: "Erro",
+                    text: responseJson.critica,
+                    icon: "error",
+                    confirmButtonText: "OK",
+                  });
+                  return;
+                } else {
+                  Swal.fire({
+                    title: "Sucesso",
+                    text: responseJson.critica,
+                    icon: "success",
+                    confirmButtonText: "OK",
+                  }).then((result) => {
+                    window.location.href = "home.html";
+                  });
+                }
+                console.log("Requisição feita com sucesso");
+              })
+              .catch((error) => {
+                console.error("Erro ao salvar hash:", error);
+              });
+          },
+        },
+      });
+    </script>
+  </body>
+  
+  </html>
+  ~~~~~
 </details>
 
 <details>
   <summary>Detalhes Editar Hash</summary>
 
-~~~~html
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../utils/vue.js"></script>
-    <script src="../utils/logout.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="../assets/style/bronze-zone-editar-hash.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <title>Editar Hash - Bronze Zone</title>
-    <link rel="shortcut icon" href="../assets/images/favicon.ico">
-
-</head>
-
-<body>
-    <div id="app">
-        <header>
-            <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
-            <nav>
-                <a href="home.html">Home</a>
-                <a @click="deslogar()">
-                    <span class="material-symbols-outlined">logout</span>
-                </a>
-            </nav>
-        </header>
-        <main>
-            <h1 id="h1BronzeHash">Editar Hash - Bronze Zone</h1>
-            <p id="pBronzeHash">Você está editando os metadados que foram utilizados para criar o hash!</p>
-            <p id="pBronzeHash">Após editá-los clique em "Salvar".</p>
-
-            <div id="alinhamentos">
-                <h2 id="h2BronzeHash">Nome do arquivo:</h2>
-                <p id="parchive" v-text="nameFile"></p>
-            </div>
-
-            <div id="table-container" style="overflow-x: auto">
-                <table>
-                    <thead>
-                        <tr>
-                            <th v-for="(head, index) in headTabela" :key="index">{{ head }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(item, index) in metadadosNoHash" :key="'noHash' + index"
-                            :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }">
-                            <td>{{ item.nome }}</td>
-                            <td>{{ item.valorPadrao }}</td>
-                            <td id="checkbox-cell">
-                                <input type="checkbox" v-model="item.agrupar" checked="true" />
-                            </td>
-                        </tr>
-                        <tr v-for="(item, index) in metadadosForaDoHash" :key="'foraDoHash' + index"
-                            :class="{ 'even-row': (index + metadadosNoHash.length) % 2 === 0, 'odd-row': (index + metadadosNoHash.length) % 2 !== 0 }">
-                            <td>{{ item.nome }}</td>
-                            <td>{{ item.valorPadrao }}</td>
-                            <td><input type="checkbox" v-model="item.agrupar" /></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="container">
-                <div class="left-section">
-                    Observações:
-                    <input type="text" id="inputObs" v-model="observacao" disabled />
-                </div>
-                <div id="right-section">
-                    <a href="../pages/navegation.html">
-                        <button id="btnVoltar">Voltar</button>
-                    </a>
-                    <button id="btnSalvar" @click="salvarHashEditado">Salvar</button>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script>
-        const app = new Vue({
-            el: "#app",
-            data: {
-                nameFile: "",
-                userFile: "",
-                data: [],
-                observacao: "",
-                metadadosNoHash: [],
-                metadadosForaDoHash: [],
-                headTabela: ["Nome", "Valor Padrão", "Agrupar colunas"],
-            },
-            mounted() {
-                this.nameFile = localStorage.getItem("fileName") || "";
-                this.userFile = sessionStorage.getItem("usuario") || "";
-                this.visualizarMetadadosDoHash();
-            },
-            methods: {
-                deslogar() {
-                    logoutUser(sessionStorage.getItem("usuario"))
-                    sessionStorage.removeItem("usuario")
-
-                    Swal.fire({
-                        title: "Deseja realmente sair?",
-                        showDenyButton: true,
-                        confirmButtonText: `Sim`,
-                        denyButtonText: `Não`,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "../../public/index.html";
-                        }
-                    });
-                },
-                visualizarMetadadosDoHash() {
-                    const objetoParaEnviar = {
-                        nomeArquivo: this.nameFile,
-                        usuario: this.userFile,
-                        cnpj: localStorage.getItem("cnpjFile"),
-                    };
-                    fetch("http://localhost:8080/bronze/visualize", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: JSON.stringify(objetoParaEnviar),
-                    })
-                        .then((response) => {
-                            if (!response.ok) {
-                                console.log(
-                                    Error + " Erro na requisição: " + response.status
-                                );
-                            }
-                            console.log("Requisição feita com sucesso: " + response.status);
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log("Dados recebidos:", data);
-                            if (data && data.response && data.response.metadadosNoHash && data.response.metadadosForaDoHash) {
-                                this.metadadosNoHash = data.response.metadadosNoHash.map((meta) => ({
-                                    nome: meta.nome,
-                                    valorPadrao: meta.valorPadrao || "",
-                                    agrupar: meta.agrupar || true,
-                                }));
-                                this.metadadosForaDoHash = data.response.metadadosForaDoHash.map((meta) => ({
-                                    nome: meta.nome,
-                                    valorPadrao: meta.valorPadrao || "",
-                                    agrupar: meta.agrupar || false,
-                                }));
-                                this.observacao =
-                                    data.response.observacao || "Nenhuma observação disponível";
-                                console.log("Metadados no Hash:", this.metadadosNoHash);
-                                console.log("Metadados Fora do Hash:", this.metadadosForaDoHash)
-                                console.log("Observação:", this.observacao);
-                            } else {
-                                console.log(
-                                    Error + " Resposta da requisição inválida: ",
-                                    data
-                                );
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Erro ao criar hash:", error);
-                        });
-                },
-                salvarHashEditado() {
-                    const metadadosSelecionadosNoHash = this.metadadosNoHash
-                        .filter(item => item.agrupar)
-                        .map(({ nome, valorPadrao, agrupar }) => ({
-                            nome,
-                            valorPadrao: valorPadrao || "",
-                            agrupar,
-                        }));
-                    const metadadosSelecionadosForaDoHash = this.metadadosForaDoHash
-                        .filter(item => item.agrupar)
-                        .map(({ nome, valorPadrao, agrupar }) => ({
-                            nome,
-                            valorPadrao: valorPadrao || "",
-                            agrupar,
-                        }));
-                    const metadadosSelecionados = [
-                        ...metadadosSelecionadosNoHash,
-                        ...metadadosSelecionadosForaDoHash
-                    ];
-                    const objetoParaEnviar = {
-                        nomeArquivo: this.nameFile,
-                        usuario: this.userFile,
-                        metadados: metadadosSelecionados,
-                        cnpj: localStorage.getItem("cnpjFile")
-                    };
-                    fetch("http://localhost:8080/bronze/editHash", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: JSON.stringify(objetoParaEnviar),
-                    })
-                        .then(response => response.json())
-                        .then(responseJson => {
-                            if (responseJson.critica !== "Processamento efetuado com sucesso") {
-                                Swal.fire({
-                                    title: "Erro",
-                                    text: responseJson.critica,
-                                    icon: "error",
-                                    confirmButtonText: "OK",
-                                });
-                            } else {
-                                Swal.fire({
-                                    title: "Sucesso",
-                                    text: responseJson.critica,
-                                    icon: "success",
-                                    confirmButtonText: "OK",
-                                }).then(result => {
-                                    window.location.href = "home.html";
-                                });
-                            }
-                        })
-                        .catch(error => console.error("Erro ao salvar hash:", error));
-                }
-            }
-        });
-    </script>
-</body>
-
-</html>
-~~~~~
+  ~~~~html
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="../utils/vue.js"></script>
+      <script src="../utils/logout.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <link rel="stylesheet" href="../assets/style/bronze-zone-editar-hash.css" />
+      <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      <title>Editar Hash - Bronze Zone</title>
+      <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  
+  </head>
+  
+  <body>
+      <div id="app">
+          <header>
+              <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
+              <nav>
+                  <a href="home.html">Home</a>
+                  <a @click="deslogar()">
+                      <span class="material-symbols-outlined">logout</span>
+                  </a>
+              </nav>
+          </header>
+          <main>
+              <h1 id="h1BronzeHash">Editar Hash - Bronze Zone</h1>
+              <p id="pBronzeHash">Você está editando os metadados que foram utilizados para criar o hash!</p>
+              <p id="pBronzeHash">Após editá-los clique em "Salvar".</p>
+  
+              <div id="alinhamentos">
+                  <h2 id="h2BronzeHash">Nome do arquivo:</h2>
+                  <p id="parchive" v-text="nameFile"></p>
+              </div>
+  
+              <div id="table-container" style="overflow-x: auto">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th v-for="(head, index) in headTabela" :key="index">{{ head }}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr v-for="(item, index) in metadadosNoHash" :key="'noHash' + index"
+                              :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }">
+                              <td>{{ item.nome }}</td>
+                              <td>{{ item.valorPadrao }}</td>
+                              <td id="checkbox-cell">
+                                  <input type="checkbox" v-model="item.agrupar" checked="true" />
+                              </td>
+                          </tr>
+                          <tr v-for="(item, index) in metadadosForaDoHash" :key="'foraDoHash' + index"
+                              :class="{ 'even-row': (index + metadadosNoHash.length) % 2 === 0, 'odd-row': (index + metadadosNoHash.length) % 2 !== 0 }">
+                              <td>{{ item.nome }}</td>
+                              <td>{{ item.valorPadrao }}</td>
+                              <td><input type="checkbox" v-model="item.agrupar" /></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+  
+              <div class="container">
+                  <div class="left-section">
+                      Observações:
+                      <input type="text" id="inputObs" v-model="observacao" disabled />
+                  </div>
+                  <div id="right-section">
+                      <a href="../pages/navegation.html">
+                          <button id="btnVoltar">Voltar</button>
+                      </a>
+                      <button id="btnSalvar" @click="salvarHashEditado">Salvar</button>
+                  </div>
+              </div>
+          </main>
+      </div>
+  
+      <script>
+          const app = new Vue({
+              el: "#app",
+              data: {
+                  nameFile: "",
+                  userFile: "",
+                  data: [],
+                  observacao: "",
+                  metadadosNoHash: [],
+                  metadadosForaDoHash: [],
+                  headTabela: ["Nome", "Valor Padrão", "Agrupar colunas"],
+              },
+              mounted() {
+                  this.nameFile = localStorage.getItem("fileName") || "";
+                  this.userFile = sessionStorage.getItem("usuario") || "";
+                  this.visualizarMetadadosDoHash();
+              },
+              methods: {
+                  deslogar() {
+                      logoutUser(sessionStorage.getItem("usuario"))
+                      sessionStorage.removeItem("usuario")
+  
+                      Swal.fire({
+                          title: "Deseja realmente sair?",
+                          showDenyButton: true,
+                          confirmButtonText: `Sim`,
+                          denyButtonText: `Não`,
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                              window.location.href = "../../public/index.html";
+                          }
+                      });
+                  },
+                  visualizarMetadadosDoHash() {
+                      const objetoParaEnviar = {
+                          nomeArquivo: this.nameFile,
+                          usuario: this.userFile,
+                          cnpj: localStorage.getItem("cnpjFile"),
+                      };
+                      fetch("http://localhost:8080/bronze/visualize", {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: JSON.stringify(objetoParaEnviar),
+                      })
+                          .then((response) => {
+                              if (!response.ok) {
+                                  console.log(
+                                      Error + " Erro na requisição: " + response.status
+                                  );
+                              }
+                              console.log("Requisição feita com sucesso: " + response.status);
+                              return response.json();
+                          })
+                          .then(data => {
+                              console.log("Dados recebidos:", data);
+                              if (data && data.response && data.response.metadadosNoHash && data.response.metadadosForaDoHash) {
+                                  this.metadadosNoHash = data.response.metadadosNoHash.map((meta) => ({
+                                      nome: meta.nome,
+                                      valorPadrao: meta.valorPadrao || "",
+                                      agrupar: meta.agrupar || true,
+                                  }));
+                                  this.metadadosForaDoHash = data.response.metadadosForaDoHash.map((meta) => ({
+                                      nome: meta.nome,
+                                      valorPadrao: meta.valorPadrao || "",
+                                      agrupar: meta.agrupar || false,
+                                  }));
+                                  this.observacao =
+                                      data.response.observacao || "Nenhuma observação disponível";
+                                  console.log("Metadados no Hash:", this.metadadosNoHash);
+                                  console.log("Metadados Fora do Hash:", this.metadadosForaDoHash)
+                                  console.log("Observação:", this.observacao);
+                              } else {
+                                  console.log(
+                                      Error + " Resposta da requisição inválida: ",
+                                      data
+                                  );
+                              }
+                          })
+                          .catch((error) => {
+                              console.error("Erro ao criar hash:", error);
+                          });
+                  },
+                  salvarHashEditado() {
+                      const metadadosSelecionadosNoHash = this.metadadosNoHash
+                          .filter(item => item.agrupar)
+                          .map(({ nome, valorPadrao, agrupar }) => ({
+                              nome,
+                              valorPadrao: valorPadrao || "",
+                              agrupar,
+                          }));
+                      const metadadosSelecionadosForaDoHash = this.metadadosForaDoHash
+                          .filter(item => item.agrupar)
+                          .map(({ nome, valorPadrao, agrupar }) => ({
+                              nome,
+                              valorPadrao: valorPadrao || "",
+                              agrupar,
+                          }));
+                      const metadadosSelecionados = [
+                          ...metadadosSelecionadosNoHash,
+                          ...metadadosSelecionadosForaDoHash
+                      ];
+                      const objetoParaEnviar = {
+                          nomeArquivo: this.nameFile,
+                          usuario: this.userFile,
+                          metadados: metadadosSelecionados,
+                          cnpj: localStorage.getItem("cnpjFile")
+                      };
+                      fetch("http://localhost:8080/bronze/editHash", {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: JSON.stringify(objetoParaEnviar),
+                      })
+                          .then(response => response.json())
+                          .then(responseJson => {
+                              if (responseJson.critica !== "Processamento efetuado com sucesso") {
+                                  Swal.fire({
+                                      title: "Erro",
+                                      text: responseJson.critica,
+                                      icon: "error",
+                                      confirmButtonText: "OK",
+                                  });
+                              } else {
+                                  Swal.fire({
+                                      title: "Sucesso",
+                                      text: responseJson.critica,
+                                      icon: "success",
+                                      confirmButtonText: "OK",
+                                  }).then(result => {
+                                      window.location.href = "home.html";
+                                  });
+                              }
+                          })
+                          .catch(error => console.error("Erro ao salvar hash:", error));
+                  }
+              }
+          });
+      </script>
+  </body>
+  
+  </html>
+  ~~~~~
 </details>
 
 <details>
   <summary>Detalhes Visualizar Hash</summary>
 
-~~~~html
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../utils/logout.js"></script>
-    <script src="../utils/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="../assets/style/bronze-zone-visualizar-hash.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <title>Visualizar Hash - Bronze Zone</title>
-    <link rel="shortcut icon" href="../assets/images/favicon.ico">
-
-</head>
-
-<body>
-    <div id="app">
-        <header>
-            <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
-            <nav>
-                <a href="home.html">Home</a>
-                <a @click="deslogar()">
-                    <span class="material-symbols-outlined">logout</span>
-                </a>
-            </nav>
-        </header>
-
-        <main>
-            <h1 id="h1BronzeHash">Visualizar Hash - Bronze Zone</h1>
-
-            <p id="pBronzeHash">Você está visualizando os metadados que foram utilizados para criar o hash!</p>
-
-            <div id="alinhamentos">
-                <h2 id="h2BronzeHash">Nome do arquivo:</h2>
-                <p id="parchive" v-text="nameFile"></p>
-            </div>
-
-            <div id="table-container" style="overflow-x: auto">
-
-                <table class="apagado">
-                    <thead>
-                        <tr>
-                            <th v-for="(head, index) in headTabela" :key="index">{{ head }}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(item, index) in metadadosNoHash" :key="index"
-                            :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }">
-                            <td>{{ item.nome }}</td>
-                            <td>{{ item.valorPadrao }}</td>
-                            <td id="checkbox-cell">
-                                <input type="checkbox" v-model="item.agrupar" checked="true" disabled="true" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="buttons">
-                <a href="navegation.html">
-                    <button id="btnCancelar">Voltar</button>
-                </a>
-
-            </div>
-        </main>
-    </div>
-
-    <script>
-        const app = new Vue({
-            el: "#app",
-            data: {
-                nameFile: "",
-                userFile: "",
-                data: [],
-                metadadosNoHash: [],
-                headTabela: ["Nome", "Valor Padrão", "Colunas agrupadas"]
-            },
-            mounted() {
-                this.nameFile = localStorage.getItem("fileName") || "";
-                this.userFile = sessionStorage.getItem("usuario") || "";
-                this.visualizarMetadadosDoHash();
-            },
-            methods: {
-                deslogar() {
-                    logoutUser(sessionStorage.getItem("usuario"))
-                    sessionStorage.removeItem("usuario")
-
-                    Swal.fire({
-                        title: "Deseja realmente sair?",
-                        showDenyButton: true,
-                        confirmButtonText: `Sim`,
-                        denyButtonText: `Não`,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "../../public/index.html";
-                        }
-                    });
-                },
-                visualizarMetadadosDoHash() {
-                    const objetoParaEnviar = {
-                        nomeArquivo: this.nameFile,
-                        usuario: this.userFile,
-                        cnpj: localStorage.getItem("cnpjFile"),
-                    };
-
-                    fetch("http://localhost:8080/bronze/visualize", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: JSON.stringify(objetoParaEnviar),
-                    })
-                        .then((response) => {
-                            if (!response.ok) {
-                                console.log(
-                                    Error + " Erro na requisição: " + response.status
-                                );
-                            }
-                            console.log("Requisição feita com sucesso: " + response.status);
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log("Dados recebidos:", data);
-                            if (data && data.response && data.response.metadadosNoHash) {
-                                this.metadadosNoHash = data.response.metadadosNoHash.map((meta) => ({
-                                    nome: meta.nome,
-                                    valorPadrao: meta.valorPadrao || "",
-                                }));
-                                console.log("Metadados:", this.metadadosNoHash);
-                            } else {
-                                console.log(
-                                    Error + " Resposta da requisição inválida: ",
-                                    data
-                                );
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Erro ao criar hash:", error);
-                        });
-                }
-            }
-        });
-    </script>
-</body>
-
-</html>
-~~~~~
+  ~~~~html
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="../utils/logout.js"></script>
+      <script src="../utils/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <link rel="stylesheet" href="../assets/style/bronze-zone-visualizar-hash.css" />
+      <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      <title>Visualizar Hash - Bronze Zone</title>
+      <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  
+  </head>
+  
+  <body>
+      <div id="app">
+          <header>
+              <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
+              <nav>
+                  <a href="home.html">Home</a>
+                  <a @click="deslogar()">
+                      <span class="material-symbols-outlined">logout</span>
+                  </a>
+              </nav>
+          </header>
+  
+          <main>
+              <h1 id="h1BronzeHash">Visualizar Hash - Bronze Zone</h1>
+  
+              <p id="pBronzeHash">Você está visualizando os metadados que foram utilizados para criar o hash!</p>
+  
+              <div id="alinhamentos">
+                  <h2 id="h2BronzeHash">Nome do arquivo:</h2>
+                  <p id="parchive" v-text="nameFile"></p>
+              </div>
+  
+              <div id="table-container" style="overflow-x: auto">
+  
+                  <table class="apagado">
+                      <thead>
+                          <tr>
+                              <th v-for="(head, index) in headTabela" :key="index">{{ head }}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr v-for="(item, index) in metadadosNoHash" :key="index"
+                              :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }">
+                              <td>{{ item.nome }}</td>
+                              <td>{{ item.valorPadrao }}</td>
+                              <td id="checkbox-cell">
+                                  <input type="checkbox" v-model="item.agrupar" checked="true" disabled="true" />
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div id="buttons">
+                  <a href="navegation.html">
+                      <button id="btnCancelar">Voltar</button>
+                  </a>
+  
+              </div>
+          </main>
+      </div>
+  
+      <script>
+          const app = new Vue({
+              el: "#app",
+              data: {
+                  nameFile: "",
+                  userFile: "",
+                  data: [],
+                  metadadosNoHash: [],
+                  headTabela: ["Nome", "Valor Padrão", "Colunas agrupadas"]
+              },
+              mounted() {
+                  this.nameFile = localStorage.getItem("fileName") || "";
+                  this.userFile = sessionStorage.getItem("usuario") || "";
+                  this.visualizarMetadadosDoHash();
+              },
+              methods: {
+                  deslogar() {
+                      logoutUser(sessionStorage.getItem("usuario"))
+                      sessionStorage.removeItem("usuario")
+  
+                      Swal.fire({
+                          title: "Deseja realmente sair?",
+                          showDenyButton: true,
+                          confirmButtonText: `Sim`,
+                          denyButtonText: `Não`,
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                              window.location.href = "../../public/index.html";
+                          }
+                      });
+                  },
+                  visualizarMetadadosDoHash() {
+                      const objetoParaEnviar = {
+                          nomeArquivo: this.nameFile,
+                          usuario: this.userFile,
+                          cnpj: localStorage.getItem("cnpjFile"),
+                      };
+  
+                      fetch("http://localhost:8080/bronze/visualize", {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: JSON.stringify(objetoParaEnviar),
+                      })
+                          .then((response) => {
+                              if (!response.ok) {
+                                  console.log(
+                                      Error + " Erro na requisição: " + response.status
+                                  );
+                              }
+                              console.log("Requisição feita com sucesso: " + response.status);
+                              return response.json();
+                          })
+                          .then(data => {
+                              console.log("Dados recebidos:", data);
+                              if (data && data.response && data.response.metadadosNoHash) {
+                                  this.metadadosNoHash = data.response.metadadosNoHash.map((meta) => ({
+                                      nome: meta.nome,
+                                      valorPadrao: meta.valorPadrao || "",
+                                  }));
+                                  console.log("Metadados:", this.metadadosNoHash);
+                              } else {
+                                  console.log(
+                                      Error + " Resposta da requisição inválida: ",
+                                      data
+                                  );
+                              }
+                          })
+                          .catch((error) => {
+                              console.error("Erro ao criar hash:", error);
+                          });
+                  }
+              }
+          });
+      </script>
+  </body>
+  
+  </html>
+  ~~~~~
 </details>
 
 ### 4. **Desenvolvimento das Funcionalidades: Criar e Visualizar DE-PARA**
-   - Desenvolvi a tela onde o usuário pode selecionar um metadado e definir pares de valores, por exemplo: SP → São Paulo.
+   - Desenvolvi a interface onde o usuário pode selecionar um metadado e definir pares de valores para mapeamento, facilitando a transformação de dados conforme regras de negócio.
    > Exemplo: DE → PARA = SP → São Paulo
 
 <details>
   <summary>Detalhes Criar de-para</summary>
   
-~~~~html
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../utils/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link rel="stylesheet" href="../assets/style/silver-zone-criar-depara.css">
-    <script src="../utils/logout.js"></script>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
-    <title>Silver Zone - Criar DePara</title>
-    <link rel="shortcut icon" href="../assets/images/favicon.ico">
-
-</head>
-
-<body>
-    <div id="app">
-        <header>
-            <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
-            <nav>
-                <a href="../pages/home.html">Home</a>
-                <a @click="deslogar()">
-                    <span class="material-symbols-outlined">logout</span>
-                </a>
-            </nav>
-        </header>
-
-        <main>
-            <h1 id="h1SilverDePara">Criar DePara - Silver Zone</h1>
-
-            <p id="pSilverDePara">
-                Selecione um metadado e depois defina seus valores!
-            </p>
-
-            <div id="alinhamentos">
-                <h2 id="h2SilverDePara">Nome do arquivo:</h2>
-                <p id="parchive" v-text="nameFile"></p>
-            </div>
-
-            <div v-if="tabelas.length > 0">
-                <div v-for="(tabela, tableIndex) in tabelas" :key="tableIndex" id="table-container"
-                    style="overflow-x: auto">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th v-for="(head, index) in headTabela" :key="index">
-                                    {{ head }}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item, itemIndex) in tabela.data" :key="itemIndex"
-                                :class="{ 'even-row': itemIndex % 2 === 0, 'odd-row': itemIndex % 2 !== 0 }">
-                                <td>
-                                    <span>{{ item.metadado }}</span>
-                                </td>
-                                <td>
-                                    <input type="text" v-model="item.valorDe">
-                                </td>
-                                <td>
-                                    <input type="text" v-model="item.igualA">
-                                </td>
-                                <td>
-                                    <span class="material-symbols-outlined" id="iconDelete"
-                                        @click="removerLinha(tableIndex, itemIndex)">delete</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div id="btnLinha">
-                        <button id="btnAddLinha" @click="adicionarLinha(tabela)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <dialog id="uploadModal" class="modal">
-                <form class="modal-content" @submit.prevent="submitForm" enctype="multipart/form-data" @dragover.prevent
-                    @drop="handleDrop">
-                    <div class="alinhar">
-                        <span id="closeUploadModal" class="close">&times;</span>
-                        <h1>Upload de Arquivo</h1>
-                    </div>
-                    <div class="camposInput">
-                        <div class="inputGroup">
-                            <label for="cabecalhoDropdown">
-                                O Arquivo tem cabeçalho?
-                            </label>
-                            <br />
-                            <select id="cabecalhoDropdown" v-model="cabecalho">
-                                <option value="true">Sim</option>
-                                <option value="false">Não</option>
-                            </select>
-                        </div>
-                        <div class="inputGroup">
-                            <label for="delimitadorDropdown">
-                                Delimitador das Colunas:
-                            </label>
-                            <br />
-                            <select id="delimitadorDropdown" v-model="delimiter">
-                                <option value=",">Vírgula (,)</option>
-                                <option value=".">Ponto (.)</option>
-                                <option value="/">Barra (/)</option>
-                                <option value=";">Ponto e Vírgula (;)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <input type="file" name="csvfile" accept=".csv, .xlsx" hidden id="fileInput"
-                        @change="updateUploadArea" />
-                    <div id="campoUpload">
-                        <label for="fileInput">
-                            <div id="uploadArea">
-                                <img src="../assets/images/csv-azul.png" alt="csv-azul" />
-                                <h2>{{ fileName || 'Clique para selecionar um arquivo' }}</h2>
-                                <p>{{ paragraph || 'ou arraste e solte aqui' }}</p>
-                            </div>
-                        </label>
-                    </div>
-                    <div id="buttonsModal">
-                        <button type="submit" id="btnUpload">
-                            Fazer Upload
-                        </button>
-                    </div>
-                </form>
-            </dialog>
-
-            <div id="buttons">
-                <button id="btnUploadArquivo">
-                    Upload Arquivo
-                </button>
-                <button id="btnAddMetadado" @click="mostrarModalSelecaoMetadado">
-                    <span class="material-symbols-outlined">add</span>
-                    Selecionar outro metadado
-                </button>
-            </div>
-            <div id="buttons">
-                <a href="navegation.html">
-                    <button id="btnVoltar">Voltar</button>
-                </a>
-                <button id="btnSalvar" @click="salvar">Salvar</button>
-            </div>
-        </main>
-    </div>
-
-    <script>
-        const app = new Vue({
-            el: "#app",
-            data: {
-                nameFile: "",
-                userFile: "",
-                tabelas: [],
-                listaDosMetadados: [],
-                headTabela: [
-                    "Metadado",
-                    "O valor de:",
-                    "É igual a:",
-                    "Excluir"
-                ],
-                cabecalho: 'true',
-                delimiter: ',',
-                fileName: '',
-                paragraph: ''
-            },
-            computed: {
-                deslogar() {
-                    logoutUser(sessionStorage.getItem("usuario"))
-                    sessionStorage.removeItem("usuario")
-
-                    Swal.fire({
-                        title: "Deseja realmente sair?",
-                        showDenyButton: true,
-                        confirmButtonText: `Sim`,
-                        denyButtonText: `Não`,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "../../public/index.html";
-                        }
-                    });
-                },
-                dataFiltrada() {
-                    return this.data.filter((item) => item.ativo);
-                },
-            },
-            mounted() {
-                this.nameFile = localStorage.getItem("fileName") || "";
-                this.user = sessionStorage.getItem("usuario") || "";
-                this.cnpj = localStorage.getItem("cnpjFile");
-                this.visualizarMetadadosAtivos();
-                console.log(this.nameFile, this.user, this.cnpj)
-
-                // Event listener para abrir o modal de upload
-                document.getElementById('btnUploadArquivo').addEventListener('click', () => {
-                    document.getElementById('uploadModal').style.display = 'block';
-                });
-
-                // Event listener para fechar o modal de upload
-                document.getElementById('closeUploadModal').addEventListener('click', () => {
-                    document.getElementById('uploadModal').style.display = 'none';
-                });
-
-                window.addEventListener('click', (event) => {
-                    const modal = document.getElementById('uploadModal');
-                    if (event.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-            },
-            methods: {
-                visualizarMetadadosAtivos() {
-                    const objetoParaEnviar = {
-                        email: this.user,
-                        arquivo: this.nameFile,
-                        cnpj: localStorage.getItem("cnpjFile"),
-                        metadados: []
-                    };
-
-                    fetch("http://localhost:8080/silver/create", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: JSON.stringify(objetoParaEnviar),
-                    })
-                        .then((response) => {
-                            if (!response.ok) {
-                                console.log(
-                                    Error + " Erro na requisição: " + response.status
-                                );
-                            }
-                            console.log("Requisição feita com sucesso: " + response.status);
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log("Dados recebidos:", data);
-                            if (data && data.response && data.response.listMetadados) {
-                                this.listaDosMetadados = data.response.listMetadados.map((meta) => ({
-                                    nome: meta.nome,
-                                }));
-                                console.log("Metadados:", this.listaDosMetadados);
-                            } else {
-                                console.log(
-                                    Error + " Resposta da requisição inválida: ",
-                                    data
-                                );
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Erro ao criar DePara:", error);
-                        });
-                },
-                mostrarModalSelecaoMetadado() {
-                    const metadadosSelecionados = this.tabelas.map(tabela => tabela.data[0].metadado);
-                    const metadadosDisponiveis = this.listaDosMetadados.filter(meta => !metadadosSelecionados.includes(meta.nome));
-
-                    const inputOptions = metadadosDisponiveis.reduce((options, meta) => {
-                        options[meta.nome] = meta.nome;
-                        return options;
-                    }, {});
-
-                    Swal.fire({
-                        title: 'Selecionar Metadado',
-                        input: 'select',
-                        inputOptions: inputOptions,
-                        inputPlaceholder: 'Selecione um metadado',
-                        showCancelButton: true,
-                    }).then((result) => {
-                        if (result.value) {
-                            this.adicionarTabela(result.value);
-                            this.atualizarMetadadosDisponiveis(result.value);
-                        }
-                    });
-                },
-                adicionarTabela(metadadoSelecionado) {
-                    const novaTabela = {
-                        data: [{
-                            metadado: metadadoSelecionado,
-                            valorDe: '',
-                            igualA: '',
-                            ativo: true
-                        }],
-                        headTabela: this.headTabela
-                    };
-                    this.tabelas.push(novaTabela);
-                },
-                adicionarLinha(tabela) {
-                    const metadadoSelecionado = tabela.data[0].metadado;
-                    tabela.data.push({
-                        metadado: metadadoSelecionado,
-                        valorDe: '',
-                        igualA: '',
-                        ativo: true
-                    });
-                },
-                removerLinha(tableIndex, itemIndex) {
-                    this.tabelas[tableIndex].data.splice(itemIndex, 1);
-
-                    if (this.tabelas[tableIndex].data.length === 0) {
-                        this.tabelas.splice(tableIndex, 1)
-                    }
-                    this.atualizarMetadadosDisponiveis();
-                },
-                atualizarMetadadosDisponiveis(metadadoSelecionado) {
-                    const metadadosSelecionados = this.tabelas.map(tabela => ({ nome: tabela.data[0].metadado }));
-
-                    const objetoParaEnviar = {
-                        email: this.user,
-                        arquivo: this.nameFile,
-                        cnpj: localStorage.getItem("cnpjFile"),
-                        metadados: metadadosSelecionados
-                    };
-
-                    fetch("http://localhost:8080/silver/create", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: JSON.stringify(objetoParaEnviar),
-                    })
-                        .then((response) => {
-                            if (!response.ok) {
-                                console.log(
-                                    Error + " Erro na requisição: " + response.status
-                                );
-                            }
-                            console.log("Requisição feita com sucesso: " + response.status);
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log("Dados recebidos:", data);
-                            if (data && data.response && data.response.listMetadados) {
-                                this.listaDosMetadados = data.response.listMetadados.map((meta) => ({
-                                    nome: meta.nome,
-                                }));
-                                console.log("Metadados:", this.listaDosMetadados);
-                            } else {
-                                console.log(
-                                    Error + " Resposta da requisição inválida: ",
-                                    data
-                                );
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Erro ao atualizar metadados:", error);
-                        });
-                },
-                salvar() {
-                    const metadados = this.tabelas.map(tabela => ({
-                        nome: tabela.data[0].metadado,
-                        deParas: tabela.data.map(item => ({
-                            de: item.valorDe,
-                            para: item.igualA
-                        }))
-                    }));
-
-                    const objetoCompleto = {
-                        email: this.user,
-                        arquivo: this.nameFile,
-                        cnpj: localStorage.getItem("cnpjFile"),
-                        metadados: metadados
-                    };
-
-                    console.log(JSON.stringify(objetoCompleto, null, 2));
-
-                    fetch("http://localhost:8080/silver/save", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: JSON.stringify(objetoCompleto),
-                    })
-                        .then((response) => {
-                            return response.json();
-                        })
-                        .then((responseJson) => {
-                            if (
-                                responseJson.critica !== "Processamento efetuado com sucesso"
-                            ) {
-                                console.log(
-                                    Error + " erro na requisição: " + responseJson.critica
-                                );
-
-                                Swal.fire({
-                                    title: "Erro",
-                                    text: responseJson.critica,
-                                    icon: "error",
-                                    confirmButtonText: "OK",
-                                });
-                                return;
-                            } else {
-                                Swal.fire({
-                                    title: "Sucesso",
-                                    text: responseJson.critica,
-                                    icon: "success",
-                                    confirmButtonText: "OK",
-                                }).then((result) => {
-                                    window.location.href = "home.html";
-                                });
-                            }
-                            console.log("Requisição feita com sucesso");
-                        }).catch((error) => {
-                            console.error("Erro ao criar DePara:", error);
-                        });
-                },
-                handleDrop(event) {
-                    event.preventDefault();
-                    const file = event.dataTransfer.files[0];
-                    const textParagraphElement = uploadArea.querySelector("p");
-                    if (file) {
-                        this.fileName = file.name;
-                        this.file = file;
-                        textParagraphElement.textContent =
-                            this.paragraph ||
-                            "Clique para selecionar outro ou arraste aqui";
-                    }
-                },
-                updateUploadArea(event) {
-                    const file = event.target.files[0];
-                    if (file) {
-                        this.fileName = file.name;
-                        this.processFile(file);
-                        this.paragraph = `Clique novamente para alterar o arquivo ou arraste e solte aqui`;
-                    } else {
-                        this.fileName = '';
-                        this.paragraph = '';
-                    }
-                },
-                processFile(file) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        const fileContent = event.target.result;
-                        this.parseCSV(fileContent);
-                    };
-                    reader.readAsText(file, 'UTF-8');
-                },
-                parseCSV(data) {
-                    const rows = data.split('\n');
-                    const headers = rows[0].split(';');
-                    const result = [];
-
-                    for (let i = 1; i < rows.length; i++) {
-                        const values = rows[i].split(';');
-                        if (values.length === headers.length) {
-                            const obj = {};
-                            for (let j = 0; j < headers.length; j++) {
-                                obj[headers[j].trim()] = values[j].trim();
-                            }
-                            result.push(obj);
-                        }
-                    }
-                    this.uploadedData = result;
-                    console.log("Resultado do parseCSV:", result);
-                },
-                submitForm() {
-                    const fileInput = document.getElementById('fileInput');
-                    const file = fileInput.files[0];
-                    const formData = new FormData();
-                    formData.append("multipartFile", file);
-                    localStorage.setItem('nameFileUpload', this.fileName);
-
-                    console.log("Arquivo upload: ", this.fileName)
-                    console.log("Token: ", sessionStorage.getItem("authToken"))
-
-                    // Verificar a extensão do arquivo
-                    const fileExtension = file.name.split(".").pop().toLowerCase();
-                    let contentType = "";
-                    if (fileExtension === "csv") {
-                        contentType = "text/csv";
-                    } else if (fileExtension === "xlsx") {
-                        contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                    } else {
-                        console.error("Unsupported file type");
-                        return;
-                    }
-
-                    fetch("http://localhost:8080/silver/upload?delimiter=" +
-                        this.delimiter + "&header=" + this.cabecalho + "&email=" + this.user + "&cnpj=" + this.cnpj + "&nomeArquivo=" + this.nameFile, {
-                        method: "POST",
-                        headers: {
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: formData,
-                    })
-                        .then((response) => {
-                            return response.json();
-                        })
-                        .then((responseJson) => {
-                            if (
-                                responseJson.critica !== "Processamento efetuado com sucesso"
-                            ) {
-                                console.log(
-                                    Error + " erro na requisição: " + responseJson.critica
-                                );
-                                Swal.fire({
-                                    title: "Erro",
-                                    text: responseJson.critica,
-                                    icon: "error",
-                                    confirmButtonText: "OK",
-                                });
-                                return;
-                            } else {
-                                Swal.fire({
-                                    title: "Sucesso",
-                                    text: responseJson.critica,
-                                    icon: "success",
-                                    confirmButtonText: "OK",
-                                }).then((result) => {
-                                    window.location.href = "silver-zone-upload-arquivo.html";
-                                });
-                            }
-                            console.log("Requisição feita com sucesso");
-                            localStorage.setItem('uploadResponse', JSON.stringify(responseJson));
-                            const uploadResponse = JSON.parse(localStorage.getItem('uploadResponse'));
-                            console.log(JSON.stringify(uploadResponse, null, 2));
-                        })
-                        .catch(error => {
-                            console.error('Error uploading file:', error);
-                        });
-                }
-            },
-        });
-    </script>
-</body>
-
-</html>
-~~~~~
+  ~~~~html
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="../utils/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <link rel="stylesheet" href="../assets/style/silver-zone-criar-depara.css">
+      <script src="../utils/logout.js"></script>
+      <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+      <title>Silver Zone - Criar DePara</title>
+      <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  
+  </head>
+  
+  <body>
+      <div id="app">
+          <header>
+              <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
+              <nav>
+                  <a href="../pages/home.html">Home</a>
+                  <a @click="deslogar()">
+                      <span class="material-symbols-outlined">logout</span>
+                  </a>
+              </nav>
+          </header>
+  
+          <main>
+              <h1 id="h1SilverDePara">Criar DePara - Silver Zone</h1>
+  
+              <p id="pSilverDePara">
+                  Selecione um metadado e depois defina seus valores!
+              </p>
+  
+              <div id="alinhamentos">
+                  <h2 id="h2SilverDePara">Nome do arquivo:</h2>
+                  <p id="parchive" v-text="nameFile"></p>
+              </div>
+  
+              <div v-if="tabelas.length > 0">
+                  <div v-for="(tabela, tableIndex) in tabelas" :key="tableIndex" id="table-container"
+                      style="overflow-x: auto">
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th v-for="(head, index) in headTabela" :key="index">
+                                      {{ head }}
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr v-for="(item, itemIndex) in tabela.data" :key="itemIndex"
+                                  :class="{ 'even-row': itemIndex % 2 === 0, 'odd-row': itemIndex % 2 !== 0 }">
+                                  <td>
+                                      <span>{{ item.metadado }}</span>
+                                  </td>
+                                  <td>
+                                      <input type="text" v-model="item.valorDe">
+                                  </td>
+                                  <td>
+                                      <input type="text" v-model="item.igualA">
+                                  </td>
+                                  <td>
+                                      <span class="material-symbols-outlined" id="iconDelete"
+                                          @click="removerLinha(tableIndex, itemIndex)">delete</span>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <div id="btnLinha">
+                          <button id="btnAddLinha" @click="adicionarLinha(tabela)">+</button>
+                      </div>
+                  </div>
+              </div>
+  
+              <dialog id="uploadModal" class="modal">
+                  <form class="modal-content" @submit.prevent="submitForm" enctype="multipart/form-data" @dragover.prevent
+                      @drop="handleDrop">
+                      <div class="alinhar">
+                          <span id="closeUploadModal" class="close">&times;</span>
+                          <h1>Upload de Arquivo</h1>
+                      </div>
+                      <div class="camposInput">
+                          <div class="inputGroup">
+                              <label for="cabecalhoDropdown">
+                                  O Arquivo tem cabeçalho?
+                              </label>
+                              <br />
+                              <select id="cabecalhoDropdown" v-model="cabecalho">
+                                  <option value="true">Sim</option>
+                                  <option value="false">Não</option>
+                              </select>
+                          </div>
+                          <div class="inputGroup">
+                              <label for="delimitadorDropdown">
+                                  Delimitador das Colunas:
+                              </label>
+                              <br />
+                              <select id="delimitadorDropdown" v-model="delimiter">
+                                  <option value=",">Vírgula (,)</option>
+                                  <option value=".">Ponto (.)</option>
+                                  <option value="/">Barra (/)</option>
+                                  <option value=";">Ponto e Vírgula (;)</option>
+                              </select>
+                          </div>
+                      </div>
+                      <input type="file" name="csvfile" accept=".csv, .xlsx" hidden id="fileInput"
+                          @change="updateUploadArea" />
+                      <div id="campoUpload">
+                          <label for="fileInput">
+                              <div id="uploadArea">
+                                  <img src="../assets/images/csv-azul.png" alt="csv-azul" />
+                                  <h2>{{ fileName || 'Clique para selecionar um arquivo' }}</h2>
+                                  <p>{{ paragraph || 'ou arraste e solte aqui' }}</p>
+                              </div>
+                          </label>
+                      </div>
+                      <div id="buttonsModal">
+                          <button type="submit" id="btnUpload">
+                              Fazer Upload
+                          </button>
+                      </div>
+                  </form>
+              </dialog>
+  
+              <div id="buttons">
+                  <button id="btnUploadArquivo">
+                      Upload Arquivo
+                  </button>
+                  <button id="btnAddMetadado" @click="mostrarModalSelecaoMetadado">
+                      <span class="material-symbols-outlined">add</span>
+                      Selecionar outro metadado
+                  </button>
+              </div>
+              <div id="buttons">
+                  <a href="navegation.html">
+                      <button id="btnVoltar">Voltar</button>
+                  </a>
+                  <button id="btnSalvar" @click="salvar">Salvar</button>
+              </div>
+          </main>
+      </div>
+  
+      <script>
+          const app = new Vue({
+              el: "#app",
+              data: {
+                  nameFile: "",
+                  userFile: "",
+                  tabelas: [],
+                  listaDosMetadados: [],
+                  headTabela: [
+                      "Metadado",
+                      "O valor de:",
+                      "É igual a:",
+                      "Excluir"
+                  ],
+                  cabecalho: 'true',
+                  delimiter: ',',
+                  fileName: '',
+                  paragraph: ''
+              },
+              computed: {
+                  deslogar() {
+                      logoutUser(sessionStorage.getItem("usuario"))
+                      sessionStorage.removeItem("usuario")
+  
+                      Swal.fire({
+                          title: "Deseja realmente sair?",
+                          showDenyButton: true,
+                          confirmButtonText: `Sim`,
+                          denyButtonText: `Não`,
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                              window.location.href = "../../public/index.html";
+                          }
+                      });
+                  },
+                  dataFiltrada() {
+                      return this.data.filter((item) => item.ativo);
+                  },
+              },
+              mounted() {
+                  this.nameFile = localStorage.getItem("fileName") || "";
+                  this.user = sessionStorage.getItem("usuario") || "";
+                  this.cnpj = localStorage.getItem("cnpjFile");
+                  this.visualizarMetadadosAtivos();
+                  console.log(this.nameFile, this.user, this.cnpj)
+  
+                  // Event listener para abrir o modal de upload
+                  document.getElementById('btnUploadArquivo').addEventListener('click', () => {
+                      document.getElementById('uploadModal').style.display = 'block';
+                  });
+  
+                  // Event listener para fechar o modal de upload
+                  document.getElementById('closeUploadModal').addEventListener('click', () => {
+                      document.getElementById('uploadModal').style.display = 'none';
+                  });
+  
+                  window.addEventListener('click', (event) => {
+                      const modal = document.getElementById('uploadModal');
+                      if (event.target === modal) {
+                          modal.style.display = 'none';
+                      }
+                  });
+              },
+              methods: {
+                  visualizarMetadadosAtivos() {
+                      const objetoParaEnviar = {
+                          email: this.user,
+                          arquivo: this.nameFile,
+                          cnpj: localStorage.getItem("cnpjFile"),
+                          metadados: []
+                      };
+  
+                      fetch("http://localhost:8080/silver/create", {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: JSON.stringify(objetoParaEnviar),
+                      })
+                          .then((response) => {
+                              if (!response.ok) {
+                                  console.log(
+                                      Error + " Erro na requisição: " + response.status
+                                  );
+                              }
+                              console.log("Requisição feita com sucesso: " + response.status);
+                              return response.json();
+                          })
+                          .then(data => {
+                              console.log("Dados recebidos:", data);
+                              if (data && data.response && data.response.listMetadados) {
+                                  this.listaDosMetadados = data.response.listMetadados.map((meta) => ({
+                                      nome: meta.nome,
+                                  }));
+                                  console.log("Metadados:", this.listaDosMetadados);
+                              } else {
+                                  console.log(
+                                      Error + " Resposta da requisição inválida: ",
+                                      data
+                                  );
+                              }
+                          })
+                          .catch((error) => {
+                              console.error("Erro ao criar DePara:", error);
+                          });
+                  },
+                  mostrarModalSelecaoMetadado() {
+                      const metadadosSelecionados = this.tabelas.map(tabela => tabela.data[0].metadado);
+                      const metadadosDisponiveis = this.listaDosMetadados.filter(meta => !metadadosSelecionados.includes(meta.nome));
+  
+                      const inputOptions = metadadosDisponiveis.reduce((options, meta) => {
+                          options[meta.nome] = meta.nome;
+                          return options;
+                      }, {});
+  
+                      Swal.fire({
+                          title: 'Selecionar Metadado',
+                          input: 'select',
+                          inputOptions: inputOptions,
+                          inputPlaceholder: 'Selecione um metadado',
+                          showCancelButton: true,
+                      }).then((result) => {
+                          if (result.value) {
+                              this.adicionarTabela(result.value);
+                              this.atualizarMetadadosDisponiveis(result.value);
+                          }
+                      });
+                  },
+                  adicionarTabela(metadadoSelecionado) {
+                      const novaTabela = {
+                          data: [{
+                              metadado: metadadoSelecionado,
+                              valorDe: '',
+                              igualA: '',
+                              ativo: true
+                          }],
+                          headTabela: this.headTabela
+                      };
+                      this.tabelas.push(novaTabela);
+                  },
+                  adicionarLinha(tabela) {
+                      const metadadoSelecionado = tabela.data[0].metadado;
+                      tabela.data.push({
+                          metadado: metadadoSelecionado,
+                          valorDe: '',
+                          igualA: '',
+                          ativo: true
+                      });
+                  },
+                  removerLinha(tableIndex, itemIndex) {
+                      this.tabelas[tableIndex].data.splice(itemIndex, 1);
+  
+                      if (this.tabelas[tableIndex].data.length === 0) {
+                          this.tabelas.splice(tableIndex, 1)
+                      }
+                      this.atualizarMetadadosDisponiveis();
+                  },
+                  atualizarMetadadosDisponiveis(metadadoSelecionado) {
+                      const metadadosSelecionados = this.tabelas.map(tabela => ({ nome: tabela.data[0].metadado }));
+  
+                      const objetoParaEnviar = {
+                          email: this.user,
+                          arquivo: this.nameFile,
+                          cnpj: localStorage.getItem("cnpjFile"),
+                          metadados: metadadosSelecionados
+                      };
+  
+                      fetch("http://localhost:8080/silver/create", {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: JSON.stringify(objetoParaEnviar),
+                      })
+                          .then((response) => {
+                              if (!response.ok) {
+                                  console.log(
+                                      Error + " Erro na requisição: " + response.status
+                                  );
+                              }
+                              console.log("Requisição feita com sucesso: " + response.status);
+                              return response.json();
+                          })
+                          .then(data => {
+                              console.log("Dados recebidos:", data);
+                              if (data && data.response && data.response.listMetadados) {
+                                  this.listaDosMetadados = data.response.listMetadados.map((meta) => ({
+                                      nome: meta.nome,
+                                  }));
+                                  console.log("Metadados:", this.listaDosMetadados);
+                              } else {
+                                  console.log(
+                                      Error + " Resposta da requisição inválida: ",
+                                      data
+                                  );
+                              }
+                          })
+                          .catch((error) => {
+                              console.error("Erro ao atualizar metadados:", error);
+                          });
+                  },
+                  salvar() {
+                      const metadados = this.tabelas.map(tabela => ({
+                          nome: tabela.data[0].metadado,
+                          deParas: tabela.data.map(item => ({
+                              de: item.valorDe,
+                              para: item.igualA
+                          }))
+                      }));
+  
+                      const objetoCompleto = {
+                          email: this.user,
+                          arquivo: this.nameFile,
+                          cnpj: localStorage.getItem("cnpjFile"),
+                          metadados: metadados
+                      };
+  
+                      console.log(JSON.stringify(objetoCompleto, null, 2));
+  
+                      fetch("http://localhost:8080/silver/save", {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: JSON.stringify(objetoCompleto),
+                      })
+                          .then((response) => {
+                              return response.json();
+                          })
+                          .then((responseJson) => {
+                              if (
+                                  responseJson.critica !== "Processamento efetuado com sucesso"
+                              ) {
+                                  console.log(
+                                      Error + " erro na requisição: " + responseJson.critica
+                                  );
+  
+                                  Swal.fire({
+                                      title: "Erro",
+                                      text: responseJson.critica,
+                                      icon: "error",
+                                      confirmButtonText: "OK",
+                                  });
+                                  return;
+                              } else {
+                                  Swal.fire({
+                                      title: "Sucesso",
+                                      text: responseJson.critica,
+                                      icon: "success",
+                                      confirmButtonText: "OK",
+                                  }).then((result) => {
+                                      window.location.href = "home.html";
+                                  });
+                              }
+                              console.log("Requisição feita com sucesso");
+                          }).catch((error) => {
+                              console.error("Erro ao criar DePara:", error);
+                          });
+                  },
+                  handleDrop(event) {
+                      event.preventDefault();
+                      const file = event.dataTransfer.files[0];
+                      const textParagraphElement = uploadArea.querySelector("p");
+                      if (file) {
+                          this.fileName = file.name;
+                          this.file = file;
+                          textParagraphElement.textContent =
+                              this.paragraph ||
+                              "Clique para selecionar outro ou arraste aqui";
+                      }
+                  },
+                  updateUploadArea(event) {
+                      const file = event.target.files[0];
+                      if (file) {
+                          this.fileName = file.name;
+                          this.processFile(file);
+                          this.paragraph = `Clique novamente para alterar o arquivo ou arraste e solte aqui`;
+                      } else {
+                          this.fileName = '';
+                          this.paragraph = '';
+                      }
+                  },
+                  processFile(file) {
+                      const reader = new FileReader();
+                      reader.onload = (event) => {
+                          const fileContent = event.target.result;
+                          this.parseCSV(fileContent);
+                      };
+                      reader.readAsText(file, 'UTF-8');
+                  },
+                  parseCSV(data) {
+                      const rows = data.split('\n');
+                      const headers = rows[0].split(';');
+                      const result = [];
+  
+                      for (let i = 1; i < rows.length; i++) {
+                          const values = rows[i].split(';');
+                          if (values.length === headers.length) {
+                              const obj = {};
+                              for (let j = 0; j < headers.length; j++) {
+                                  obj[headers[j].trim()] = values[j].trim();
+                              }
+                              result.push(obj);
+                          }
+                      }
+                      this.uploadedData = result;
+                      console.log("Resultado do parseCSV:", result);
+                  },
+                  submitForm() {
+                      const fileInput = document.getElementById('fileInput');
+                      const file = fileInput.files[0];
+                      const formData = new FormData();
+                      formData.append("multipartFile", file);
+                      localStorage.setItem('nameFileUpload', this.fileName);
+  
+                      console.log("Arquivo upload: ", this.fileName)
+                      console.log("Token: ", sessionStorage.getItem("authToken"))
+  
+                      // Verificar a extensão do arquivo
+                      const fileExtension = file.name.split(".").pop().toLowerCase();
+                      let contentType = "";
+                      if (fileExtension === "csv") {
+                          contentType = "text/csv";
+                      } else if (fileExtension === "xlsx") {
+                          contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                      } else {
+                          console.error("Unsupported file type");
+                          return;
+                      }
+  
+                      fetch("http://localhost:8080/silver/upload?delimiter=" +
+                          this.delimiter + "&header=" + this.cabecalho + "&email=" + this.user + "&cnpj=" + this.cnpj + "&nomeArquivo=" + this.nameFile, {
+                          method: "POST",
+                          headers: {
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: formData,
+                      })
+                          .then((response) => {
+                              return response.json();
+                          })
+                          .then((responseJson) => {
+                              if (
+                                  responseJson.critica !== "Processamento efetuado com sucesso"
+                              ) {
+                                  console.log(
+                                      Error + " erro na requisição: " + responseJson.critica
+                                  );
+                                  Swal.fire({
+                                      title: "Erro",
+                                      text: responseJson.critica,
+                                      icon: "error",
+                                      confirmButtonText: "OK",
+                                  });
+                                  return;
+                              } else {
+                                  Swal.fire({
+                                      title: "Sucesso",
+                                      text: responseJson.critica,
+                                      icon: "success",
+                                      confirmButtonText: "OK",
+                                  }).then((result) => {
+                                      window.location.href = "silver-zone-upload-arquivo.html";
+                                  });
+                              }
+                              console.log("Requisição feita com sucesso");
+                              localStorage.setItem('uploadResponse', JSON.stringify(responseJson));
+                              const uploadResponse = JSON.parse(localStorage.getItem('uploadResponse'));
+                              console.log(JSON.stringify(uploadResponse, null, 2));
+                          })
+                          .catch(error => {
+                              console.error('Error uploading file:', error);
+                          });
+                  }
+              },
+          });
+      </script>
+  </body>
+  
+  </html>
+  ~~~~~
 </details>
 
 <details>
   <summary>Detalhes Visualizar de-para</summary>
   
-~~~~html
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../utils/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="../utils/logout.js"></script>
-    <link rel="stylesheet" href="../assets/style/silver-zone-visualizar-depara.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
-    <title>Silver Zone - Visualizar DePara</title>
-    <link rel="shortcut icon" href="../assets/images/favicon.ico">
-
-</head>
-
-<body>
-    <div id="app">
-        <header>
-            <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
-            <nav>
-                <a href="../pages/home.html">Home</a>
-                <a @click="deslogar()">
-                    <span class="material-symbols-outlined">logout</span>
-                </a>
-            </nav>
-        </header>
-
-        <main>
-            <h1 id="h1SilverDePara">Visualizar DePara - Silver Zone</h1>
-
-            <p id="pSilverDePara">
-                Você está visualizando os DePara's criados, clique em editar para modificá-los.
-            </p>
-
-            <div id="alinhamentos">
-                <h2 id="h2SilverDePara">Nome do arquivo:</h2>
-                <p id="parchive" v-text="nameFile"></p>
-            </div>
-
-            <div v-if="tabelas.length > 0">
-                <div v-for="(tabela, tableIndex) in tabelas" :key="tableIndex" id="table-container"
-                    style="overflow-x: auto">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th v-for="(head, index) in headTabela" :key="index">
-                                    {{ head }}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(item, itemIndex) in tabela.data" :key="itemIndex"
-                                :class="{ 'even-row': itemIndex % 2 === 0, 'odd-row': itemIndex % 2 !== 0 }">
-                                <td>
-                                    <span>{{ item.metadado }}</span>
-                                </td>
-                                <td>
-                                    <span>{{ item.valorDe }}</span>
-                                </td>
-                                <td>
-                                    <span>{{ item.igualA }}</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="buttons">
-                <a href="navegation.html">
-                    <button id="btnVoltar">Voltar</button>
-                </a>
-                <a href="silver-zone-editar-depara.html">
-                    <button id="btnEditar">Editar</button>
-                </a>
-            </div>
-        </main>
-    </div>
-
-    <script>
-        const app = new Vue({
-            el: "#app",
-            data: {
-                nameFile: "",
-                userFile: "",
-                tabelas: [],
-                listaDosMetadados: [],
-                headTabela: [
-                    "Metadado",
-                    "O valor de:",
-                    "É igual a:",
-                ],
-            },
-            computed: {
-                deslogar() {
-                    logoutUser(sessionStorage.getItem("usuario"))
-                    sessionStorage.removeItem("usuario")
-
-                    Swal.fire({
-                        title: "Deseja realmente sair?",
-                        showDenyButton: true,
-                        confirmButtonText: `Sim`,
-                        denyButtonText: `Não`,
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "../../public/index.html";
-                        }
-                    });
-                },
-                dataFiltrada() {
-                    return this.data.filter((item) => item.ativo);
-                },
-            },
-            mounted() {
-                this.nameFile = localStorage.getItem("fileName") || "";
-                this.user = sessionStorage.getItem("usuario") || "";
-                this.cnpj = localStorage.getItem("cnpjFile");
-                this.visualizarDeParasCriados();
-                console.log(this.nameFile, this.user, this.cnpj)
-            },
-            methods: {
-                visualizarDeParasCriados() {
-                    const objetoParaEnviar = {
-                        email: this.user,
-                        arquivo: this.nameFile,
-                        cnpj: this.cnpj,
-                    };
-
-                    fetch("http://localhost:8080/silver/visualize", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
-                        },
-                        body: JSON.stringify(objetoParaEnviar),
-                    })
-                        .then((response) => {
-                            if (!response.ok) {
-                                throw new Error("Erro na requisição: " + response.status);
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log("Dados recebidos:", JSON.stringify(data, null, 2));
-                            if (data && data.response && Array.isArray(data.response.metadados)) {
-                                this.listaDosMetadados = data.response.metadados;
-                                this.tabelas = this.listaDosMetadados.map(metadado => ({
-                                    data: metadado.dePara.map(dePara => ({
-                                        metadado: metadado.nome,
-                                        valorDe: dePara.de,
-                                        igualA: dePara.para,
-                                    })),
-                                }));
-                            } else {
-                                throw new Error("Resposta da requisição inválida");
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Erro ao visualizar metadados:", error);
-                        });
-                },
-            }
-        });
-    </script>
-</body>
-
-</html>
-~~~~~
+  ~~~~html
+  <!DOCTYPE html>
+  <html lang="pt-br">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="../utils/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script src="../utils/logout.js"></script>
+      <link rel="stylesheet" href="../assets/style/silver-zone-visualizar-depara.css">
+      <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+      <title>Silver Zone - Visualizar DePara</title>
+      <link rel="shortcut icon" href="../assets/images/favicon.ico">
+  
+  </head>
+  
+  <body>
+      <div id="app">
+          <header>
+              <img src="../assets/images/logo-dom-rock.png" alt="logo-dom-rock" id="logo" />
+              <nav>
+                  <a href="../pages/home.html">Home</a>
+                  <a @click="deslogar()">
+                      <span class="material-symbols-outlined">logout</span>
+                  </a>
+              </nav>
+          </header>
+  
+          <main>
+              <h1 id="h1SilverDePara">Visualizar DePara - Silver Zone</h1>
+  
+              <p id="pSilverDePara">
+                  Você está visualizando os DePara's criados, clique em editar para modificá-los.
+              </p>
+  
+              <div id="alinhamentos">
+                  <h2 id="h2SilverDePara">Nome do arquivo:</h2>
+                  <p id="parchive" v-text="nameFile"></p>
+              </div>
+  
+              <div v-if="tabelas.length > 0">
+                  <div v-for="(tabela, tableIndex) in tabelas" :key="tableIndex" id="table-container"
+                      style="overflow-x: auto">
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th v-for="(head, index) in headTabela" :key="index">
+                                      {{ head }}
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr v-for="(item, itemIndex) in tabela.data" :key="itemIndex"
+                                  :class="{ 'even-row': itemIndex % 2 === 0, 'odd-row': itemIndex % 2 !== 0 }">
+                                  <td>
+                                      <span>{{ item.metadado }}</span>
+                                  </td>
+                                  <td>
+                                      <span>{{ item.valorDe }}</span>
+                                  </td>
+                                  <td>
+                                      <span>{{ item.igualA }}</span>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+              <div id="buttons">
+                  <a href="navegation.html">
+                      <button id="btnVoltar">Voltar</button>
+                  </a>
+                  <a href="silver-zone-editar-depara.html">
+                      <button id="btnEditar">Editar</button>
+                  </a>
+              </div>
+          </main>
+      </div>
+  
+      <script>
+          const app = new Vue({
+              el: "#app",
+              data: {
+                  nameFile: "",
+                  userFile: "",
+                  tabelas: [],
+                  listaDosMetadados: [],
+                  headTabela: [
+                      "Metadado",
+                      "O valor de:",
+                      "É igual a:",
+                  ],
+              },
+              computed: {
+                  deslogar() {
+                      logoutUser(sessionStorage.getItem("usuario"))
+                      sessionStorage.removeItem("usuario")
+  
+                      Swal.fire({
+                          title: "Deseja realmente sair?",
+                          showDenyButton: true,
+                          confirmButtonText: `Sim`,
+                          denyButtonText: `Não`,
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                              window.location.href = "../../public/index.html";
+                          }
+                      });
+                  },
+                  dataFiltrada() {
+                      return this.data.filter((item) => item.ativo);
+                  },
+              },
+              mounted() {
+                  this.nameFile = localStorage.getItem("fileName") || "";
+                  this.user = sessionStorage.getItem("usuario") || "";
+                  this.cnpj = localStorage.getItem("cnpjFile");
+                  this.visualizarDeParasCriados();
+                  console.log(this.nameFile, this.user, this.cnpj)
+              },
+              methods: {
+                  visualizarDeParasCriados() {
+                      const objetoParaEnviar = {
+                          email: this.user,
+                          arquivo: this.nameFile,
+                          cnpj: this.cnpj,
+                      };
+  
+                      fetch("http://localhost:8080/silver/visualize", {
+                          method: "POST",
+                          headers: {
+                              "Content-Type": "application/json",
+                              'Authorization': `Bearer ` + sessionStorage.getItem("authToken"),
+                          },
+                          body: JSON.stringify(objetoParaEnviar),
+                      })
+                          .then((response) => {
+                              if (!response.ok) {
+                                  throw new Error("Erro na requisição: " + response.status);
+                              }
+                              return response.json();
+                          })
+                          .then(data => {
+                              console.log("Dados recebidos:", JSON.stringify(data, null, 2));
+                              if (data && data.response && Array.isArray(data.response.metadados)) {
+                                  this.listaDosMetadados = data.response.metadados;
+                                  this.tabelas = this.listaDosMetadados.map(metadado => ({
+                                      data: metadado.dePara.map(dePara => ({
+                                          metadado: metadado.nome,
+                                          valorDe: dePara.de,
+                                          igualA: dePara.para,
+                                      })),
+                                  }));
+                              } else {
+                                  throw new Error("Resposta da requisição inválida");
+                              }
+                          })
+                          .catch((error) => {
+                              console.error("Erro ao visualizar metadados:", error);
+                          });
+                  },
+              }
+          });
+      </script>
+  </body>
+  
+  </html>
+  ~~~~~
 </details>
 
 ### 5. **Desenvolvimento da Funcionalidade: Upload direto de CSV na etapa “de/para”
-   - Adicionei funcionalidade que permite o carregamento direto de arquivos CSV no processo de configuração “de/para”, melhorando a fluidez do uso.
+   - Implementei funcionalidade que permite o carregamento direto de arquivos CSV no processo de configuração "de/para", melhorando a fluidez e eficiência do processo de configuração.
 
 <details>
   <summary>Detalhes do modal</summary>
   
-~~~~html
-<dialog id="uploadModal" class="modal">
-                <form class="modal-content" @submit.prevent="submitForm" enctype="multipart/form-data" @dragover.prevent
-                    @drop="handleDrop">
-                    <div class="alinhar">
-                        <span id="closeUploadModal" class="close">&times;</span>
-                        <h1>Upload de Arquivo</h1>
-                    </div>
-                    <div class="camposInput">
-                        <div class="inputGroup">
-                            <label for="cabecalhoDropdown">
-                                O Arquivo tem cabeçalho?
-                            </label>
-                            <br />
-                            <select id="cabecalhoDropdown" v-model="cabecalho">
-                                <option value="true">Sim</option>
-                                <option value="false">Não</option>
-                            </select>
-                        </div>
-                        <div class="inputGroup">
-                            <label for="delimitadorDropdown">
-                                Delimitador das Colunas:
-                            </label>
-                            <br />
-                            <select id="delimitadorDropdown" v-model="delimiter">
-                                <option value=",">Vírgula (,)</option>
-                                <option value=".">Ponto (.)</option>
-                                <option value="/">Barra (/)</option>
-                                <option value=";">Ponto e Vírgula (;)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <input type="file" name="csvfile" accept=".csv, .xlsx" hidden id="fileInput"
-                        @change="updateUploadArea" />
-                    <div id="campoUpload">
-                        <label for="fileInput">
-                            <div id="uploadArea">
-                                <img src="../assets/images/csv-azul.png" alt="csv-azul" />
-                                <h2>{{ fileName || 'Clique para selecionar um arquivo' }}</h2>
-                                <p>{{ paragraph || 'ou arraste e solte aqui' }}</p>
-                            </div>
-                        </label>
-                    </div>
-                    <div id="buttonsModal">
-                        <button type="submit" id="btnUpload">
-                            Fazer Upload
-                        </button>
-                    </div>
-                </form>
-            </dialog>
-~~~~~
+  ~~~~html
+  <dialog id="uploadModal" class="modal">
+                  <form class="modal-content" @submit.prevent="submitForm" enctype="multipart/form-data" @dragover.prevent
+                      @drop="handleDrop">
+                      <div class="alinhar">
+                          <span id="closeUploadModal" class="close">&times;</span>
+                          <h1>Upload de Arquivo</h1>
+                      </div>
+                      <div class="camposInput">
+                          <div class="inputGroup">
+                              <label for="cabecalhoDropdown">
+                                  O Arquivo tem cabeçalho?
+                              </label>
+                              <br />
+                              <select id="cabecalhoDropdown" v-model="cabecalho">
+                                  <option value="true">Sim</option>
+                                  <option value="false">Não</option>
+                              </select>
+                          </div>
+                          <div class="inputGroup">
+                              <label for="delimitadorDropdown">
+                                  Delimitador das Colunas:
+                              </label>
+                              <br />
+                              <select id="delimitadorDropdown" v-model="delimiter">
+                                  <option value=",">Vírgula (,)</option>
+                                  <option value=".">Ponto (.)</option>
+                                  <option value="/">Barra (/)</option>
+                                  <option value=";">Ponto e Vírgula (;)</option>
+                              </select>
+                          </div>
+                      </div>
+                      <input type="file" name="csvfile" accept=".csv, .xlsx" hidden id="fileInput"
+                          @change="updateUploadArea" />
+                      <div id="campoUpload">
+                          <label for="fileInput">
+                              <div id="uploadArea">
+                                  <img src="../assets/images/csv-azul.png" alt="csv-azul" />
+                                  <h2>{{ fileName || 'Clique para selecionar um arquivo' }}</h2>
+                                  <p>{{ paragraph || 'ou arraste e solte aqui' }}</p>
+                              </div>
+                          </label>
+                      </div>
+                      <div id="buttonsModal">
+                          <button type="submit" id="btnUpload">
+                              Fazer Upload
+                          </button>
+                      </div>
+                  </form>
+              </dialog>
+  ~~~~~
 </details>
 
 <details>
@@ -2201,45 +2203,25 @@ useSSL=false
 <br>
 
 <h2>Conhecimentos Obtidos</h2>
-<p align="justify">A experiência me proporcionou uma visão completa do ciclo de vida de desenvolvimento, participação em metodologias ágeis, o desenvolvimento de interfaces intuitivas e responsivas com foco em experiência do usuário e a colaboração em equipe e adaptação a padrões de projeto frontend.</p>
+<p align="justify">Durante o desenvolvimento desta aplicação web, a experiência me proporcionou uma compreensão completa sobre desenvolvimento frontend moderno — desde a prototipação de interfaces, passando pela implementação de funcionalidades interativas, integração com APIs, até o trabalho em equipe e a entrega de um produto responsivo e funcional.</p>
 
 <h3>Hard Skills Desenvolvidas</h3>
   <table>
     <tr>
-      <th width="400px">Tecnologia/Metodologia</th>
+      <th width="400px">Aprendizado</th>
       <th width="1000px">Descrição</th>
     </tr>
     <tr>
-      <td>HTML5</td>
-      <td>Possuo domínio avançado de HTML5, sendo capaz de estruturar páginas web seguindo as melhores práticas de semântica e acessibilidade. Continuo aprimorando minhas habilidades em situações mais complexas.</td>
+      <td>Desenvolvimento Frontend com Vue.js</td>
+      <td align="justify">Aprendi a desenvolver aplicações web interativas e dinâmicas utilizando Vue.js, incluindo gerenciamento de componentes, roteamento e integração com APIs REST.</td>
     </tr>
     <tr>
-      <td>CSS3</td>
-      <td>Tenho um bom entendimento de CSS3, sendo capaz de estilizar páginas e aplicar conceitos de responsividade. Estou desenvolvendo mais habilidade em técnicas avançadas, como animações e pré-processadores.</td>
+      <td>Integração Frontend-Backend (Vue.js + Spring Boot)</td>
+      <td align="justify">Desenvolvi habilidades para integrar interfaces frontend com APIs backend, garantindo comunicação eficaz e tratamento adequado de dados entre as camadas da aplicação.</td>
     </tr>
     <tr>
-      <td>JavaScript</td>
-      <td>Tenho conhecimento intermediário de JavaScript, compreendendo conceitos básicos e algumas bibliotecas. Ainda estou aprimorando minha capacidade de escrever códigos mais otimizados e lidar com aplicações mais complexas.</td>
-    </tr>
-    <tr>
-      <td>Vue.js</td>
-      <td>Já consigo utilizar Vue.js para desenvolver aplicações interativas e dinâmicas, mas ainda estou fortalecendo minha experiência com funcionalidades avançadas, como Vuex e roteamento.</td>
-    </tr>
-    <tr>
-      <td>ClickUp</td>
-      <td>Tenho boa habilidade com o ClickUp, usando a ferramenta para organização de tarefas e acompanhamento de projetos. Continuo explorando formas mais eficientes de usar automações e relatórios.</td>
-    </tr>
-    <tr>
-      <td>Figma</td>
-      <td>Utilizo o Figma de maneira eficiente para prototipar e criar interfaces atrativas e funcionais. Ainda estou aprofundando meus conhecimentos em funcionalidades mais avançadas da ferramenta.</td>
-    </tr>
-    <tr>
-      <td>Visual Studio Code</td>
-      <td>Tenho uma boa base para usar o VS Code como minha principal IDE para desenvolvimento frontend, mas continuo explorando configurações e extensões mais específicas para aumentar minha produtividade.</td>
-    </tr>
-    <tr>
-      <td>Postman</td>
-      <td>Sei utilizar o Postman para testar e documentar APIs, mas ainda estou desenvolvendo fluência em funcionalidades avançadas, como criação de scripts e coleções complexas.</td>
+      <td>Design de Interface e Prototipação (Figma + Vue.js)</td>
+      <td align="justify">Aprimorei protótipos funcionais e estabeleci padrões visuais utilizados por toda a equipe, garantindo consistência visual e melhorando a usabilidade da aplicação web.</td>
     </tr>
   </table>
 
@@ -2251,19 +2233,19 @@ useSSL=false
     </tr>
     <tr>
       <td>Proatividade</td>
-      <td>Sou proativo em buscar soluções e assumir responsabilidades, mas sigo aprimorando minha capacidade de antecipar problemas em contextos mais amplos e estratégicos.</td>
+      <td align="justify">Defini padrões de interface frontend e revisei implementações da equipe, garantindo consistência visual e técnica no produto final da aplicação web.</td>
     </tr>
     <tr>
       <td>Autonomia e Visão de Negócio</td>
-      <td>Tenho alta autonomia para executar tarefas e alinhar decisões com os objetivos do projeto, entendendo bem como cada funcionalidade impacta o negócio como um todo.</td>
+      <td align="justify">Trabalhando diretamente com requisitos de configuração de dados, desenvolvi a capacidade de entender as necessidades do usuário final, sugerindo melhorias de usabilidade que agregaram valor significativo ao sistema.</td>
     </tr>
     <tr>
       <td>Comunicação e Colaboração</td>
-      <td>Comunico-me bem com a equipe e contribuo para um ambiente colaborativo, mas estou trabalhando para melhorar em contextos que exigem maior clareza e persuasão.</td>
+      <td align="justify">Mantive comunicação clara e objetiva com a equipe de desenvolvimento, especialmente na integração entre frontend e backend, contribuindo para o bom andamento do projeto.</td>
     </tr>
     <tr>
       <td>Organização, Planejamento e Entrega</td>
-      <td>Tenho um bom planejamento e entrego tarefas dentro dos prazos acordados, sempre priorizando qualidade. Estou buscando melhorar em gestão de prioridades e adaptação a mudanças.</td
+      <td align="justify">Mantive o controle do andamento das funcionalidades frontend, participei ativamente do planejamento das entregas e garanti que os prazos fossem cumpridos com qualidade.</td
     </tr>
  </table>
 </details>
@@ -2284,33 +2266,32 @@ useSSL=false
 
   <summary align="center">SABER MAIS SOBRE O PROJETO</summary>
   
-  <h2>Objetivo</h2>
+  <h2>Objetivos do Sistema</h2>
 
 #### Após a finalização do projeto pela equipe iNine:
-* O sistema permitirá o cadastro e a gestão de clientes, soluções e usuários autorizados, com autenticação segura por login e senha.
-* Os usuários poderão realizar upload de dados, com validação automática da estrutura, incluindo campos, tipos e regras de negócio.
-* O sistema contará com um dashboard analítico que fornecerá uma visão quantitativa e abrangente das configurações realizadas e dos dados coletados.
-* Os usuários poderão interagir com o mapa utilizando funções como arrastar, zoom e visualização de pinos para pontos de parada.
-* Filtros estarão disponíveis para refinar os dados por pessoa, período de tempo (via calendário), seções geográficas e tags rápidas (como "Hoje" e "Últimos 3 dias").
-* O sistema permitirá a criação, visualização e exclusão de seções geográficas com formas geométricas para facilitar a análise por regiões específicas.
-* O usuário poderá visualizar relatórios detalhados e traçar rotas de pessoas ou ativos no mapa, com base nos filtros aplicados.
-* A solução será escalável, robusta e de alta disponibilidade, garantindo o processamento e acesso eficiente a grandes volumes de dados de geolocalização em tempo real.
+* Cadastro e gestão de clientes, soluções e usuários autorizados, com autenticação segura por login e senha;
+* Upload de dados com validação automática da estrutura, incluindo campos, tipos e regras de negócio;
+* Dashboard analítico que fornece uma visão quantitativa e abrangente das configurações realizadas e dos dados coletados;
+* Interação com mapa utilizando funções como arrastar, zoom e visualização de pinos para pontos de parada;
+* Filtros para refinar dados por pessoa, período de tempo (via calendário), seções geográficas e tags rápidas;
+* Criação, visualização e exclusão de seções geográficas com formas geométricas para análise por regiões específicas;
+* Visualização de relatórios detalhados e traçado de rotas de pessoas ou ativos no mapa;
+* Solução escalável, robusta e de alta disponibilidade para processamento eficiente de grandes volumes de dados de geolocalização em tempo real.
 
 <br>
 
 <h2>Tecnologias Utilizadas no Projeto</h2>
-<p align="justify"><strong>Java JDK 21.0.2:</strong> Linguagem utilizada para o desenvolvimento do backend.</p>
-<p align="justify"><strong>Spring Boot 3.3.2:</strong> Framework utilizado para estruturar e agilizar o desenvolvimento do backend.</p>
-<p align="justify"><strong>Oracle:</strong> Sistema Gerenciador de Banco de Dados (SGBD) utilizado para armazenar e gerenciar os dados da aplicação.</p>
-<p align="justify"><strong>Vue.js 2.6.12:</strong> Framework JavaScript utilizado para o desenvolvimento do frontend.</p>
+<p align="justify"><strong>Java JDK 21.0.2:</strong> Linguagem utilizada para desenvolvimento do backend.</p>
+<p align="justify"><strong>Spring Boot 3.3.2:</strong> Framework utilizado para desenvolvimento do backend.</p>
+<p align="justify"><strong>Oracle:</strong> Sistema Gerenciador de Banco de Dados utilizado para armazenar as informações do sistema.</p>
+<p align="justify"><strong>Vue.js 2.6.12:</strong> Framework utilizado para desenvolvimento do frontend.</p>
 <p align="justify"><strong>Node.js 22.15.0:</strong> Ambiente de execução JavaScript utilizado para suporte ao frontend e gerenciamento de pacotes.</p>
-<p align="justify"><strong>YouTrack:</strong> Ferramenta utilizada para o gerenciamento ágil do projeto, incluindo tarefas e sprints.</p>
-<p align="justify"><strong>Figma:</strong> Ferramenta utilizada para o design e prototipação das interfaces da aplicação.</p>
-<p align="justify"><strong>IntelliJ IDEA:</strong> IDE utilizada no desenvolvimento backend.</p>
-<p align="justify"><strong>Visual Studio Code:</strong> IDE utilizada no desenvolvimento frontend.</p>
-<p align="justify"><strong>Postman:</strong> Ferramenta utilizada para criação, teste e documentação de APIs REST.</p>
+<p align="justify"><strong>YouTrack:</strong> Ferramenta usada para a gestão ágil do projeto e acompanhamento das tarefas.</p>
+<p align="justify"><strong>Figma:</strong> Ferramenta para prototipação das interfaces e definição de padrões visuais.</p>
+<p align="justify"><strong>IntelliJ IDEA:</strong> IDE utilizada para codificação e organização do projeto backend.</p>
+<p align="justify"><strong>Visual Studio Code:</strong> IDE utilizada para codificação e organização do projeto frontend.</p>
+<p align="justify"><strong>Postman:</strong> Ferramenta utilizada para criar, compartilhar, testar e documentar APIs.</p>
 
-<!-- Badges -->
 <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white">
 <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white">
 <img src="https://img.shields.io/badge/oracle-%23F80000.svg?style=for-the-badge&logo=oracle&logoColor=white">
@@ -2327,10 +2308,10 @@ useSSL=false
 
 <h2>Minhas Contribuições</h2>
 
- > Contribuí ativamente como desenvolvedor frontend, desempenhando um papel crucial na arquitetura e estilização das páginas, como também a prototipação das telas.
+ > Contribuí ativamente como desenvolvedor frontend, desempenhando um papel crucial na arquitetura e estilização das páginas, além da prototipação das telas e implementação de funcionalidades relacionadas ao sistema de geolocalização.
 
 ### 1. **Prototipação e criação das telas**
-   - descrever...
+   - Participei ativamente do design e da prototipação das telas no Figma, além da criação e padronização das interfaces em Vue.js, garantindo uma experiência de usuário intuitiva e responsiva para o sistema de rastreamento.
 
 <details>
   <summary>Detalhes 1</summary>
@@ -2357,69 +2338,49 @@ useSSL=false
 <br>
 
 <h2>Conhecimentos Obtidos</h2>
-<p align="justify">Durante o desenvolvimento dessa aplicação, a experiência me proporcionou uma compreensão abrangente do ciclo de vida do desenvolvimento de software, desde a gestão ágil do projeto até a implementação eficaz no frontend, o trabalho em equipe e todo o conhecimento que adquiri sobre experiência de usuário para ter telas bem intuitivas e fáceis de usar e entender.</p>
+<p align="justify">Durante o desenvolvimento desta aplicação de geolocalização, a experiência me proporcionou uma compreensão aprofundada sobre desenvolvimento de sistemas de rastreamento em tempo real — desde a integração com APIs de mapas, passando pela implementação de interfaces responsivas para visualização de dados geográficos, até o trabalho com grandes volumes de dados IoT e a entrega de uma solução escalável e eficiente.</p>
 
-<h3>Hard Skills</h3>
+<h3>Hard Skills Desenvolvidas</h3>
   <table>
     <tr>
-      <th width="300px">Tecnologia/Metodologia</th>
-      <th width="600px">Classificação</th>
+      <th width="400px">Aprendizado</th>
+      <th width="1000px">Descrição</th>
     </tr>
     <tr>
-      <td>Oracle</td>
-      <td>Trabalhei com o banco de dados Oracle, realizando modelagem relacional, criação de tabelas e execução de queries SQL para persistência e consulta de dados.</td>
+      <td>Desenvolvimento de Sistemas de Geolocalização</td>
+      <td align="justify">Aprendi a desenvolver interfaces para sistemas de rastreamento em tempo real, incluindo integração com APIs de mapas, visualização de rotas e implementação de funcionalidades de filtros geográficos.</td>
     </tr>
     <tr>
-      <td>Vue.js (2.6.12)</td>
-      <td>Desenvolvi interfaces interativas utilizando Vue.js, com ênfase em componentes reutilizáveis. Estou evoluindo no uso de Vue Router e Vuex.</td>
+      <td>Integração com Banco de Dados Oracle</td>
+      <td align="justify">Desenvolvi habilidades para trabalhar com Oracle Database, incluindo modelagem de dados para sistemas de geolocalização e otimização de consultas para grandes volumes de dados IoT.</td>
     </tr>
     <tr>
-      <td>Node.js (22.15.0)</td>
-      <td>Utilizei Node.js como ambiente de execução para ferramentas de frontend, gerenciando dependências e scripts via npm.</td>
-    </tr>
-    <tr>
-      <td>YouTrack</td>
-      <td>Utilizei o YouTrack para acompanhamento de tarefas, organização de sprints e gestão ágil do projeto.</td>
-    </tr>
-    <tr>
-      <td>Figma</td>
-      <td>Participei do design de interfaces utilizando o Figma, contribuindo para a criação de protótipos funcionais e alinhados à experiência do usuário.</td>
-    </tr>
-    <tr>
-      <td>IntelliJ IDEA</td>
-      <td>Utilizei o IntelliJ IDEA como IDE principal para desenvolvimento backend, aproveitando seus recursos avançados de refatoração e integração com o Spring.</td>
-    </tr>
-    <tr>
-      <td>Visual Studio Code</td>
-      <td>Utilizei o VS Code para desenvolvimento frontend, com extensões e configurações personalizadas para Vue.js.</td>
-    </tr>
-    <tr>
-      <td>Postman</td>
-      <td>Utilizei o Postman para testar e documentar APIs, validando requisições HTTP e simulando fluxos completos de consumo das rotas backend.</td>
+      <td>Interface Responsiva para Visualização de Dados (Vue.js + Mapas)</td>
+      <td align="justify">Aprimorei o desenvolvimento de interfaces responsivas para visualização de dados geográficos, garantindo uma experiência de usuário fluida em diferentes dispositivos e tamanhos de tela.</td>
     </tr>
   </table>
 
-<h3>Soft Skills </h3>
+<h3>Soft Skills Desenvolvidas</h3>
   <table>
     <tr>
-      <th width="300px">Habilidade</th>
-      <th width="600px">Classificação</th>
+      <th width="400px">Habilidade</th>
+      <th width="1000px">Descrição</th>
     </tr>
     <tr>
       <td>Proatividade</td>
-      <td>descrever...</td>
+      <td align="justify">Identifiquei e implementei melhorias na interface de usuário para sistemas de geolocalização, propondo soluções inovadoras para visualização de dados em tempo real e otimização da experiência do usuário.</td>
     </tr>
     <tr>
       <td>Autonomia e Visão de Negócio</td>
-      <td>descrever...</td>
+      <td align="justify">Trabalhando com requisitos de rastreamento IoT, desenvolvi a capacidade de compreender as necessidades do mercado de geolocalização, sugerindo funcionalidades que agregaram valor ao produto final.</td>
     </tr>
     <tr>
       <td>Comunicação e Colaboração</td>
-      <td>descrever...</td>
+      <td align="justify">Mantive comunicação eficaz com a equipe multidisciplinar, especialmente na integração entre sistemas frontend e backend para processamento de dados de geolocalização em tempo real.</td>
     </tr>
     <tr>
       <td>Organização, Planejamento e Entrega</td>
-      <td>descrever...</td
+      <td align="justify">Gerenciei eficientemente o desenvolvimento de funcionalidades complexas relacionadas a mapas e visualização de dados, garantindo entregas pontuais e com alta qualidade técnica.</td>
     </tr>
  </table>
 </details>
