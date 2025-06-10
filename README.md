@@ -94,23 +94,98 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <img src="">
 </details>
 
-### 2. **Conexão com o banco de dados**
-   - Implementei a configuração de conexão com o banco de dados MySQL, garantindo a persistência dos dados inseridos nas interfaces e sua recuperação adequada.
-
-<details>
-  <summary>Detalhes</summary>
-  
-  ~~~~db.properties
-  ~~~~~
-</details>
-
-### 3. **Criação das telas com HTML e CSS**
+### 2. **Criação das telas com HTML e CSS**
    - Contribuí na implementação de diversas páginas da aplicação com HTML5 e CSS3, estruturando o conteúdo e aplicando estilos responsivos e acessíveis.
 
 <details>
   <summary>Detalhes menu.html</summary>
   
   ~~~~html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="shortcut icon" href="../fotos/falcon-favicon.png" type="image/x-icon">
+    <title>Menu</title>
+
+</head>
+<body>
+    <div class="barra-home">
+        <div class="logo-home">
+            <img src="../fotos/logo_falcon_200.png" alt="logo_falcon_200" width="150px" height="150px">
+        </div>
+        <div class="nome-home" id="nome_home"><h1></h1></div>
+        <div class="bt-home">
+            <button class="bt-voltar">Voltar</button>
+            <button class="bt-sair" onclick="go_to('login.html')">Sair</button>
+        </div>
+    </div>
+    <div class="main-instrutor">
+        <div class="center-instrutor">
+            <div class="botoes">
+                <h1 id="nome usuário"></h1>
+                <button class="botao-cadastrar" id="botao-cadastrar" onclick="go_to('cadastrar.html')">CADASTRAR</button>
+                <button class="botao-avaliar" id="botao-avaliar" onclick="go_to('avaliar.html')">AVALIAR</button>
+                <button class="botao-historico" id="botao-historico" onclick="go_to('historico.html')">HISTÓRICO</button>
+                <button class="botao-grafico" id="botao-grafico" onclick="go_to('graficos.html')">GRÁFICOS</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script>
+        
+        // Para colocar o nome na Barra de Menu
+        eel.Retorna_info('user')(function (info_do_usuario){
+            var nome_home = document.getElementById('nome_home')
+            nome_home.innerHTML = `<h1>${info_do_usuario['Nome']}</h1>`
+        })
+        
+        function go_to(url) {
+            window.location.replace(url);
+        }
+
+        function VerificaAcesso(botao){
+            eel.Retorna_info("user")(function(userInfo){
+                let usuarioAcesso = userInfo['Cargo'];
+               
+                if(usuarioAcesso == 'Instrutor' || usuarioAcesso == 'Administrador'){
+                    if(botao == "cadastrar"){
+                        go_to(botao+'.html');
+                    }
+                }else{
+                    window.alert("Com o seu cargo de " + usuarioAcesso + " você não pode acessar a tela de Cadastro!")
+                }                 
+            });
+        }
+
+        eel.Retorna_info("user")(function(userInfo){
+            cadastrar_lista = ['Administrador', 'Instrutor']
+            graficos_lista  = ['Administrador', 'Fake Client']
+            avaliar_lista   = ['Administrador']
+            let cargo = userInfo['Cargo']
+            var acesso_cadastrar = cadastrar_lista.includes(cargo) ? true : false
+            var acesso_grafico   = graficos_lista.includes(cargo) ? true : false
+            var acesso_avaliar   = avaliar_lista.includes(cargo) ? true : false
+            
+            if (acesso_cadastrar == false){
+                document.getElementById('botao-cadastrar').style.display = 'none'
+            }
+
+            if (acesso_grafico == false){
+                document.getElementById('botao-grafico').style.display = 'none'
+            }
+
+            if (acesso_avaliar == true){
+                document.getElementById('botao-avaliar').style.display = 'none'
+            }
+        })
+
+    </script>
+</body>
+</html>
   ~~~~~
 </details>
 
@@ -118,6 +193,191 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes menu.css</summary>
   
   ~~~~css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body{
+    margin: 0; /* Margem */
+    font-family: 'Noto Sans', sans-serif; /* Fontes */
+}
+
+body * {
+    box-sizing: border-box; /* Dimensionamento de Caixa */
+}
+
+.main-instrutor{
+    width: 100%; /* Largura */
+    height: 100vh; /* Altura */
+    background: #dcdcdc; /* Fundo */
+    display: center; /* Exibição */
+    justify-content: center; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+}
+
+.barra-home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #a9a9a9;
+}
+
+.nome-home{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.bt-home{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.bt-voltar{
+    width: 100%;
+    padding: 10px;
+}
+
+.bt-sair{
+    width: 100%;
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.center-instrutor{
+    width: 100%; /* Largura */
+    height: 100%; /* Altura */
+    display: flex; /* Exibição */
+    justify-content: center; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+}
+
+.botoes{
+    width: 60%; /* Largura */
+    display: flex; /* Exibição */
+    justify-content: center; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+    flex-direction: column; /* Direção Flexível */
+    padding: 30px 35px; /* Preenchimento */
+    background: #a9a9a9; /* Fundo */
+    border-radius: 15px; /* Raio da Borda */
+    box-shadow: 0px 10px 40px #c0c0c0; /* Sombra da Caixa */
+    margin-bottom: 150px; /* Margem */
+}
+
+.botoes > h1{
+    color: black; /* Cor */
+    font-weight: 800; /* Espessura da Fonte */
+    margin: 0; /* Margem */
+}
+
+.textfield{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.textfield > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    color: #000;
+    font-size: 12pt;
+    box-shadow: 0px 5px 20px #c0c0c0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > label{
+    color: #000; /* Cor */
+    margin-bottom: 10px; /* Margem do Botão */
+}
+
+.textfield > input::placeholder{
+    color: #000; /* Cor */
+}
+
+.botao-cadastrar{
+    width: 50%; /* Largura */
+    padding: 16px 0px; /* Preenchimento */
+    margin: 15px; /* Margem */
+    border: none; /* Borda */
+    border-radius: 8px; /* Raio da Borda */
+    outline: none; /* Contorno */
+    text-transform: uppercase; /* Transformação do Texto */
+    font-weight: 800; /* Espessura da Fonte */
+    letter-spacing: 2px; /* Espaçamento entre Letras */
+    color: #000; /* Cor */
+    background: #e49632; /* Fundo */
+    cursor: pointer; /* Cursor */
+}
+
+.botao-avaliar{
+    width: 50%;
+    padding: 16px 0px;
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #000;
+    background: #e49632;
+    cursor: pointer;
+}
+
+.botao-historico{
+    width: 50%;
+    padding: 16px 0px;
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #000;
+    background: #e49632;
+    cursor: pointer;
+}
+
+.botao-grafico{
+    width: 50%;
+    padding: 16px 0px;
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #000;
+    background: #e49632;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 950px){
+    .botoes{
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .main-instrutor{
+        flex-direction: column;
+    }
+    .center-instrutor{
+        width: 100%;
+        height: auto;
+    }
+}
   ~~~~~
 </details>
 
@@ -125,6 +385,67 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes login.html</summary>
   
   ~~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="shortcut icon" href="../fotos/falcon-favicon.png" type="image/x-icon">
+    <title>Login</title>
+
+</head>
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <h1> Informe seus dados<br>Para acessar o sistema</h1>
+            <img src="../fotos/logo_falcon.png" class="left-login-image" alt="Logo Falcon">
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <div class="textfield">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" id="user" name="usuário" placeholder="Usuário">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="pass" name="senha" placeholder="Senha">
+                </div>
+                <button class="btn-login" onclick="Fazer_login()">ACESSAR</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script>
+        eel.expose(go_to)
+        function go_to(url) {
+            window.location.replace(url);
+        }
+
+        function Fazer_login() {
+            let user = document.getElementById('user').value;
+            let pass = document.getElementById('pass').value;
+            eel.Fazer_login(user, pass)(function(login_correto){
+                if (login_correto) {
+                    go_to('menu.html')
+                }
+                else {
+                    window.alert('Usuário e/ou senha incorreto')
+                }
+            });
+        }
+
+        document.addEventListener('keypress', function(e){
+            if(e.which == 13){
+               Fazer_login()
+            }
+         })
+
+    </script>
+</body>
+</html>
   ~~~~~
 </details>
 
@@ -132,6 +453,141 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes login.css</summary>
   
   ~~~~css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+.main-login{
+    width: 100vw;
+    height: 100vh;
+    background: #dcdcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.left-login > h1{
+    font-size: 3vw;
+    color: #000;
+}
+
+.left-login-image{
+    width: 35vw;
+}
+
+.right-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #a9a9a9;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #c0c0c0;
+}
+
+.card-login > h1{
+    color: white;
+    font-weight: 800;
+    margin: 0;
+}
+
+.textfield{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.textfield > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    color: #000;
+    font-size: 12pt;
+    box-shadow: 0px 5px 20px #c0c0c0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > label{
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.textfield > input::placeholder{
+    color: #000;
+}
+
+.btn-login{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #000;
+    background: #e49632;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 950px){
+    .card-login{
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .main-login{
+        flex-direction: column;
+    }
+    .left-login > h1{
+        display: none;
+    }
+    .left-login{
+        width: 100%;
+        height: auto;
+    }
+    .right-login{
+        width: 100%;
+        height: auto;
+    }
+    .left-login-image{
+        width: 80vw;
+    }
+}
   ~~~~~
 </details>
 
@@ -139,6 +595,373 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes cadastrar.html</summary>
   
   ~~~~html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastrar.css">
+    <link rel="shortcut icon" href="../fotos/falcon-favicon.png" type="image/x-icon">
+    <script type="text\javascript" src="/eel.js"></script>
+    <title>Cadastro</title>
+</head>
+<body>  
+    <script>         
+    function ValidaAcesso(id){
+        eel.Retorna_info('user')(function(userInfo){
+            let usuarioAcesso = userInfo['Cargo'];
+
+            if(usuarioAcesso == 'Administrador'){
+                if(id == 'cdTurma' || id == "cdUsuario"){
+                    EsconderElementos(id);
+                }else{
+                    window.alert("Com o seu cargo de "+usuarioAcesso+" você não pode acessar esta funcionalidade!");
+                }
+            }
+            if(usuarioAcesso == 'Instrutor'){
+                if(id == 'cdTime' || id == "cdSprint" || id == 'cdUsuario'){
+                    EsconderElementos(id);
+                }else{
+                    window.alert("Com o seu cargo de "+usuarioAcesso+" você não pode acessar esta funcionalidade!");
+                }
+            }
+            
+        });  
+    }                  
+    
+    function EsconderElementos(id){
+        var lista_id = ['cdTurma', 'cdTime', 'cdSprint', 'cdUsuario'];
+        for(let posicao = 0; posicao <= 4; posicao++){
+            if(lista_id[posicao] === id){
+                document.getElementById(id).style.display = 'block';
+            }
+            else{
+                document.getElementById(lista_id[posicao]).style.display = "none";
+            }
+        }
+    }
+
+    function mostraValor(valor){
+        
+        if(valor == "Instrutor"){
+            document.getElementById('turma').style.display = 'block';
+            document.getElementById('time').style.display = 'none';
+        }
+        else if(valor == 'Fake Client'){
+            document.getElementById('turma').style.display = 'none';
+            document.getElementById('time').style.display = 'none';
+        }
+        else{
+            document.getElementById('turma').style.display = 'block';
+            document.getElementById('time').style.display = 'block';
+        }
+    }
+           
+    </script>
+    <div class="barra-home">
+        <div class="logo-home">
+            <img src="../fotos/logo_falcon_200.png" alt="logo_falcon_200" width="150px" height="150px">
+        </div>
+        <div class="nome-home" id="nome_home"></div>
+        <div class="bt-home">
+            <button class="bt-voltar" onclick="go_to('menu.html')">Voltar</button>
+            <button class="bt-sair" onclick="go_to('login.html')">Sair</button>
+        </div>
+    </div> 
+    <div class="main-cad">
+        <div class="left-cad">
+            <div class="botoes">
+                <h1>CADASTRO</h1>
+                <button class="botao-cadastrar" id="btnTurma" onclick="EsconderElementos('cdTurma')">CADASTRAR TURMA</button>
+                <button class="botao-cadastrar" id="btnTime" onclick="EsconderElementos('cdTime')">CADASTRAR TIME</button>
+                <button class="botao-cadastrar" id="btnUsuario" onclick="EsconderElementos('cdUsuario')">CADASTRAR USUÁRIO</button>
+                <button class="botao-cadastrar" id="btnSprint" onclick="EsconderElementos('cdSprint')">CADASTRAR SPRINT</button>
+            </div>
+        </div>
+        <div class="right-cad">
+            <div class="cadastrar-turma" id="cdTurma">
+                <h1>CADASTRAR TURMA</h1>
+                <div class="textfield">
+                    <label for="nome">Nome da Turma</label>
+                    <input type="text" id="cadastrar-turma" name="Turma123">
+                </div>
+                <div class="bt-cancelar-salvar">
+                    <button class="bt-cancelar-salvar" id="bt-cancelar" onclick="cancelaA()">Cancelar</button>
+                    <button class="bt-cancelar-salvar" id="bt-salvar" onclick="cadTurma()">Salvar</button>
+                </div>
+            </div>
+            <div class="cadastrar-time" id="cdTime">
+                <h1>CADASTRAR TIME</h1>
+                <div class="textfield">
+                    <label for="turma">Escolha a turma que o instrutor pertence:</label>
+                    <select class="textfield-turma" name="turma" id="selectTurma">
+                    </select>
+                </div>
+                <div class="textfield">
+                    <label for="nome">Nome do Time</label>
+                    <input type="text" id="timeCad" name="Time">
+                </div>
+                <div class="bt-cancelar-salvar">
+                    <button class="bt-cancelar-salvar" id="bt-cancelar" onclick="cancelaC()">Cancelar</button>
+                    <button class="bt-cancelar-salvar" id="bt-salvar" onclick="cadTime()">Salvar</button>
+                </div>
+            </div>    
+            <div class="cadastrar-usuario" id="cdUsuario">
+                <h1>CADASTRAR USUÁRIO</h1>
+                <div class="test">
+                    <label for="cargo">Cargo:</label>
+                    <select class="textfield-cargo" name="cargo" id="cargo" onchange="mostraValor(this.value)">
+                        <!-- <option value="Desenvolvedor">Desenvolvedor</option>
+                        <option value="Product Owner">Product Owner</option>
+                        <option value="Scrum Master">Scrum Master</option>
+                        <option value="Fake Client">Fake Client</option>
+                        <option value="Instrutor">Instrutor</option> -->
+                    </select>
+                </div>
+                <div class="test" id="turma">
+                    <label for="turma">Escolha a turma que o usuário pertence:</label>
+                    <select class="textfield-turma" id="turma-usuario" nome="turma">
+                    </select>
+                </div>
+                <div class="test1" id="time">
+                    <label for="time">Escolha o time que pertence:</label>
+                    <select class="textfield-time" id="time-usuario" name="time" >
+                        <option value="None"></option>
+                    </select>
+                </div>
+                <div class="textfield">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="usuário" name="Usuário">
+                </div>
+                <div class="textfield">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="Email" id="email">
+                </div>
+                <div class="textfield">
+                    <label for="senha-do-usuário">Crie uma senha:</label>
+                    <input type="text" id="senha-do-usuário">
+                </div>
+                <div class="bt-cancelar-salvar">
+                    <button class="bt-cancelar-salvar" id="bt-cancelar" onclick="cancelaD()">Cancelar</button>
+                    <button class="bt-cancelar-salvar" id="bt-salvar" onclick="cadUsuario()">Salvar</button>
+                </div>
+            </div>    
+            <div class="cadastrar-sprint" id="cdSprint">
+                <h1>CADASTRAR SPRINT</h1>
+                <div class="test2" id="usuario">
+                    <label for="turma">Escolha a turma que pertence:</label>
+                    <select class="textfield-turma" id="turma-usuario" nome="turma">
+                    </select>
+                </div>
+                <div class="textfield-sprint">
+                    <label for="nome">Coloque as datas de início e fim da Sprint</label>
+                    <div class="datas">      
+                        <div class="datas-início">
+                            <label for="início">Início:</label>
+                            <input type="date" id="sprint-inicio" name="Sprint" required>
+                            <span class="validity"></span>        
+                        </div>
+                        <div class="datas-fim">
+                            <label for="fim">Fim:</label>
+                            <input type="date" id="sprint-fim" name="Sprint" required>
+                            <span class="validity"></span>
+                        </div>
+                    </div>
+                    <button class="bt-add" type="submit">+</button>
+                </div>
+                <div class="bt-cancelar-salvar">
+                    <button class="bt-cancelar-salvar" id="bt-cancelar" onclick="cancelaE()">Cancelar</button>
+                    <button class="bt-cancelar-salvar" id="bt-salvar">Salvar</button>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <script type="text/javascript" src="/eel.js"></script>
+    <script>
+        function Esconder_elementos(lista_de_id){
+            lista_de_id.forEach(function(id){
+                document.getElementById(id).style.display = 'none'
+            })
+        }
+
+        // Para colocar o nome na Barra de Menu
+        eel.Retorna_info('user')(function (info_do_usuario){
+            var nome_home = document.getElementById('nome_home')
+            nome_home.innerHTML = `<h1>${info_do_usuario['Nome']}</h1>`
+
+            if (info_do_usuario['Cargo'] == 'Administrador'){
+                Esconder_elementos(['btnTime', 'btnSprint'])
+            }
+
+            else{// info_do_usuario['Cargo'] == 'Instrutor'
+                Esconder_elementos(['btnTurma'])
+            }
+        })
+        
+        function go_to(url) {
+            window.location.replace(url);
+        }
+        
+        var turma = document.getElementById("select-turma")
+
+        //select.options[select.options] = new Option('My option', 'My value');
+
+        function cadTurma(){
+            let a = document.getElementById("cadastrar-turma").value;
+            
+            eel.Cadastrar('turma', {'Turma': a}) (function (result){
+                window.alert(result[1])
+                if (result[0]){
+                    document.getElementById("cadastrar-turma").value=""
+                    Atualizar_turmas('selectTurma')
+                    Atualizar_turmas('turma-usuario')
+                }
+            })
+        }
+        function cadTime(){
+            let nomeTurma = document.getElementById("selectTurma").value;
+            let nomeTime = document.getElementById("timeCad").value;
+
+            eel.Cadastrar('time', {'Turma': nomeTurma, 'Time': nomeTime}) (function (result){
+                window.alert(result[1])
+                if(result[0]){
+                    document.getElementById("timeCad").value="";
+                    document.getElementById("selectTurma").value="";
+                    Atualizar_times('time-usuario')
+                }
+            })
+        
+        }
+        function cadInstrutor(){
+            let turma = document.getElementById("select-turma").value;
+            let nomeInstrutor = document.getElementById("nome-instrutor").value;
+            let email = document.getElementById("email-instrutor").value;
+            let senha = document.getElementById("senha-instrutor").value;
+
+            eel.Cadastrar('instrutor', {'Turma': turma, "Time": "", 'Nome': nomeInstrutor, 'Cargo': 'Instrutor', 'Email': email, 'Senha': senha}) (function (result){
+                window.alert(result[1])
+                if(result[0]){
+                    document.getElementById("select-turma").value = "";
+                    document.getElementById("nome-instrutor").value = "";
+                    document.getElementById("email-instrutor").value = "";
+                    document.getElementById("senha-instrutor").value = "";
+                }
+            })
+
+        }
+        function cadUsuario(){
+            let turma = document.getElementById("turma-usuario").value;
+            let time = document.getElementById("time-usuario").value;
+            let nome = document.getElementById("usuário").value;
+            let email = document.getElementById("email").value;
+            let cargo = document.getElementById("cargo").value;
+            let senha = document.getElementById("senha-do-usuário").value;
+
+            eel.Cadastrar(cargo,{'Turma': turma, 'Time': time, 'Nome': nome, 'Email': email, 'Cargo': cargo, 'Senha': senha}) (function (result){
+                window.alert(result[1])
+                if(result[0]){
+                    document.getElementById("turma-usuario").value = "";
+                    document.getElementById("time-usuario").value = "";
+                    document.getElementById("usuário").value = "";
+                    document.getElementById("email").value = "";
+                    document.getElementById("cargo").value = "";
+                    document.getElementById("senha-do-usuário").value = "";
+                }
+            })
+        } 
+        
+        function cancelaA(){
+            document.getElementById("cdTurma").style.display = 'none';
+        }
+        function cancelaB(){
+            document.getElementById("cdInstrutor").style.display = 'none';
+        }
+        function cancelaC(){
+            document.getElementById("cdTime").style.display = 'none';
+        }
+        function cancelaD(){
+            document.getElementById("cdUsuario").style.display = 'none';
+        }
+        function cancelaE(){
+            document.getElementById("cdSprint").style.display = 'none';
+        }
+        
+        function Zerar_select(id){
+            let select  = document.getElementById(id)
+            select.innerHTML = ''
+        }
+
+        function Atualizar_turmas(select_turma_id){
+            eel.Retorna_info('turmas') (function(todas_turmas){
+                Adicionar_item(todas_turmas, select_turma_id)
+            })
+        }
+        
+        function Atualizar_times(turma_id, time_id){
+            let turma = document.getElementById(turma_id).value
+            let time = document.getElementById(time_id).value
+            eel.Retorna_info('times', turma=turma) (function(todas_turmas){
+                Adicionar_item(todas_turmas, time_id)
+            })
+        }
+
+        function Adicionar_item(valores, id) {
+            Zerar_select(id)
+            let select = document.getElementById(id).add(new Option('', ''))
+            valores.forEach(function(item){
+                let option = new Option(item, item);
+                let select = document.getElementById(id);
+                select.add(option);
+            })
+        }
+        
+        function Pegar_times(id){
+            let turma = document.getElementById(id).value
+            eel.Retorna_info('times', turma) (function (result){
+                Zerar_select("time-usuario")
+                Adicionar_item(result, 'time-usuario')
+            })
+        }
+
+        function AdicionarOptionsSelect(listaOptions){
+            listaOptions.forEach(function(Option){
+                document.getElementById("cargo").innerHTML += `<option value="${Option}">${Option}</option>`;
+            })
+        }
+        
+        // Criando as variaveis 
+        var id_turma = 'turma-usuario'
+        var select_turma = document.getElementById(id_turma)
+
+        /*  Atualizar as turmas  */
+        // Turma de Usuario 
+        eel.Retorna_info('turmas') (function(todas_turmas){
+            Adicionar_item(todas_turmas, id_turma)
+        })
+        // Turma de Times
+        eel.Retorna_info('turmas') (function(todas_turmas){
+            Adicionar_item(todas_turmas, 'selectTurma')
+        })   
+
+        // Eventos para sempre atualizar os selects         
+        select_turma.addEventListener('change', function(){
+            Pegar_times(id_turma)
+        })
+
+        eel.Retorna_info('user') (function(usuario){
+
+            if(usuario['Cargo'] == 'Administrador'){
+                AdicionarOptionsSelect(['Instrutor'])
+                mostraValor('Instrutor');
+            }else if(usuario['Cargo'] == 'Instrutor'){
+                AdicionarOptionsSelect(['Desenvolvedor','Product Owner','Scrum Master']);
+                mostraValor('Desenvolvedor');
+            }
+        })
+    </script>
+</body>
+</html>
   ~~~~~
 </details>
 
@@ -146,6 +969,360 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes cadastrar.css</summary>
   
   ~~~~css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body{
+    margin: 0; /* Margem */
+    background: #dcdcdc; /* Fundo */
+    font-family: 'Noto Sans', sans-serif; /* Fontes */
+}
+
+/* #btnSprint {
+    cursor: not-allowed;
+} */
+
+body * {
+    box-sizing: border-box; /* Dimensionamento de Caixa */
+}
+
+.main-cad{
+    width: 100%; /* Largura */
+    height: 100vh; /* Altura */
+    background: #dcdcdc; /* Fundo */
+    display: flex; /* Exibição */
+    justify-content: center; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+}
+
+.barra-home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #a9a9a9;
+}
+
+.nome-home{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.bt-home{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.bt-voltar{
+    width: 100%;
+    padding: 10px;
+}
+
+.bt-sair{
+    width: 100%;
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.botoes{
+    width: 100%; /* Largura */
+    display: flex; /* Exibição */
+    justify-content: center; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+    flex-direction: column; /* Direção Flexível */
+    padding: 30px 35px; /* Preenchimento */
+    margin-bottom: 250px;
+}
+
+.botoes > h1{
+    color: black; /* Cor */
+    font-weight: 800; /* Espessura da Fonte */
+    margin: 0; /* Margem */
+}
+
+.botao-cadastrar{
+    width: 100%; /* Largura */
+    padding: 16px 0px; /* Preenchimento */
+    margin: 10px; /* Margem */
+    border: none; /* Borda */
+    border-radius: 8px; /* Raio da Borda */
+    outline: none; /* Contorno */
+    text-transform: uppercase; /* Transformação do Texto */
+    font-weight: 800; /* Espessura da Fonte */
+    letter-spacing: 1px; /* Espaçamento entre Letras */
+    color: #000; /* Cor */
+    background: #e49632; /* Fundo */
+    cursor: pointer; /* Cursor */
+    display: block;
+}
+
+@media only screen and (max-width: 950px){
+    .botoes{
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .main-cad{
+        flex-direction: column;
+    }
+}
+
+.right-cad{
+    width: 50vw;
+    height: 100vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.cadastrar-turma{
+    width: 100%; /* Largura */
+    display: none; /* Exibição */
+    justify-content: right; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+    flex-direction: column; /* Direção Flexível */
+    padding: 30px 35px; /* Preenchimento */
+    background: #a9a9a9; /* Fundo */
+    border-radius: 20px; /* Raio da Borda */
+    box-shadow: 0px 10px 40px #c0c0c0; /* Sombra da Caixa */
+    margin-bottom: 200px;
+    margin-top: 220px;
+}
+
+.cadastrar-instrutor{
+    width: 100%; /* Largura */
+    display: none; /* Exibição */
+    justify-content: right; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+    flex-direction: column; /* Direção Flexível */
+    padding: 30px 35px; /* Preenchimento */
+    background: #a9a9a9; /* Fundo */
+    border-radius: 20px; /* Raio da Borda */
+    box-shadow: 0px 10px 40px #c0c0c0; /* Sombra da Caixa */
+    margin-bottom: 200px;
+    margin-top: 70px;
+}
+
+.escolher-turma{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+.cadastrar-time{
+    width: 100%; /* Largura */
+    display: none; /* Exibição */
+    justify-content: right; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+    flex-direction: column; /* Direção Flexível */
+    padding: 30px 35px; /* Preenchimento */
+    background: #a9a9a9; /* Fundo */
+    border-radius: 20px; /* Raio da Borda */
+    box-shadow: 0px 10px 40px #c0c0c0; /* Sombra da Caixa */
+    margin-bottom: 200px;
+    margin-top: 160px;
+}
+
+.cadastrar-usuario{
+    width: 100%; /* Largura */
+    display: none; /* Exibição */
+    justify-content: right; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+    flex-direction: column; /* Direção Flexível */
+    padding: 30px 35px; /* Preenchimento */
+    background: #a9a9a9; /* Fundo */
+    border-radius: 20px; /* Raio da Borda */
+    box-shadow: 0px 10px 40px #c0c0c0; /* Sombra da Caixa */
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+.escolher-time{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    font-size: large;
+    cursor: pointer;
+}
+
+.cadastrar-sprint{
+    width: 80%; /* Largura */
+    display: none; /* Exibição */
+    justify-content: right; /* Justificar Conteúdo */
+    align-items: center; /* Itens de Alinhamento */
+    flex-direction: column; /* Direção Flexível */
+    padding: 30px 35px; /* Preenchimento */
+    background: #a9a9a9; /* Fundo */
+    border-radius: 20px; /* Raio da Borda */
+    box-shadow: 0px 10px 40px #c0c0c0; /* Sombra da Caixa */
+    margin-bottom: 200px;
+    margin-top: 200px;
+}
+
+.bt-cancelar-salvar{
+    width: 40%;
+    justify-content: center;
+    display: flex;
+    align-items: right;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+#bt-cancelar{
+    background-color: rgb(241, 9, 9);
+}
+
+#bt-salvar{
+    background-color: rgb(83, 233, 24);
+}
+
+.bt-add{
+    font-size: large;
+    margin-top: 50px;
+}
+
+.datas{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.datas-início{
+    width: 50%;
+    line-height: 30px;
+    margin-right: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.datas-fim{
+    width: 50%;
+    line-height: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.textfield{
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.test{
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.test1{
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.test2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.textfield-cargo{
+    font-size: 11pt;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.textfield-time{
+    font-size: 11pt;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.textfield-turma{
+    font-size: 11pt;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.textfield > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    color: #000;
+    font-size: 11pt;
+    box-shadow: 0px 5px 20px #c0c0c0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield-sprint{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.textfield > label{
+    color: #000;
+    margin-bottom: 2px;
+}
+
+.textfield > input::placeholder{
+    color: #000;
+}
+
+@media only screen and (max-width: 950px){
+    .right-cad{
+        width: 85%;
+    }
+}
   ~~~~~
 </details>
 
@@ -153,6 +1330,206 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes historico.html</summary>
   
   ~~~~html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/historico.css">
+    <link rel="shortcut icon" href="../fotos/falcon-favicon.png" type="image/x-icon">
+    <title>Histórico</title>
+</head>
+<body>
+    <div class="barra-home">
+        <div class="logo-home">
+            <img src="../fotos/logo_falcon_200.png" alt="logo_falcon_200" width="150px" height="150px">
+        </div>
+        <div class="nome-home" id="nome_home"><h1></h1></div>
+        <div class="bt-home">
+            <button class="bt-voltar" onclick="go_to('menu.html')">Voltar</button>
+            <button class="bt-sair" onclick="go_to('login.html')">Sair</button>
+        </div>
+    </div>
+    
+    <div class="menu-historico">
+        <div class="alunos" id="nome_alunos">
+            <div class="alunos-texto">
+                <h1>Alunos</h1>
+            </div>
+
+            <div id="todos_alunos" class="nome-alunos">
+                <!-- <button class="bt-alunos">Lucas Henrique Costa de Oliveira</button>
+                <button class="bt-alunos">Lukas Fernando Berto</button>
+                <button class="bt-alunos">Lucas Augusto Oliveira de Souza</button>
+                <button class="bt-alunos">Lucas Jonathan Cordeiro Gomes</button> -->
+            </div>
+        </div>
+
+        <!-- <div class="graficos">
+                <canvas id="primeiroGrafico" width="300" height="300"></canvas>
+                <span id="procent"></span>
+        </div> -->
+       
+        <div class="historico">
+            <div class="historico-texto">
+                <h1>Histórico de avaliações</h1>
+            </div>
+
+            <div class="historico-info" id="historico_info">
+
+                <!-- <div class="sprints">
+                    <div class="info-sprint">
+                        <p class="info">Sprint 1</p>
+                    </div>
+                </div>
+
+                <div class="info-left-and-right">
+                    <div class="info-left">
+                        <p class="info">Trabalho em equipe, cooperação e descentralização de conhecimento:</p>
+                    </div>
+                    <div class="info-right">
+                        <p class="info">Muito Bom</p>
+                    </div>
+                </div>
+
+                <div class="info-left-and-right">
+                    <div class="info-left">
+                        <p class="info">Iniciativa e proatividade:</p>
+                    </div>
+                    <div class="info-right">
+                        <p class="info">Excelente</p>
+                    </div>
+                </div>
+
+                <div class="info-left-and-right">
+                    <div class="info-left">
+                        <p class="info">Autodidaxia e agregação de conhecimento ao grupo:</p>
+                    </div>
+                    <div class="info-right">
+                        <p class="info">Ruim</p>
+                    </div>
+                </div>
+
+                <div class="info-left-and-right">
+                    <div class="info-left">
+                        <p class="info">Entrega de resultados e participação efetiva no projeto:</p>
+                    </div>
+                    <div class="info-right">
+                        <p class="info">Bom</p>
+                    </div>
+                </div>
+
+                <div class="info-left-and-right">
+                    <div class="info-left">
+                        <p class="info">Competência Técnica:</p>
+                    </div>
+                    <div class="info-right">
+                        <p class="info">Regular</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/chart.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> -->
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <script>
+        function go_to(url) {
+            window.location.replace(url);
+        }
+
+        function Atualizar_historico(user) {
+            eel.Historico(user)(function(html){
+                var historico = document.getElementById('historico_info')
+                historico.innerHTML = html
+            })
+        }
+
+        eel.Retorna_info('user')(function(user_info){
+            var nome_home = document.getElementById('nome_home')
+            nome_home.innerHTML = `<h1>${user_info['Nome']}</h1>`
+
+            let eh_PO = user_info['Cargo'] === 'Administrador' ? true : false 
+            
+            if (eh_PO === false){
+                document.getElementById('nome_alunos').style.display = 'none'
+                
+                Atualizar_historico(user_info['User'])
+            }
+
+        })
+
+        eel.Retorna_info('alunos historico')(function(alunos){
+            var campo_alunos = document.getElementById('todos_alunos')
+            Object.keys(alunos).forEach(function(user){
+                campo_alunos.innerHTML += `<button id="${user}" onclick="Atualizar_historico('${user}')"> ${alunos[user]} </button>`
+            })
+        })
+
+        function clickTeclado(id){
+            let texto = document.getElementById(id).textContent
+            window.alert(texto + 'e o id é: ' + id)
+        }
+
+    </script>    
+    
+    <!-- <script>
+        const labels = [1, 2, 3, 4, 5, 6];
+
+        let primeiroGrafico = document.getElementById('primeiroGrafico').getContext('2d');
+
+        const data = {
+        labels: labels,
+        datasets: [{
+            label: 'My First Dataset',
+            data: [65, 59, 80, 81, 56, 55, 40],
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1
+        }]
+        };
+
+            const config = {
+            type: 'bar',
+            data: data,
+            options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            },
+        };
+
+        let chart = new Chart(
+            primeiroGrafico, 
+            config
+        )
+
+    </script> -->
+    
+</body>
+</html>
   ~~~~~
 </details>
 
@@ -160,16 +1537,222 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes historico.css</summary>
   
   ~~~~css
+body{
+    margin: 0; /* Margem */
+    font-family: 'Noto Sans', sans-serif; /* Fontes */
+}
+
+.barra-home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #a9a9a9;
+}
+
+.nome-home{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.bt-home{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.bt-voltar{
+    width: 100%;
+    padding: 10px;
+}
+
+.bt-sair{
+    width: 100%;
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.menu-historico{
+    width: 100%;
+    display: flex;
+}
+
+.alunos{
+    width: 30%;
+    justify-content: center;
+}
+
+.alunos-texto{
+    text-align: center;
+}
+
+.nome-alunos{
+    height: 695px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.bt-alunos{
+    padding: 8px;
+    cursor: pointer;
+    font-size: larger;
+}
+
+.historico {
+    width: 100%;
+}
+
+.historico-info {
+    height: 695px;
+    display: block;
+    overflow-y: scroll;
+}
+
+.historico-texto{
+    text-align: center;
+}
+
+.info-left-and-right {
+    margin-top: 8px;
+    display: flex;
+    align-self: center;
+}
+
+.info-left {
+    width: 100%;
+    background: #a9a9a9;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+}
+
+.info-right {
+    width: 80%;
+    background: #a9a9a9;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sprints{
+    margin-top: 5px;
+    display: flex;
+    align-self: center;
+}
+
+.info-sprint{
+    width: 100%;
+    background: #a9a9a9;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+}
+
+.sem-avaliacao{
+    display: flex;
+    justify-content: center;
+}
   ~~~~~
 </details>
 
-### 4. **python**
+### 3. **Desenvolvimento dos scripts em Python**
    - Desenvolvi funcionalidades em Python para controle da interface com EEL, manipulação de dados e interação com o banco.
 
 <details>
   <summary>Detalhes main.py</summary>
   
   ~~~~python
+import eel
+import support
+
+eel.init('telas')
+
+@eel.expose
+def Fazer_login(user, pasw):
+	login_correto = support.Login(user, pasw)
+	if login_correto:
+		return True
+	else:
+		return False
+
+@eel.expose
+def Cadastrar(oq_cadastrar:str, info:dict):
+	'''
+	oq_cadastrar: O que você desja cadastrar \n
+	info: dicionario das informações. Obs - As chaves tem que ter a primeira letra maiuscula
+	'''
+	oq_cadastrar = oq_cadastrar.strip().lower()
+	return support.Cadastrar().Iniciar_cadastro(oq_cadastrar, info)
+
+@eel.expose 
+def Retorna_info(qual_info, turma='None', time='None'):
+	'''
+	qual_info: Qual informação você quer que retorne - turmas; times; alunos, user \n
+	turma: Para retornar todos os times precisa escolher uma turma \n
+	time: Para retornar todos os alunos precisa escolher uma turma e um time \n
+	Exemplo 1: Retorna_info('turmas') \n
+	Exemplo 2: Retorna_info('times', 'Banco de Dados') \n
+	Exemplo 3: Retorna_info('alunos', turma='Banco de Dados', time='Falcon')
+	'''
+	try:
+		qual_info = qual_info.strip().lower()
+		inicio = support.RetornaInfo(qual_info, turma=turma, time=time)
+		if qual_info == 'turmas':
+			info = inicio.Turmas()
+
+		elif qual_info == 'times':
+			info = inicio.Times()
+		
+		elif qual_info == 'user':
+			info = inicio.User()
+
+		elif qual_info == 'alunos historico':
+			info = inicio.Alunos_historico()
+
+		elif qual_info == 'alunos grafico':
+			return inicio.Alunos_graficos()
+		
+		elif qual_info == 'times grafico':
+			return inicio.Times_grafico()
+		
+		else: # Alunos
+			info = inicio.Alunos()
+
+		return info 
+
+	except:
+		return []
+
+@eel.expose 
+def Avaliacao(info:dict):
+	'''
+	info: Todas as informações para salvar a avaliação. As informações são: turma, time, avaliado, pergunta 1, resposta 1,...
+	retorna: True ou False
+	'''
+	return support.Avaliar().Salvar_avaiacao(info) 
+
+@eel.expose 
+def Historico(user):
+	return support.Historico().Retorna_historico(user) 
+
+@eel.expose
+def RetornaInfoAcesso(qual_info, turma=''):
+	return support.RetornaInfoAcesso().Inicio(qual_info, turma)
+
+@eel.expose
+def Grafico_info(qual_grafico, filtro=''):
+	return support.GraficoInfo().Retorna_info_pro_grafico(qual_grafico, filtro=filtro)
+
+eel.start("html/login.html", port=8000)
   ~~~~~
 </details>
 
@@ -177,16 +1760,800 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes support.py</summary>
   
   ~~~~python
+import os
+import json
+import hashlib
+from re import findall
+from random import choices
+from datetime import datetime
+
+class DeclararUser: 
+    def __init__(self, user):
+        '''
+        Esse metodo vai salvar o user em uma instancia para que posa ser usado depois as infomações do usuário 
+        '''
+
+        json_info = Arquivos().Ler_JSON('users.json')
+        user_info = json_info[user]
+        # self.user_info = {
+        #                     'User': user,
+        #                     'Nome': user_info['Nome'], 
+        #                     'Email': user_info['Email'],
+        #                     'Cargo': user_info['Cargo']
+        #                 }
+        self.user_info = user_info
+        self.user_info['User'] = user
+
+class Cadastrar:
+    def Iniciar_cadastro(self, oq_cadastrar:str, info:dict):
+        '''
+        input:
+                oq_cadastrar: O que quer cadastrar - turma; time; sprint; aluno 
+                info: Todas as informações necessarias para cadastrar o que você escolheu (tem que ser em dicionario)
+        
+        return:
+                Uma lista, onde:
+                1° item: True ou False (se conseguiu ou não cadastrar) \n
+                2° item: Uma mensagem, se não conseguiu cadastrar essa mensagem fala o porque \n
+
+        exemplos:
+                Exemplo: [True, "Aluno salvo com sucesso!"] 
+                Exemplo: [False, "Ja existe esse time na turma Falcon"]
+        '''
+        self.info = info
+        oq_cadastrar = oq_cadastrar.lower()
+
+        if oq_cadastrar in ['turma', 'time']:
+            self.json_turmas = Arquivos().Ler_JSON('turmas.json')
+            
+            if oq_cadastrar == 'turma':
+                return self.__Cadastrar_turma() 
+
+            elif oq_cadastrar == 'time':
+                return self.__Cadastrar_time() 
+
+        elif oq_cadastrar == 'sprint':
+            self.json_sprints = Arquivos().Ler_JSON('sprints.json')
+            return self.__Cadastrar_sprint()
+
+        else:
+            '''
+            Aqui vai cadastrar:
+
+            Fake Client
+            Instrutor
+            Product Owner
+            Scrum Master
+            Desenvolvedor'''
+            
+            self.json_user = Arquivos().Ler_JSON('users.json')
+            return self.__Cadastrar_usuario()
+
+
+    def __Cadastrar_turma(self):
+        turma_nome = self.info['Turma'].strip().title()
+        if turma_nome in self.json_turmas:
+            return [False, f'Turma "{turma_nome}" já existe']
+        
+        else:
+            self.json_turmas[turma_nome] = {}
+
+            Arquivos().Salvar_JSON('turmas.json', self.json_turmas)
+            return [True, f'Turma "{turma_nome}" salvo com sucesso!']
+
+    def __Cadastrar_time(self): 
+        turma = self.info['Turma'].strip().title()
+        time = self.info['Time'].strip().title()
+
+        if time.lower() in [nome.lower() for nome in self.json_turmas[turma]]:
+            # Ja existe o nome do time escolhido no banco de dados
+            return [False, f'O time "{time}" já existe na turma "{turma}". Escolha outro nome para o time ou use o time que já existe']
+
+        else:
+            # No time vai ter as seguintes informações
+            self.json_turmas[turma][time] = {
+                    'PO': '',
+                    'Scrum Master': '',
+                    'Desenvolvedor': [],
+                    'Alunos': []
+            }
+            Arquivos().Salvar_JSON('turmas.json', self.json_turmas)
+            return [True, f'Time "{time}" salvo com sucesso na turma "{turma}"']
+
+    def __Cadastrar_usuario(self):
+        def Criar_nome_user(user):
+            '''
+            Se tiver mais de um user com o mesmo nome então vai ser adicionado uma contagem no fim do nome
+            
+            exemplo:
+                        user1 
+            '''
+            cont = 1
+            while True:
+                novo_user = user + str(cont)
+                if not novo_user in self.json_user:
+                    return novo_user
+                
+                cont += 1 
+
+        def Salvar_aluno(turma, time, cargo):
+            turmas = Arquivos().Ler_JSON('turmas.json')
+            
+            if cargo == 'Desenvolvedor':
+                # Se for desenvolvedor apenas adicionamos o nome do aluno na lista
+                turmas[turma][time][cargo].append(nome)
+        
+            else:
+                if turmas[turma][time][cargo] != '':
+                    # Se o cargo escolhido para esse aluno já estiver ocupado, então vamos retornar False 
+                    # e o nome do aluno que está no cargo escolhido
+                    return [False, f'O cargo "{cargo}" já esta preenchido pelo aluno "{turmas[turma][time][cargo]}" para essa turma e time escolhido']
+                
+                else:
+                    # Se não tiver ocupado então salvamos o aluno nesse cargo
+                    turmas[turma][time][cargo] = nome
+                        # Adicionamos esse aluno na lista de alunos
+
+            turmas[turma][time]['Alunos'].append(nome)
+            Arquivos().Salvar_JSON('turmas.json', turmas)
+
+            return [True, f'Aluno salvo com sucesso! Nome de usuario é: {user}']
+        
+        def Salvar_instrutor_e_fk(turma, cargo, user_name):
+            for user in self.json_user:
+                aluno = self.json_user[user]
+                if aluno['Cargo'] == 'Instrutor' and aluno['Turma'] == turma or aluno['Cargo'] == 'Fake Client':
+                    fim_msg = ''
+                    if aluno['Cargo'] == 'Instrutor':
+                        fim_msg = f' para a turma "{turma}"'
+                    return [False, f'Já existe {cargo}{fim_msg}']
+
+            return [True, f'{cargo} salvo com sucesso! Nome de usuario é: {user_name}'] 
+
+        turma = ''
+        time = ''
+        nome  = self.info['Nome'].strip().title()
+        email = self.info['Email'].strip()
+        senha = self.info['Senha']
+        cargo = self.info['Cargo']
+
+        resultado = self.__Validar_info_padrao(nome, email, senha)
+
+        if not resultado[0]:
+            return resultado
+        
+        senha = Criptografar(senha)
+        user = email.split('@')[0].strip()
+
+        if user in self.json_user:
+            user = Criar_nome_user(user)
+
+        if cargo == 'Fake Client':
+            usuario_salvo = Salvar_instrutor_e_fk('', cargo, user) 
+
+        elif cargo == 'Instrutor':
+            turma = self.info['Turma'].strip()
+            validado = self.__Validar_turma_e_time(turma, time, validar_time=False)
+
+            if validado[0]:
+                usuario_salvo = Salvar_instrutor_e_fk(turma, cargo, user) 
+
+            else:
+                return validado
+
+        else:
+            turma = self.info['Turma'].strip()
+            time = self.info['Time'].strip()
+            validado = self.__Validar_turma_e_time(turma, time)
+
+            if validado[0]:
+                usuario_salvo = Salvar_aluno(turma, time, cargo)
+
+            else:
+                return validado
+
+
+
+        deixar_info_sequencial = {
+                'Nome' : nome,
+                'Email': email,
+                'Turma': turma,
+                'Time' : time,
+                'Cargo': cargo,
+                'Senha': senha 
+        }
+
+        if usuario_salvo[0]:
+            self.json_user[user] = deixar_info_sequencial
+            Arquivos().Salvar_JSON('users.json', self.json_user)
+
+        return usuario_salvo
+
+    def __Validar_turma_e_time(self, turma, time, validar_turma=True, validar_time=True):
+        if turma == '' and validar_turma:
+            return [False, 'Seleciona uma turma para esse usuario']
+
+        if time == '' and validar_time:
+            return [False, 'Seleciona um time para esse usuario']
+
+        return [True] 
+        
+
+    def __Validar_info_padrao(self, nome, email, senha):
+        def Validar_senha(senha):
+            '''Vai verificar se está de acordo com o esperado - quantidade de digitos; letras; numeros; caracteres especiais'''
+            todos_regex = ['[a-z]', '[A-Z]', '[!|@|#|$|%|&|*|(|)]', '[1-9]']
+
+            for regex in todos_regex:
+                if len(findall(regex, senha)) == 0 or len(senha) < 8:
+                    msg = 'A senha tem que ter no minimo 8 digitos, letras minúscula e maiúscula, '\
+                        'numeros, e um dos caracteres especiais a seguir: !, @,#, $, %, &, *, (, )'
+                    return [False, msg]
+            
+            return [True]
+
+        # Nome
+        if nome == '' or len(nome.split()) < 2:                
+            return [False, 'Digite o nome e o sobrenome do aluno']
+
+        # Email 
+        if email == '' or not '@gmail.com' in email:
+            return [False, 'Email inválido. Apenas @gmail.com é aceito']
+
+        # Senha 
+        validar_senha = Validar_senha(senha)
+        if not validar_senha[0]:
+            return [False, validar_senha[1]]
+        
+        return [True]
+
+    def __Cadastrar_sprint(self):
+        def Validar_data(sprts_ini, sprts_fim): 
+            formato = '%d/%m/%Y'
+            todas_sprints = {}
+
+            # Essa variavel esta aqui para não dar erro no "for"
+            ultima_sprint = datetime.now()
+
+            # Validar o inicio da primeira sprint
+            if str(datetime.strptime(sprts_ini[0], formato))[:10] < str(datetime.now())[:10]:
+                return [False, 'A primeira sprint deve, no minimo, começar hoje.']
+
+            for cont in range(len(sprts_ini)):
+                try:
+                    data_inicio = datetime.strptime(sprts_ini[cont], formato)
+                    data_fim    = datetime.strptime(sprts_fim[cont], formato)
+                    # Esta validando as seguintes regras:
+                    # 1 - Se a data de inicio é maior que a data de fim
+                    # 2 - Se a data de inicio é igual a data de fim
+                    # 3 - Se a data de inicio é menor que a ultima data de fim 
+                    if data_inicio > data_fim or data_inicio == data_fim or data_inicio < ultima_sprint:
+                        return [False, 'A data de inicio não pode ser maior/mesma que a do fim. Verifique as datas.']
+
+                    # if data_inicio > data_fim:
+                    #     return [False, 'primeiro']
+
+                    # elif data_inicio == data_fim:
+                    #     return [False, 'segundo']
+                    
+                    # elif data_inicio < ultima_sprint:
+                    #     return [False, 'terceiro']
+
+
+                    ultima_sprint = data_fim
+
+                    todas_sprints[f'Sprint {cont+1}'] = {'Inicio': sprts_ini[cont], 'Fim': sprts_fim[cont]}
+
+                except:
+                    return [False, 'Algo deu errado!! Verifique se esqueceu de colocar alguma data e/ou se as datas estão corretas']
+
+            return [True, todas_sprints]
+
+        turma = self.info['Turma']
+        sprints_inicio = self.info['Sprint Inicio']  # Vem em formato de lista
+        sprints_fim = self.info['Sprint Fim']        # Vem em formato de lista
+
+        if turma == '':
+            return [False, 'Escolha uma turma.']
+
+        if turma in list(self.json_sprints):
+            return [False, f'Já tem sprints cadastrada na turma {turma}']
+        
+        validar_datas = Validar_data(sprints_inicio, sprints_fim)
+
+        if not validar_datas[0]:
+            return [False, validar_datas[1]]
+        
+        self.json_sprints[turma] = validar_datas[1]
+        Arquivos().Salvar_JSON('sprints.json', self.json_sprints)
+
+        return [True, f'Sprints salva com sucesso para a turma {turma}']
+
+class Arquivos:
+    def Ler_JSON(self, nome):
+        with open(Caminho_ate_Falcon()+'\\json\\'+nome, encoding="utf-8") as a:
+            arquivo = json.load(a) 
+        return arquivo 
+
+    def Salvar_JSON(self, nome:str, novo_json:dict):
+        with open(Caminho_ate_Falcon()+'\\json\\'+nome, 'w') as a:
+            json.dump(novo_json, a, indent=4)
+
+    def Ler_Excel(self):
+        pass 
+
+class RetornaInfo:
+    def __init__(self, qual_info, turma='None', time='None'):
+        qual_info = qual_info.lower().strip()
+        self.turma = turma.strip().title()
+        self.time = time.strip().title()
+        
+        if qual_info in ['turmas', 'times', 'alunos', 'alunos grafico', 'times grafico']:
+            self.arquivo = Arquivos().Ler_JSON('turmas.json')
+        
+        else: # user; alunos historico
+            self.arquivo = Arquivos().Ler_JSON('users.json') 
+
+    def Turmas(self):
+        return list(self.arquivo) 
+
+    def Times(self):
+        return list(self.arquivo[self.turma])
+
+    def Alunos(self):
+        return self.arquivo[self.turma][self.time]['Alunos']
+    
+    def Alunos_historico(self):
+        alunos = {}
+
+        for user in self.arquivo:
+            alunos[user] = self.arquivo[user]['Nome']
+
+        return alunos
+
+    def Alunos_graficos(self):
+        alunos = []
+        for turmas in self.arquivo:
+            for times in self.arquivo[turmas]:
+                alunos += self.arquivo[turmas][times]['Alunos']
+        return alunos 
+
+    def Alunos_graficos_antigo(self):
+        lista_de_alunos = []
+
+        for turmas in self.arquivo:
+            for times in self.arquivo[turmas]:
+                for alunos in self.arquivo[turmas][times]['Alunos']:
+                    lista_de_alunos.append(f'{turmas} / {times} / {alunos}')
+        
+        return lista_de_alunos
+
+    def Times_grafico(self):
+        todos_times = []
+        for turma in self.arquivo:
+            todos_times += list(self.arquivo[turma])
+        
+        return todos_times 
+
+    def Times_graficos_antigo(self):
+        lista_de_times = []
+        for turmas in self.arquivo:
+            for times in self.arquivo[turmas]:
+                lista_de_times.append(f'{turmas} / {times}')
+        
+        return lista_de_times
+
+    def User(self):
+        return user_info.user_info 
+
+class RetornaInfoAcesso:
+    def Inicio(self, qual_info, turma=''):
+        qual_info = qual_info.lower()
+        self.turma = turma.title()
+
+        # Informações do usuario
+        self.user_turma = user_info.user_info['Turma']
+        self.user_time  = user_info.user_info['Time']
+        self.user_cargo = user_info.user_info['Cargo']
+
+        self.arquivo = Arquivos().Ler_JSON('turmas.json')
+        
+        if qual_info == 'turma':
+            return self.Retorna_turma()
+
+        elif qual_info == 'time':
+            return self.Retorna_time()
+
+        else: # alunos
+            return self.Retorna_alunos()
+            
+    def Retorna_turma(self):
+        if self.user_cargo == 'Fake Client':
+            return list(self.arquivo)
+        
+        return [self.user_turma]
+
+    def Retorna_time(self):
+        if self.user_cargo == 'Fake Client':
+            return list(self.arquivo[self.turma])
+
+        return [self.user_time]
+
+    def Retorna_alunos(self):        
+        if self.user_cargo == 'Instrutor' or self.user_cargo == 'Fake Client':
+            if self.user_cargo == 'Instrutor':
+                id = 'Scrum Master'
+            else:
+                id = 'PO'
+            
+            alunos = []
+            for turmas in self.arquivo:
+                for times in self.arquivo[turmas]:
+                    aluno = self.arquivo[turmas][times][id].strip()
+                    if not aluno == '':
+                        alunos.append(aluno)
+
+            return alunos
+        
+        else:
+            return self.arquivo[self.user_turma][self.user_time]['Alunos']
+
+class Avaliar:
+    def Salvar_avaiacao(self, info:dict):
+        self.info = info
+        tudo_respondido = self.__Conferir_info()
+
+        if tudo_respondido:
+            self.__Salvar()
+            return True  
+        
+        else:
+            return False 
+
+    def __Conferir_info(self):
+        for info_respondido in self.info.values():
+            if info_respondido.strip() == '':
+                return False
+
+        return True
+
+    def __Salvar(self):
+        def get_key():
+            '''Para salvar mais de uma avaliação do mesmo aluno'''
+            try:
+                key = int(max(list(historico_do_user))) + 1
+            except:
+                key = 1
+            
+            return str(key) 
+
+        historico = Arquivos().Ler_JSON('histrc.json')
+        
+        nome_usuario = user_info.user_info['User']
+        avaliado = self.info['Avaliado']
+
+        if not nome_usuario in historico:
+            historico[nome_usuario] = {}
+
+        if not avaliado in historico[nome_usuario]:
+            historico[nome_usuario][avaliado] = {}
+
+        historico_do_user = historico[nome_usuario][avaliado]
+        key = get_key()
+        self.info['Sprint'] = 'Sprint 1'
+        historico_do_user[key] = self.info
+        Arquivos().Salvar_JSON('histrc.json', historico)
+
+class Historico:
+    def Retorna_historico(self, user):
+        try:
+            self.user = user.lower()
+            self.nome = Arquivos().Ler_JSON('users.json')[user]['Nome']
+
+            self.info = self.__Pegar_historico()
+
+            return self.__Deixar_em_html()
+        except:
+            return ['<h1 class="sem-avaliacao"> Não tem nenhuma avaliação desse usuario </h1>']
+
+    def __Pegar_historico(self):
+        histrc = Arquivos().Ler_JSON('histrc.json')
+        return histrc[self.user]
+    
+    def __Deixar_em_html(self):
+        def Definir_pixel_div(item):
+            lista_20px = [
+                            'Turma',
+                            'Time',
+                            'Avaliado',
+                            'Sprint'
+                        ]
+            px = 70
+            if item in lista_20px:
+                px = 20 
+            
+            return px
+
+        '''
+        
+
+        
+            <div class="info-left">
+                <p class="info">Trabalho em equipe, cooperação e descentralização de conhecimento:</p>
+            </div>
+            <div class="info-right">
+                <p class="info">Muito Bom</p>
+            </div>
+        </div>
+        '''
+
+        html = f'<div class="sprints"> <div class="info-sprint"> <p class="info"> Sprint 1 </p> </div> </div> \n'
+
+        for id in self.info: 
+            # Vai percorrer todos os alunos que o usuario avaliou
+            # então a variavel "id" vai ser o nome do aluno que foi avaliado
+            for id_avaliacao in self.info[id]:
+                info_avaliacao = self.info[id][id_avaliacao]
+                
+                for info in info_avaliacao:
+                    pixels = Definir_pixel_div(info)
+                    html += '<div class="info-left-and-right"> \n'
+                    html += f'<div class="info-left"> <p class="info"> {info}: </p> </div> \n'
+                    html += f'<div class="info-right"> <p class="info"> {info_avaliacao[info]} </p> </div> \n'
+                    html += '</div>'
+        
+        return html
+
+class GraficoInfo:
+    def Retorna_info_pro_grafico(self, qual_filtro, filtro=''):
+        '''
+        qual_filtro: Turma; Time; Avaliado
+        filtro: Nome da Turma, Time ou Avaliado
+        '''
+        self.filtro = filtro.title().strip()
+        self.historico   = Arquivos().Ler_JSON('histrc.json')
+        
+        if qual_filtro.lower() in ['turmas', 'times']:
+            self.qual_filtro = qual_filtro.capitalize().strip('s')
+        
+        else:
+            self.qual_filtro = 'Avaliado'
+            
+        self.perguntas = [
+            'Trabalho em equipe, cooperação e descentralização de conhecimento',
+            'Iniciativa e proatividade',
+            'Autodidaxia e agregação de conhecimento ao grupo',
+            'Entrega de resultados e participação efetiva no projeto',
+            'Competência Técnica'
+        ]
+
+        soma_e_quantidade = self.__Pegar_info()
+        self.medias = self.__Calcular_media(soma_e_quantidade)
+        self.medias_filtrado =  self.__Achar_id()
+
+        if self.medias_filtrado[0]:
+            novo_dict = self.__Muduar_id(self.medias_filtrado[1])
+            config = self.__Padronizar(novo_dict)
+            return [True, config]
+        
+        # Se não entrou no if então não achou o aluno, 
+        # então iremos retornar uma mensgem que foi escrita no metodo __Achar_id()
+        return self.medias_filtrado
+
+    def __Padronizar(self, informacoes:dict):
+        def Cores_aleatoria(qntd):
+            lista_de_cores = [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(151, 187, 205, 0.2)'
+            ]
+            cores  = choices(lista_de_cores, k=qntd)
+            borda = [cor[:-6]+')' for cor in cores]
+
+            return cores, borda
+
+        # informacoes  = self.medias_filtrado
+        label        = f'Gráfico filtrado por {self.qual_filtro}'
+        labels       = list(informacoes)
+        data         = [round(valor, 1) for valor in list(informacoes.values())]
+        cores, borda = Cores_aleatoria(len(labels))
+        background   = cores
+        border       = borda
+
+        data = {
+            'labels': labels,
+            'datasets': [{
+                'label': label,
+                'data': data,
+                'backgroundColor': background,
+                'borderColor': border,
+                'borderWidth': 1
+            }]
+        }
+        options = {
+            'scales': {
+                'y': {
+                    'beginAtZero': True,
+                    'min': 0,
+                    'max': 5,
+                    'ticks': {
+                        'stepSize': 0.5
+                    }
+                }
+            }
+        }
+
+        config = {
+            'type': 'bar',
+            'data': data,
+            'options': options
+        }
+
+        return config 
+
+    def __Muduar_id(self, dict:dict):
+        skills = ['Skill 1', 'Skill 2', 'Skill 3', 'Skill 4', 'Skill 5']
+        valores = list(dict.values())
+        novo_dict = {}
+        for cont in range(5):
+            novo_dict[skills[cont]] = valores[cont]
+        
+        return novo_dict
+
+    def __Achar_id(self):
+        try:
+            return [True, self.medias[self.filtro]]
+        except:
+            return [False, f'Não foi encontrado nenhuma avaliação para esse(a) {self.qual_filtro}']
+        
+    def __Pegar_info(self):
+        info_avaliacao_dict = {}
+        for user_avaliador in self.historico:
+            info_avaliador = self.historico[user_avaliador]
+            for avaliado in info_avaliador:
+                info_avaliado = info_avaliador[avaliado]
+                for id in info_avaliado:
+                    id_info_avaliado = info_avaliado[id]
+                    # Se for time então vai pegar o time, se for turma então vai pegar a turma
+                    filtro = id_info_avaliado[self.qual_filtro]
+
+                    # if self.qual_filtro == 'Time':
+                    #     filtro = id_info_avaliado['Turma'] + ' / ' + filtro
+                    
+                    # elif self.qual_filtro == 'Avaliado':
+                    #     filtro = id_info_avaliado['Turma'] + ' / ' + id_info_avaliado['Time'] + ' / ' + filtro
+
+                    if not filtro in info_avaliacao_dict:
+                        info_avaliacao_dict[filtro] = {
+                            self.perguntas[0]: {'Soma': 0, 'Quantidade': 0},
+                            self.perguntas[1]: {'Soma': 0, 'Quantidade': 0},
+                            self.perguntas[2]: {'Soma': 0, 'Quantidade': 0},
+                            self.perguntas[3]: {'Soma': 0, 'Quantidade': 0},
+                            self.perguntas[4]: {'Soma': 0, 'Quantidade': 0}
+                        }
+
+                    for cont in range(5):
+                        info_avaliacao_dict[filtro][self.perguntas[cont]]['Soma'] += self.__Transformar_valores(id_info_avaliado[self.perguntas[cont]])
+                        info_avaliacao_dict[filtro][self.perguntas[cont]]['Quantidade'] += 1
+                    
+        return info_avaliacao_dict
+
+    def __Transformar_valores(self, valor):
+        if valor == 'Excelente':
+            novo_valor = 5
+
+        elif valor == 'Muito Bom':
+            novo_valor = 4
+
+        elif valor == 'Bom':
+            novo_valor = 3
+
+        elif valor == 'Regular':
+            novo_valor = 2
+
+        else: # Ruim
+            novo_valor = 1
+
+        return novo_valor
+
+    def __Calcular_media(self, informacoes):
+        for id in informacoes:
+            for pergunta in informacoes[id]:
+                informacoes[id][pergunta] = informacoes[id][pergunta]['Soma'] / informacoes[id][pergunta]['Quantidade']
+        
+        return informacoes
+
+
+def Criptografar(senha):
+    return hashlib.md5(bytes(senha, encoding="utf-8")).hexdigest()
+
+def Login(user, senha):
+    todos_users = Arquivos().Ler_JSON('users.json')
+    user = user.strip()
+
+    if user in todos_users:
+        senha = Criptografar(senha)
+        if senha == todos_users[user]['Senha']:
+            # Salvando algumas informações do aluno para usar depois como o cargo e nome
+            global user_info
+            user_info = DeclararUser(user)
+            return True 
+    
+    return False 
+
+def Caminho_ate_Falcon():
+    '''Retorna o caminho completo até a pasta Scripts'''
+    return findall(r'.*Falcon', os.path.dirname(__file__))[0]
   ~~~~~
 </details>
 
-### 5. **json**
+### 4. **Desenvolvimento dos scripts json**
    - Criei e organizei arquivos `.json` utilizados para armazenar dados como usuários e turmas durante o desenvolvimento e testes da aplicação.
 
 <details>
   <summary>Detalhes users.json</summary>
   
   ~~~~python
+{
+    "admin": {
+        "Nome": "Admin",
+        "Email": "admin@gmail.com",
+        "Turma": "Banco De Dados - 2\u00ba Sem 2022",
+        "Time": "Falcon",
+        "Cargo": "Administrador",
+        "Senha": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "sabha": {
+        "Nome": "Fabiano Sabha",
+        "Email": "sabha@gmail.com",
+        "Turma": "Banco De Dados - 2\u00ba Sem 2022",
+        "Time": "",
+        "Cargo": "Instrutor",
+        "Senha": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "nadalete": {
+        "Nome": "Nadalete",
+        "Email": "nadalete@gmail.com",
+        "Turma": "Banco De Dados - 2\u00ba Sem 2022",
+        "Time": "Falcon",
+        "Cargo": "Fake Client",
+        "Senha": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "lukas": {
+        "Nome": "Lukas Fernando Berto",
+        "Email": "lukasfernando@gmail.com",
+        "Turma": "Banco De Dados - 2\u00ba Sem 2022",
+        "Time": "Falcon",
+        "Cargo": "Desenvolvedor",
+        "Senha": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "lucash": {
+        "Nome": "Lucas Henrique Costa De Oliveira",
+        "Email": "lucashenrique@gmail.com",
+        "Turma": "Banco De Dados - 2\u00ba Sem 2022",
+        "Time": "Falcon",
+        "Cargo": "PO",
+        "Senha": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "lucasj": {
+        "Nome": "Lucas Jonathan Cordeiro Gomes",
+        "Email": "lucasjonathan@gmail.com",
+        "Turma": "Banco De Dados - 2\u00ba Sem 2022",
+        "Time": "Falcon",
+        "Cargo": "Scrum Master",
+        "Senha": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "lucasa": {
+        "Nome": "Lucas Augusto Oliveira De Souza",
+        "Email": "lucasaugusto@gmail.com",
+        "Turma": "Banco De Dados - 2\u00ba Sem 2022",
+        "Time": "Falcon",
+        "Cargo": "Desenvolvedor",
+        "Senha": "d41d8cd98f00b204e9800998ecf8427e"
+    }
+}
   ~~~~~
 </details>
 
@@ -194,6 +2561,36 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
   <summary>Detalhes turmas.json</summary>
   
   ~~~~python
+{
+    "Banco De Dados - 2\u00ba Sem 2022": {
+        "Falcon": {
+            "PO": "Lucas Henrique Costa De Oliveira",
+            "Scrum Master": "Lucas Jonathan Cordeiro Gomes",
+            "Desenvolvedor": [
+                "Lukas Fernando Berto",
+                "Lucas Augusto Oliveira De Souza"
+            ],
+            "Alunos": [
+                "Lucas Henrique Costa De Oliveira",
+                "Lukas Fernando Berto",
+                "Lucas Jonathan Cordeiro Gomes",
+                "Lucas Augusto Oliveira De Souza"
+            ]
+        },
+        "First": {
+            "PO": "",
+            "Scrum Master": "",
+            "Desenvolvedor": [],
+            "Alunos": []
+        },
+        "Ponto Py": {
+            "PO": "",
+            "Scrum Master": "",
+            "Desenvolvedor": [],
+            "Alunos": []
+        }
+    }
+}
   ~~~~~
 </details>
 
