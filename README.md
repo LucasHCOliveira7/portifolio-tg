@@ -33,6 +33,222 @@
 
 <br>
 
+<div align=center><h1>Avaliação 360°</h1></div>
+
+<h4> 1º Semestre • <a href="https://github.com/lucasjonathangomes/Falcon">Repositório Github</a></h4>
+
+<p align="justify"> Empresa Parceira • <a href="https://fatecsjc-prd.azurewebsites.net">FATEC SJC</a></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/81196630/194436341-7d3a119d-992b-4526-a917-f550c4f559d8.png" widht="20%"></img>
+
+<p align="justify">Apoiar a instituição de ensino PBLTeX, especializada em cursos práticas de ensino aplicando PBL (Problem Based Learning), a desenvolver uma dinâmica de Avaliação
+Democratizada baseada na técnica de Avaliação 360º. O grupo deve apoiá-la a levantar, especificar e desenvolver uma
+solução computacional que viabilize a aplicação dessa técnica.</p>
+
+<details>
+
+  <summary align="center">SABER MAIS SOBRE O PROJETO</summary>
+
+  <h2>Objetivos do Sistema</h2>
+
+#### Após a finalização do projeto pela equipe Falcon:
+* Implementar um sistema funcional de Avaliação 360° que permita a autoavaliação e a avaliação entre os membros de um time de forma prática e intuitiva.
+* Fornecer perfis diferenciados (Administrador, Instrutor Líder, Usuário) com permissões específicas para garantir a organização e a segurança da aplicação.
+* Gerar históricos e dashboards para visualização do desempenho dos alunos e acompanhamento das sprints.
+* Garantir acessibilidade e fácil usabilidade para os usuários da plataforma PBLTeX.
+
+<br>
+
+  <h2>Tecnologias Utilizadas no Projeto</h2>
+
+  <p align="justify"><strong>Python:</strong> Linguagem principal para desenvolvimento da lógica da aplicação (backend).</p>
+  <p align="justify"><strong>Python EEL:</strong> Framework que integra backend Python com frontend HTML/JS.</p>
+  <p align="justify"><strong>HTML5:</strong> Linguagem de marcação utilizada para o desenvolvimento do frontend.</p>
+  <p align="justify"><strong>CSS3:</strong> Linguagem de estilização utilizada para o desenvolvimento do frontend.</p>
+  <p align="justify"><strong>JavaScript:</strong> Linguagem utilizada para desenvolvimento do frontend.</p>
+  <p align="justify"><strong>MySQL:</strong> Sistema Gerenciador de Banco de Dados utilizado para armazenar as informações do sistema.</p>
+  <p align="justify"><strong>Canva:</strong> Ferramenta de design utilizada para criar protótipos visuais, apresentações e materiais visuais do sistema.</p>
+  <p align="justify"><strong>Excel:</strong> Utilizado para planejamento e levantamento de requisitos.</p>
+
+  <img src="https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/EEL-FFD43B?style=for-the-badge&logo=python&logoColor=black" alt="EEL">
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
+  <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white">
+  <img src="https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white">
+  <img src="https://img.shields.io/badge/Microsoft%20Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white">
+
+<br>
+<br>
+
+  <h2>Minhas Contribuições</h2>
+
+  > Atuei como Product Owner (PO), sendo responsável pelo levantamento de requisitos junto à empresa parceira (PBLTeX), priorização do Product Backlog e definição das funcionalidades do sistema. Acompanhei as entregas ao longo das sprints, validei as implementações e garanti que a solução estivesse alinhada à visão do produto e às necessidades do cliente.
+
+### 1. **Prototipação e criação das telas**
+  - Participei ativamente do design e da prototipação das telas no Canva, garantindo um padrão visual coeso e melhorando a experiência do usuário.
+
+<details>
+  <summary>Detalhes</summary>
+  <img src="">
+</details>
+
+### 2. **Conexão com o banco de dados**
+   - Implementei a configuração de conexão com o banco de dados MySQL, garantindo a persistência dos dados inseridos nas interfaces e sua recuperação adequada.
+
+<details>
+  <summary>Detalhes</summary>
+  
+  ~~~~db.properties
+  ~~~~~
+</details>
+
+### 3. **Criação das telas com HTML e CSS**
+   - Contribuí na implementação de diversas páginas da aplicação com HTML5 e CSS3, estruturando o conteúdo e aplicando estilos responsivos e acessíveis.
+
+<details>
+  <summary>Detalhes menu.html</summary>
+  
+  ~~~~html
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes menu.css</summary>
+  
+  ~~~~css
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes login.html</summary>
+  
+  ~~~~html
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes login.css</summary>
+  
+  ~~~~css
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes cadastrar.html</summary>
+  
+  ~~~~html
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes cadastrar.css</summary>
+  
+  ~~~~css
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes historico.html</summary>
+  
+  ~~~~html
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes historico.css</summary>
+  
+  ~~~~css
+  ~~~~~
+</details>
+
+### 4. **python**
+   - Desenvolvi funcionalidades em Python para controle da interface com EEL, manipulação de dados e interação com o banco.
+
+<details>
+  <summary>Detalhes main.py</summary>
+  
+  ~~~~python
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes support.py</summary>
+  
+  ~~~~python
+  ~~~~~
+</details>
+
+### 5. **json**
+   - Criei e organizei arquivos `.json` utilizados para armazenar dados como usuários e turmas durante o desenvolvimento e testes da aplicação.
+
+<details>
+  <summary>Detalhes users.json</summary>
+  
+  ~~~~python
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes turmas.json</summary>
+  
+  ~~~~python
+  ~~~~~
+</details>
+
+<br>
+
+<h2>Conhecimentos Obtidos</h2>
+<p align="justify">Durante o desenvolvimento do projeto Avaliação 360°, aprofundei meus conhecimentos em metodologias ágeis, especialmente no papel de Product Owner, desde a concepção do produto até sua entrega final. Aprendi a transformar demandas do cliente em requisitos técnicos claros, a priorizar funcionalidades com base em valor agregado e a colaborar ativamente com uma equipe multidisciplinar. Também ampliei minha capacidade de comunicação, liderança e organização, além de ter tido contato prático com ferramentas de prototipação, banco de dados e desenvolvimento web.</p>
+
+<h3>Hard Skills Desenvolvidas</h3>
+  <table>
+    <tr>
+      <th width="400px">Aprendizado</th>
+      <th width="1000px">Descrição</th>
+    </tr>
+    <tr>
+    <td>Gestão do Projeto e Levantamento de Requisitos</td>
+    <td align="justify">Atuei diretamente no planejamento e organização do projeto como Product Owner, realizando o levantamento de requisitos com a empresa parceira (PBLTeX), definindo escopo e priorizando o backlog conforme as necessidades do cliente.</td>
+    </tr>
+    <tr>
+      <td>Design de Interface e Prototipação (Canva)</td>
+      <td align="justify">Utilizei o Canva para criar protótipos visuais das interfaces do sistema, facilitando a validação das telas junto ao cliente e a comunicação com a equipe de desenvolvimento.</td>
+    </tr>
+    <tr>
+      <td>Colaboração no Desenvolvimento (Front e Back)</td>
+      <td align="justify">Apoiei tecnicamente a equipe no desenvolvimento do frontend (HTML, CSS, JS) e backend (Python EEL), contribuindo com ajustes, sugestões e testes durante a implementação das funcionalidades.</td>
+    </tr>
+  </table>
+
+<h3>Soft Skills Desenvolvidas</h3>
+  <table>
+    <tr>
+      <th width="400px">Habilidade</th>
+      <th width="1000px">Descrição</th>
+    </tr>
+    <tr>
+      <td>Proatividade</td>
+      <td align="justify">Antecipei demandas da equipe e do cliente, promovendo clareza nas tarefas e buscando soluções para possíveis impedimentos no planejamento e desenvolvimento.</td>
+    </tr>
+    <tr>
+      <td>Autonomia e Visão de Negócio</td>
+      <td align="justify">Atuei com independência na condução do projeto, sempre buscando alinhar o desenvolvimento técnico à estratégia e aos objetivos da PBLTeX.</td>
+    </tr>
+    <tr>
+      <td>Comunicação e Colaboração</td>
+      <td align="justify">Facilitei a comunicação entre os membros da equipe e os stakeholders, garantindo o entendimento mútuo das funcionalidades e promovendo decisões colaborativas.</td>
+    </tr>
+    <tr>
+      <td>Organização, Planejamento e Entrega</td>
+      <td align="justify">Organizei entregas por sprint com base em prioridades, acompanhando cronogramas e contribuindo com a qualidade e pontualidade das entregas.</td
+    </tr>
+ </table>
+</details>
+
+<br>
+
 <div align=center><h1>Sistema Gerenciador de TGs</h1></div>
 
 <h4> 2º Semestre • <a href="https://github.com/iNineBD/SGTG-2Sem2023">Repositório Github</a></h4>
@@ -2225,7 +2441,7 @@ useSSL=false
     </tr>
   </table>
 
-<h3>Soft Skills </h3>
+<h3>Soft Skills Desenvolvidas</h3>
   <table>
     <tr>
       <th width="400px">Habilidade</th>
