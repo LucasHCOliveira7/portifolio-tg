@@ -91,7 +91,7 @@ solução computacional que viabilize a aplicação dessa técnica.</p>
 
 <details>
   <summary>Detalhes</summary>
-  <img src="">
+  <img src="https://github.com/user-attachments/assets/ec47c714-705b-4047-b332-448966dd01cf">
 </details>
 
 ### 2. **Criação das telas com HTML e CSS**
