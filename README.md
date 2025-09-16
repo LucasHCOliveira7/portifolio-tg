@@ -4928,12 +4928,23 @@ useSSL=false
 
 <details>
   <summary>Detalhes 1</summary>
-  <img src="">
+  <img src="https://github.com/user-attachments/assets/9a94d672-3923-490e-a0e5-f727e4d466a7">
+">
 </details>
 
 <details>
   <summary>Detalhes 2</summary>
-  <img src="">
+  <img src="https://github.com/user-attachments/assets/16b15313-d202-4810-98e3-11d470749761">
+</details>
+
+<details>
+  <summary>Detalhes 3</summary>
+  <img src="https://github.com/user-attachments/assets/06b26571-0569-4663-9caa-f47e970885b5">
+</details>
+
+<details>
+  <summary>Detalhes 4</summary>
+  <img src="https://github.com/user-attachments/assets/13cfaa6e-8536-4d93-9621-61a35bb3b082">
 </details>
 
 ### 2. **Desenvolvimento do Módulo de Geolocalização Interativa**
