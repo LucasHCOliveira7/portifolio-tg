@@ -4936,15 +4936,2314 @@ useSSL=false
   <img src="">
 </details>
 
-### 2. **Desenvolvimento da ....**
-  - descrever...
+### 2. **Desenvolvimento do Módulo de Geolocalização Interativa**
+  - Implementei o mapa interativo com a API do Google Maps para visualização e gerenciamento de ativos. Desenvolvi a funcionalidade de Cercas Virtuais (Geofencing), permitindo aos usuários desenhar e salvar áreas de monitoramento no mapa (DrawingManager).
 
 <details>
   <summary>Detalhes</summary>
   
-  ~~~~html
-  <!DOCTYPE html>
-  </html>
+  ~~~~ts
+  declare namespace google.maps {
+	  export class Map {
+	    constructor(element: HTMLElement, options: MapOptions);
+	    panTo(latLng: LatLng | LatLngLiteral): void;
+	    setZoom(zoom: number): void;
+	  }
+	
+	  export interface MapOptions {
+	    center: LatLng | LatLngLiteral;
+	    zoom: number;
+	    minZoom?: number;
+	    maxZoom?: number;
+	  }
+	
+	  export class Marker {
+	    constructor(options: MarkerOptions);
+	    setMap(map: Map | null): void; // Permite adicionar ou remover o marcador do mapa
+	    setPosition(position: LatLng | LatLngLiteral): void; // Define a posição do marcador
+	  }
+	
+	  export interface MarkerOptions {
+	    position: LatLng | LatLngLiteral;
+	    map: Map | null;
+	    label?: string | MarkerLabel; // Agora label pode ser uma string ou um objeto detalhado
+	    title?: string;
+	    animation?: google.maps.Animation;
+	    draggable?: boolean;
+	    icon?: string | Icon | Symbol; // Adiciona a propriedade icon
+	  }
+	
+	  export interface MarkerLabel {
+	    text: string;         // O texto da label (as iniciais, por exemplo)
+	    color?: string;       // Cor da fonte
+	    fontWeight?: string;  // Peso da fonte (ex.: 'bold')
+	    fontSize?: string;    // Tamanho da fonte (ex.: '16px')
+	  }
+	
+	  export interface MarkerIcon {
+	    url: string;
+	    scaledSize?: google.maps.Size; // Adiciona a propriedade scaledSize com o tipo google.maps.Size
+	  }
+	
+	  export interface Size {
+	    width: number; // Largura em pixels
+	    height: number; // Altura em pixels
+	  }
+	
+	  export interface Symbol {
+	    path: SymbolPath;
+	    scale?: number;
+	    fillColor?: string;
+	    fillOpacity?: number;
+	    strokeWeight?: number;
+	    strokeColor?: string;
+	  }
+	
+	  export enum SymbolPath {
+	    CIRCLE = 0,
+	    FORWARD_CLOSED_ARROW = 1,
+	    FORWARD_OPEN_ARROW = 2,
+	    BACKWARD_CLOSED_ARROW = 3,
+	    BACKWARD_OPEN_ARROW = 4,
+	    PIN = 10,
+	  }
+	
+	  export interface LatLng {
+	    lat(): number;
+	    lng(): number;
+	  }
+	
+	  export interface LatLngLiteral {
+	    lat: number;
+	    lng: number;
+	  }
+	
+	  // Adicionando InfoWindow
+	  export class InfoWindow {
+	    constructor(options?: InfoWindowOptions);
+	    open(map: Map, anchor?: Marker | LatLng | LatLngLiteral): void;
+	    close(): void;
+	  }
+	
+	  export interface InfoWindowOptions {
+	    content: string | HTMLElement; // O conteúdo pode ser uma string ou um elemento HTML
+	    position?: LatLng | LatLngLiteral; // Posição opcional para abrir o InfoWindow
+	  }
+	
+	  // Adicionando o namespace para eventos
+	  export namespace event {
+	    export function addListener<T>(instance: T, eventName: string, handler: (event: Event) => void): void;
+	    export function removeListener(listener: Listener): void;
+	  }
+	
+	  export interface Listener {
+	    remove: () => void; // Método para remover o listener
+	  }
+	
+	  // Adicione mais interfaces e classes conforme necessário
+	}
+	
+	declare namespace google.maps.drawing {
+	  interface DrawingManagerOptions {
+	    drawingMode?: google.maps.OverlayType;
+	    drawingControl?: boolean;
+	    drawingControlOptions?: DrawingControlOptions;
+	    circleOptions?: google.maps.CircleOptions;
+	    rectangleOptions?: google.maps.RectangleOptions;
+	    polygonOptions?: google.maps.PolygonOptions;
+	    polylineOptions?: google.maps.PolylineOptions;
+	    markerOptions?: google.maps.MarkerOptions;
+	  }
+	
+	  interface DrawingControlOptions {
+	    position?: google.maps.ControlPosition;
+	  }
+	
+	  class DrawingManager {
+	    constructor(options?: DrawingManagerOptions);
+	    setMap(map: google.maps.Map | null): void;
+	    setDrawingMode(mode: OverlayType | null): void;
+	  }
+	
+	  enum OverlayType {
+	    CIRCLE = 'CIRCLE',
+	    POLYGON = 'POLYGON',
+	    POLYLINE = 'POLYLINE',
+	    RECTANGLE = 'RECTANGLE',
+	    MARKER = 'MARKER',
+	  }
+	
+	  interface CircleOptions {
+	    center?: google.maps.LatLng | google.maps.LatLngLiteral;
+	    radius?: number;
+	    strokeColor?: string;
+	    strokeOpacity?: number;
+	    strokeWeight?: number;
+	    fillColor?: string;
+	    fillOpacity?: number;
+	    map?: google.maps.Map;
+	    editable?: boolean;
+	    draggable?: boolean;
+	    visible?: boolean;
+	  }
+	
+	  interface RectangleOptions { /* ... */ }
+	  interface PolygonOptions { /* ... */ }
+	  interface PolylineOptions { /* ... */ }
+	  interface MarkerOptions { /* ... */ }
+	
+	  // Aqui você pode adicionar mais definições conforme necessário
+	}
+  ~~~~~
+</details>
+
+### 3. **Desenvolvimento do Player de Rotas no Mapa**
+  - Desenvolvi um player de rotas interativo em Vue.js 3, utilizando a fórmula de Haversine para o cálculo preciso de distância entre coordenadas de GPS, criei também um player que faz exibe a animação do percurso.
+
+<details>
+  <summary>Detalhes 1</summary>
+  
+  ~~~~vue
+  <template>
+	  <v-card
+	    class="player-card"
+	    :style="{ top: cardPosition.top, right: cardPosition.right }"
+	    width="400px"
+	    height="140px"
+	    rounded="xl"
+	    elevation="4"
+	    color="primary"
+	    @mousedown="startDrag"
+	    @mousemove="onDrag"
+	    @mouseup="stopDrag"
+	    @mouseleave="stopDrag"
+	  >
+	    <v-card-text>
+	      <!-- Controles principais: Play/Pause, Informações adicionais, Velocidade -->
+	      <v-row align="center" justify="space-between" no-gutters>
+	        <!-- Botão Play/Pause -->
+	        <v-btn icon @click="togglePlay" size="small" color="secondary">
+	          <v-icon v-if="isPlaying">mdi-pause</v-icon>
+	          <v-icon v-else>mdi-play</v-icon>
+	        </v-btn>
+	
+	        <!-- Cabeçalho com título -->
+	        <v-card-title class="d-flex justify-space-between align-center">
+	          <span>{{ routeTitle }}</span>
+	        </v-card-title>
+	
+	        <!-- Controle de Velocidade -->
+	        <v-menu v-model="showSpeedMenu" offset-y>
+	          <template #activator="{ props }">
+	            <v-btn icon text size="small" color="primary_light" v-bind="props">
+	              {{ selectedSpeed }}x
+	            </v-btn>
+	          </template>
+	          <v-list>
+	            <v-list-item
+	              v-for="(speed, index) in speeds"
+	              :key="index"
+	              @click="selectSpeed(speed)"
+	              class="text-secondary"
+	            >
+	              <v-list-item-title>{{ `${speed}x` }}</v-list-item-title>
+	            </v-list-item>
+	          </v-list>
+	        </v-menu>
+	      </v-row>
+	
+	      <!-- Informações adicionais -->
+	      <v-row align="center" justify="center" class="mt-2">
+	        <v-col class="info-col" cols="6">
+	          <div class="info-item">
+	            <span class="info-label">Distância percorrida:</span>
+	            <span class="info-value">{{ distance }} km</span>
+	          </div>
+	        </v-col>
+	        <v-col class="info-col" cols="6">
+	          <div class="info-item">
+	            <span class="info-label">Tempo estimado:</span>
+	            <span class="info-value">{{ estimatedTime }}</span>
+	          </div>
+	        </v-col>
+	      </v-row>
+	    </v-card-text>
+	  </v-card>
+	</template>
+	
+	<script setup lang="ts">
+	import { ref, watch, onMounted, onUnmounted } from "vue";
+	import { eventBus } from "@/utils/EventBus";
+	
+	const props = defineProps<{
+	  routeTitle: string;
+	  routeData: {
+	    startDate: string;
+	    endDate: string;
+	    userName: string;
+	    device: string;
+	    coordinates: { latitude: number; longitude: number; date: string }[];
+	  };
+	}>();
+	
+	const isPlaying = ref(false);
+	const speeds = [2.0, 1.5, 1.0, 0.5, 0.1];
+	const selectedSpeed = ref("1.0");
+	const showSpeedMenu = ref(false);
+	const distance = ref("0.0"); // Distância em quilômetros
+	const estimatedTime = ref(""); // Tempo estimado
+	
+	const isDragging = ref(false);
+	const dragStartX = ref(0);
+	const dragStartY = ref(0);
+	const cardPosition = ref({ top: "80%", right: "3%" });
+	
+	const startDrag = (event: MouseEvent) => {
+	  isDragging.value = true;
+	  dragStartX.value = event.clientX;
+	  dragStartY.value = event.clientY;
+	};
+	
+	const onDrag = (event: MouseEvent) => {
+	  if (!isDragging.value) return;
+	
+	  const deltaX = event.clientX - dragStartX.value;
+	  const deltaY = event.clientY - dragStartY.value;
+	
+	  const card = event.currentTarget as HTMLElement;
+	  const rect = card.getBoundingClientRect();
+	
+	  let newTop = rect.top + deltaY;
+	  let newRight = window.innerWidth - rect.right - deltaX;
+	
+	  // Limita a posição do cartão dentro dos limites da janela
+	  if (newTop < 0) newTop = 0;
+	  if (newTop + rect.height > window.innerHeight)
+	    newTop = window.innerHeight - rect.height;
+	  if (newRight < 0) newRight = 0;
+	  if (newRight + rect.width > window.innerWidth)
+	    newRight = window.innerWidth - rect.width;
+	
+	  cardPosition.value.top = `${newTop}px`;
+	  cardPosition.value.right = `${newRight}px`;
+	
+	  dragStartX.value = event.clientX;
+	  dragStartY.value = event.clientY;
+	};
+	
+	const stopDrag = () => {
+	  isDragging.value = false;
+	};
+	
+	onMounted(() => {
+	  calculateRouteData();
+	  eventBus.on("updateButtonState", (state: string) => {
+	    isPlaying.value = state === "play";
+	  });
+	});
+	
+	onUnmounted(() => {
+	  eventBus.off("updateButtonState", (state: string) => {
+	    isPlaying.value = state === "play";
+	  });
+	});
+	
+	const emit = defineEmits<{
+	  (event: "play" | "pause"): void;
+	  (event: "speedChange", speed: number): void;
+	}>();
+	
+	const togglePlay = () => {
+	  isPlaying.value = !isPlaying.value;
+	  emit(isPlaying.value ? "play" : "pause");
+	};
+	
+	const selectSpeed = (speed: number) => {
+	  selectedSpeed.value = speed.toFixed(1); // Atualiza o botão com a velocidade selecionada
+	  emit("speedChange", speed);
+	  showSpeedMenu.value = false;
+	};
+	
+	// Calcula a distância total percorrida
+	const calculateTotalDistance = (
+	  coordinates: { latitude: number; longitude: number }[]
+	) => {
+	  let totalDistance = 0;
+	
+	  // Loop para calcular a distância entre pontos consecutivos
+	  for (let i = 0; i < coordinates.length - 1; i++) {
+	    const point1 = coordinates[i];
+	    const point2 = coordinates[i + 1];
+	
+	    // Calcula a distância entre os pontos consecutivos usando a fórmula de Haversine
+	    totalDistance += haversine(
+	      point1.latitude,
+	      point1.longitude,
+	      point2.latitude,
+	      point2.longitude
+	    );
+	  }
+	
+	  return totalDistance; // Distância total percorrida em quilômetros
+	};
+	
+	// Fórmula de Haversine
+	const haversine = (lat1: number, lon1: number, lat2: number, lon2: number) => {
+	  const R = 6371; // Raio da Terra em quilômetros
+	  const toRad = (value: number) => (value * Math.PI) / 180; // Função para converter graus para radianos
+	  const dLat = toRad(lat2 - lat1); // Diferença de latitude
+	  const dLon = toRad(lon2 - lon1);
+	
+	  const a =
+	    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+	    Math.cos(toRad(lat1)) *
+	      Math.cos(toRad(lat2)) *
+	      Math.sin(dLon / 2) *
+	      Math.sin(dLon / 2);
+	
+	  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); // Cálculo do arco
+	  return R * c; // Distância em quilômetros
+	};
+	
+	// Calcula a distância total e o tempo estimado
+	const calculateRouteData = () => {
+	  const { coordinates } = props.routeData;
+	
+	  // Garantimos que existam coordenadas para o cálculo
+	  if (coordinates.length === 0) {
+	    distance.value = "0.0";
+	    estimatedTime.value = "00:00";
+	    return;
+	  }
+	
+	  // Cálculo da distância total
+	  let totalDistance = calculateTotalDistance(coordinates);
+	  distance.value = totalDistance.toFixed(2);
+	
+	  // Cálculo do tempo estimado baseado nas coordenadas
+	  const start = new Date(coordinates[0].date).getTime(); // Data do primeiro ponto
+	  const end = new Date(coordinates[coordinates.length - 1].date).getTime(); // Data do último ponto
+	  const diffInMinutes = Math.floor((end - start) / (1000 * 60)); // Diferença em minutos
+	
+	  // Converte a diferença de tempo em horas e minutos
+	  const hours = Math.floor(diffInMinutes / 60);
+	  const minutes = diffInMinutes % 60;
+	
+	  // Atualizamos o tempo estimado no formato hh:mm
+	  estimatedTime.value = `${hours}h ${minutes.toString().padStart(2, "0")}min`;
+	};
+	
+	// Watcher para atualizar valores ao mudar o routeData
+	watch(
+	  () => props.routeData,
+	  (newRouteData) => {
+	    calculateRouteData();
+	  },
+	  { deep: true } // Monitora mudanças profundas no objeto
+	);
+	</script>
+	
+	<style scoped>
+	.player-card {
+	  display: flex;
+	  flex-direction: column;
+	  position: fixed;
+	  cursor: grab;
+	}
+	
+	.player-card:active {
+	  cursor: grabbing;
+	}
+	
+	/* Coluna de informações */
+	.info-col {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+	
+	.info-item {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  user-select: none; /* Impede a seleção de texto */
+	}
+	
+	.info-label {
+	  font-size: 14px;
+	  user-select: none; /* Impede a seleção de texto */
+	}
+	
+	.info-value {
+	  font-size: 16px;
+	  font-weight: bold;
+	  user-select: none; /* Impede a seleção de texto */
+	}
+	
+	.v-card-title span {
+	  user-select: none; /* Impede a seleção de texto */
+	}
+	</style>
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes 2</summary>
+  
+  ~~~~vue
+	<template>
+	  <div class="floating-panel">
+	    <v-container width="400px" class="panel-container" style="padding: 0px">
+	      <v-expansion-panels v-model="panel" rounded="xl" elevation="4" color="primary">
+	        <v-expansion-panel>
+	          <template v-slot:title>
+	            <v-row class="panel-header" justify="center" align="center">
+	              <v-img :src="logo" height="35" class="icon" />
+	            </v-row>
+	          </template>
+	          <v-expansion-panel-text style="padding: 0px">
+	            <v-container width="400px" class="filter-container" style="padding: 0px">
+	              <v-divider :thickness="2" />
+	              <!-- Exibe o filtro correto com base na rota -->
+	              <StopPointsFilter v-if="route.path === '/stoppointsfilter'" @consult="handleFilterData"
+	                @initializeMap="initializeMap" @initializeMapDark="initializeMapDark" />
+	
+	              <GeographicAreasFilter v-if="route.path === '/geographicareasfilter'" @removeCircle="handleRemoveCircle"
+	                @drawCircle="handleDrawCircle" @consult="handleGeographicAreaConsult"
+	                @stopPointsReceived="handleStopPointsReceived" @initializeMap="initializeMap"
+	                @initializeMapDark="initializeMapDark" />
+	
+	              <UsersInZoneFilter v-if="route.path === '/UsersInZoneFilter'" @removeCircle="handleRemoveCircle"
+	                @drawCircle="handleDrawCircle" @consult="handleGeographicAreaConsult"
+	                @usersReceived="handleUsersReceived" @initializeMap="initializeMap"
+	                @initializeMapDark="initializeMapDark" @clearFields="handleClearFields" />
+	
+	              <GeoRoutesFilter @initializeMap="initializeMap" @initializeMapDark="initializeMapDark" @routesReceived="handleRoutesReceived"
+	                v-if="route.path === '/georoutesfilter'" />
+	              <StopPointsInformation v-if="showStopPointsInformation" :stopPoints="stopPoints"
+	                @go-to-location="navigateToLocation" />
+	
+	              <UserInZoneInformation v-if="showUserInZoneInformation" :userZoneInfo="userZoneInfo"
+	                @go-to-location="navigateToLocation" />
+	
+	              <GeographicStopPointsInformation v-if="showGeographicStopPointsInformation" :geoStopPoints="geoStopPoints"
+	                @navigate-to-stop-point="navigateGeoToLocation" />
+	              <GeoRoutesInformation v-if="showGeoRoutesInformation" :geoRoutes="geoRoutes" />
+	              <RoutePlayer v-if="selectedRoute" :routeTitle="`Exibindo ROTA ${routeNumber}`" :routeData="selectedRoute"
+	                @close="selectedRoute = null" @play="handlePlay" @pause="handlePause"
+	                @speedChange="handleSpeedChange" />
+	            </v-container>
+	          </v-expansion-panel-text>
+	        </v-expansion-panel>
+	      </v-expansion-panels>
+	    </v-container>
+	
+	    <v-speed-dial v-model="dial" location="bottom center" transition="scale-transition" class="speed-dial">
+	      <template v-slot:activator="{ props: activatorProps }">
+	        <v-btn v-bind="activatorProps" icon="mdi-menu" large elevation="4" color="primary"></v-btn>
+	      </template>
+	
+	      <!-- Botão para Home -->
+	      <v-btn key="map-marker" @click="handleHomeClick" icon="mdi-home" title="Home" color="primary"></v-btn>
+	
+	      <!-- Botão para StopPointsFilter -->
+	      <v-btn key="map-marker" @click="handleStopPointsFilterClick" icon="mdi-map-marker"
+	        title="Filtro de Pontos de Parada" color="primary"></v-btn>
+	
+	      <!-- Botão para GeographicAreasFilter -->
+	      <v-btn key="map-marker" @click="handleGeographicAreasFilterClick" icon="mdi-map-search"
+	        title="Filtro de Áreas Geográficas" color="primary"></v-btn>
+	
+	      <!-- Botão para GeoRoutesFilter -->
+	      <v-btn key="map-marker" @click="handleGeoRoutesFilterClick" icon="mdi-map-marker-distance" title="Filtro de Rotas"
+	        color="primary"></v-btn>
+	
+	      <!-- Botão para UsersInZone -->
+	      <v-btn key="map-marker" @click="handleUsersInZone" icon="mdi-file-marker" title="Filtro de usuários em zona"
+	        color="primary"></v-btn>
+	
+	      <!-- Botão para Sair -->
+	      <v-btn key="map-marker" icon="mdi-export" @click="handleLogout" title="Saída" color="#F44336"></v-btn>
+	    </v-speed-dial>
+	  </div>
+	</template>
+	
+	<script setup lang="ts">
+	import { ref, onMounted, onUnmounted } from "vue";
+	import StopPointsFilter from "../Filters/StopPointsFilter.vue";
+	import GeographicAreasFilter from "../Filters/GeographicAreasFilter.vue";
+	import GeoRoutesFilter from "../Filters/GeoRoutesFilter.vue";
+	import UsersInZoneFilter from "../Filters/UsersInZoneFilter.vue";
+	import GeoRoutesInformation from "../Menu/GeoRoutesInformation.vue";
+	import StopPointsInformation from '../Menu/StopPointsInformation.vue';
+	import GeographicStopPointsInformation from '../Menu/GeographicStopPointsInformation.vue';
+	import RoutePlayer from "./RoutePlayer.vue";
+	import { FilterData } from "@/pages/MapView.vue";
+	import { useRoute, useRouter } from "vue-router";
+	import { eventBus } from "@/utils/EventBus"; // Verifique se está importado corretamente
+	import UserInZoneInformation from "../Menu/UserInZoneInformation.vue";
+	
+	const panel = ref([]);
+	const dial = ref(false);
+	const route = useRoute();
+	const router = useRouter();
+	const emit = defineEmits([
+	  "initializeMap",
+	  "removeCircle",
+	  "initializeMapDark",
+	]);
+	const logo = ref("/src/assets/Logo.svg");
+	const selectedRoute = ref(null); // Armazena os dados da rota selecionada
+	const routeNumber = ref(null); // Número da rota para exibição
+	const showPlayer = ref(false); // Controla a exibição do player
+	
+	onMounted(() => {
+	  eventBus.on("changeLogo", updateLogo);
+	  eventBus.on("novoLogo", change);
+	  eventBus.on("clearStopPointsInformation", clearStopPointsInformation);
+	  eventBus.on('showRouteOnMap', handleRouteFromSidebar);
+	  eventBus.on('openPlayer', ({ route, index }) => {
+	
+	
+	    selectedRoute.value = route;
+	    routeNumber.value = index + 1;
+	    showPlayer.value = true;
+	  });
+	  eventBus.on("removePlayer", () => {
+	
+	    selectedRoute.value = null; // Remove a rota selecionada
+	    showPlayer.value = false;  // Oculta o player
+	  });
+	});
+	
+	onUnmounted(() => {
+	  eventBus.off("novoLogo", change);
+	  eventBus.off("changeLogo", updateLogo);
+	  eventBus.off('showRouteOnMap', handleRouteFromSidebar);
+	  eventBus.off('openPlayer');
+	  eventBus.off("removePlayer");
+	});
+	
+	// Método que será chamado quando o evento "novoLogo" for emitido
+	const change = (newLogo: string) => {
+	  logo.value = newLogo; // Atualizando o valor do logo com o valor recebido
+	
+	};
+	
+	const toggleDial = () => {
+	  dial.value = !dial.value;
+	};
+	
+	const updateLogo = () => {
+	
+	  logo.value = logo.value === "/src/assets/Logo.svg" ? "/src/assets/LogoWhite.svg" : "/src/assets/Logo.svg";
+	  eventBus.emit("novoLogo", logo.value)
+	};
+	
+	// Definindo as props
+	const props = defineProps<{
+	  onConsult: (data: FilterData) => any;
+	  onDrawCircle: () => void;
+	  onGeographicAreaConsult: (data: FilterData) => any;
+	  onStopPointsReceived: (stopPoints: any) => void;
+	  onUsersReceived: (userZoneInfo: any) => void;
+	  onRoutesReceived: (routes: any) => void;
+	}>();
+	
+	interface StopPoint {
+	  device: string;
+	  user: string;
+	  geoJsonDTO: any;
+	}
+	
+	const showStopPointsInformation = ref(false);
+	const stopPoints = ref<StopPoint[]>([]);
+	const showGeographicStopPointsInformation = ref(false);
+	const showUserInZoneInformation = ref(false);
+	const geoStopPoints = ref<any[]>([]);
+	const userZoneInfo = ref<any[]>([]);
+	const showGeoRoutesInformation = ref(false);
+	const geoRoutes = ref<any[]>([]);
+	
+	const clearStopPointsInformation = () => {
+	  showStopPointsInformation.value = false;
+	  showGeographicStopPointsInformation.value = false;
+	  showUserInZoneInformation.value = false; // Adicione esta linha para ocultar o componente UserInZoneInformation
+	  showGeoRoutesInformation.value = false;
+	};
+	
+	const handleFilterData = async (data: FilterData) => {
+	  const result = await props.onConsult(data);
+	  console.log("aquiiiiiiiiii",result);
+	
+	  if (result.success && result.data.length > 0) {
+	    showStopPointsInformation.value = true;
+	    stopPoints.value = result.data;
+	
+	  } else {
+	    showStopPointsInformation.value = false;
+	    stopPoints.value = [];
+	
+	  }
+	};
+	
+	const handleDrawCircle = () => {
+	  props.onDrawCircle();
+	};
+	
+	const handleRemoveCircle = () => {
+	  emit("removeCircle");
+	};
+	
+	const handleGeographicAreaConsult = (data: FilterData) => {
+	
+	  props.onGeographicAreaConsult(data);
+	};
+	
+	const handleStopPointsReceived = (stopPoints: any) => {
+	
+	  geoStopPoints.value = stopPoints;
+	  showGeographicStopPointsInformation.value = true;
+	  props.onStopPointsReceived(stopPoints);
+	};
+	
+	const handleUsersReceived = (users: any) => {
+	
+	  userZoneInfo.value = users;
+	  showUserInZoneInformation.value = true;
+	  props.onUsersReceived(users);
+	};
+	
+	const handleRoutesReceived = (routes: any) => {
+	
+	  geoRoutes.value = routes.routes;
+	  showGeoRoutesInformation.value = true;
+	  props.onRoutesReceived(routes);
+	};
+	
+	const initializeMap = () => {
+	  emit("initializeMap");
+	};
+	
+	const initializeMapDark = () => {
+	  emit("initializeMapDark");
+	};
+	
+	const goToFilterStopPoints = () => {
+	  router.push("/stoppointsfilter");
+	  //@ts-ignore
+	  panel.value = [0];
+	  toggleDial();
+	
+	  if (logo.value === "/src/assets/Logo.svg") {
+	    emit("initializeMap");
+	  } else {
+	    emit("initializeMapDark");
+	  }
+	};
+	
+	const goToFilterGeographicAreas = () => {
+	  router.push("/geographicareasfilter");
+	  //@ts-ignore
+	  panel.value = [0];
+	  toggleDial();
+	  if (logo.value === "/src/assets/Logo.svg") {
+	    emit("initializeMap");
+	  } else {
+	    emit("initializeMapDark");
+	  }
+	};
+	
+	const goToFilterGeoRoutes = () => {
+	  router.push("/georoutesfilter");
+	  //@ts-ignore
+	  panel.value = [0];
+	  toggleDial();
+	  if (logo.value === "/src/assets/Logo.svg") {
+	    emit("initializeMap");
+	  } else {
+	    emit("initializeMapDark");
+	  }
+	};
+	
+	const goToStopPointsZone = () => {
+	  router.push("/UsersInZoneFilter");
+	  //@ts-ignore
+	  panel.value = [0];
+	  toggleDial();
+	  if (logo.value === "/src/assets/Logo.svg") {
+	    emit("initializeMap");
+	  } else {
+	    emit("initializeMapDark");
+	  }
+	};
+	
+	const handleLogout = () => {
+	  localStorage.removeItem("token");
+	  router.push({ name: "Login" });
+	};
+	
+	const handlePanelChange = () => {
+	  showStopPointsInformation.value = false;
+	  showGeographicStopPointsInformation.value = false;
+	  showUserInZoneInformation.value = false; // Adicione esta linha para ocultar o componente UserInZoneInformation
+	  showGeoRoutesInformation.value = false;
+	  eventBus.emit("removePlayer");
+	};
+	
+	const handleStopPointsFilterClick = () => {
+	  goToFilterStopPoints();
+	  handlePanelChange();
+	};
+	
+	const handleGeographicAreasFilterClick = () => {
+	  goToFilterGeographicAreas();
+	  handlePanelChange();
+	};
+	
+	const handleGeoRoutesFilterClick = () => {
+	  goToFilterGeoRoutes();
+	  handlePanelChange();
+	};
+	
+	
+	const handleUsersInZone = () => {
+	  goToStopPointsZone();
+	  handlePanelChange();
+	};
+	
+	const handleHomeClick = () => {
+	  handlePanelChange();
+	  clearStopPointsInformation();
+	  eventBus.emit("clearFields");
+	  if (logo.value == "/src/assets/LogoWhite.svg") {
+	    initializeMapDark();
+	  } else {
+	    initializeMap();
+	  }
+	};
+	
+	const handleClearFields = () => {
+	  eventBus.emit("ClearFields");
+	};
+	
+	// navigateToLocation é para ir até os pontos do filtro de usuários
+	const navigateToLocation = (coordinates: [number, number]) => {
+	  eventBus.emit("navigateToLocation", coordinates);
+	};
+	
+	// navigateGeoToLocation é para ir até os pontos do filtro de áreas geográficas
+	const navigateGeoToLocation = (coord: [number, number]) => {
+	
+	  eventBus.emit("navigateGeoToLocation", coord);
+	};
+	
+	const handleRouteFromSidebar = (route: any) => {
+	
+	  eventBus.emit("selectedRoute", route);
+	};
+	
+	const handlePlay = () => {
+	
+	  eventBus.emit('routePlay');
+	};
+	
+	const handlePause = () => {
+	
+	  eventBus.emit('routePause');
+	};
+	
+	const handleSpeedChange = (speed: number) => {
+	
+	  eventBus.emit('speedChange', speed);
+	}
+	
+	</script>
+	
+	<style scoped>
+	@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+	
+	.floating-panel {
+	  position: fixed;
+	  top: 10px;
+	  left: 10px;
+	  z-index: 1000;
+	  display: flex;
+	  align-items: flex-start;
+	  max-width: calc(100% - 40px);
+	  gap: 10px;
+	}
+	
+	.material-symbols-outlined {
+	  font-family: "Material Symbols Outlined";
+	}
+	
+	.logout-icon {
+	  color: #000b62 !important;
+	}
+	</style>
+  ~~~~~
+</details>
+
+### 4. **Desenvolvimento Lista de Rotas com Endereços Reais**
+  - Implementei o painel que mostra a lista de trajetos que o usuário encontrou. O sistema pega as coordenadas de GPS de início e fim de cada rota e mostra o nome da rua de cada ponto. Quando o usuário clica em uma rota da lista, o sistema desenha o caminho no mapa e abre o player de simulação para aquela rota.
+
+<details>
+  <summary>Detalhes 1</summary>
+  
+  ~~~~vue
+	<template>
+	  <v-card class="mx-auto" width="100%" style="
+	      box-shadow: none;
+	      border-radius: 0 0 25px 20px;
+	      margin-bottom: 0px;
+	      height: 371px;
+	    " color="primary">
+	    <v-col style="padding: 5px 20px 0px 20px">
+	      <v-row style="align-items: center; padding: 0px 0 7px 0; position: relative;">
+	        <!-- Texto "Pontos de Parada" centralizado -->
+	        <v-col cols="12" style="text-align: center;">
+	          <span style="font-size: 23px; font-weight: bold;" color="primary">
+	            Aréas Geográficas
+	          </span>
+	        </v-col>
+	        <!-- Botão do Painel de Informações no extremo direito -->
+	        <v-col cols="auto" style="position: absolute; right: 0px; top: 32%; transform: translateY(-40%);">
+	          <InfoPanel></InfoPanel>
+	        </v-col>
+	      </v-row>
+	      <!-- Card das áreas geográficas -->
+	      <v-card-actions class="d-flex justify-space-between">
+	        <v-row class="d-flex align-center no-gutters">
+	          <v-col cols="100%" style="padding: 0px">
+	            <!-- Combobox de áreas geográficas -->
+	            <v-combobox :disabled="disabledTexts" label="Áreas geográficas" color="secondary" v-model="selectedGeoArea"
+	              :items="geoAreas" item-value="id" item-title="name" clearable :multiple="false"
+	              @update:model-value="handleGeoAreaChange" @click:clear="clearFields" prepend-icon="mdi-map-search">
+	            </v-combobox>
+	          </v-col>
+	
+	          <v-col cols="auto" style="padding: 0px 0px 20px 10px">
+	            <div class="icon-container">
+	              <v-btn icon @click="drawCircle" class="no-shadow rounded" :disabled="disableDrawButton">
+	                <v-icon>mdi-circle-outline</v-icon>
+	                <v-icon class="plus-icon">mdi-plus</v-icon>
+	              </v-btn>
+	            </div>
+	          </v-col>
+	        </v-row>
+	      </v-card-actions>
+	
+	      <!-- Users combobox -->
+	      <v-combobox v-model="selectedUser" label="Usuário" :items="users" item-title="name" item-value="deviceId"
+	        prepend-icon="mdi-filter-variant" clearable :multiple="false" color="secondary">
+	      </v-combobox>
+	
+	      <!-- Date selection -->
+	      <v-date-input v-model="date" label="Selecione o período" multiple="range" color="secondary" :max="today"
+	        :locale="locale" :format="customDateFormat" placeholder="dd/MM/yyyy" :readonly="dateInputDisabled">
+	      </v-date-input>
+	
+	      <!-- Quick date filters using chips -->
+	      <v-col style="padding: 0px; display: flex; justify-content: space-evenly">
+	        <v-chip style="margin: 0px 2px !important" size="small" v-for="(filter, index) in quickFilters"
+	          :key="filter.label" @click="setQuickFilter(filter.range, index)"
+	          :color="selectedQuickFilter === index ? 'primary' : 'primary_light'" :active="selectedQuickFilter === index"
+	          filter class="ma-2" variant="flat">
+	          {{ filter.label }}
+	        </v-chip>
+	      </v-col>
+	    </v-col>
+	
+	    <v-card-actions class="d-flex justify-space-between" style="padding: 20px 20px 0 20px">
+	      <v-row class="d-flex" no-gutters style="justify-content: space-around">
+	        <v-col cols="7">
+	          <v-btn :loading="loading" :disabled="ButtonDisabled || loading" class="text-none" color="secondary"
+	            size="large" variant="flat" block rounded="xl" @click="handleConsult">
+	            Consultar
+	          </v-btn>
+	        </v-col>
+	        <v-col cols="4">
+	          <v-btn class="text-none" color="primary_light" size="large" variant="flat" block rounded="xl"
+	            @click="clearFields">
+	            Limpar
+	          </v-btn>
+	        </v-col>
+	      </v-row>
+	    </v-card-actions>
+	  </v-card>
+	
+	  <!-- Loading progress circular -->
+	  <v-col v-if="loadingPage" id="loadingStopPoints" class="d-flex justify-center mt-4">
+	    <v-progress-circular color="primary" indeterminate> </v-progress-circular>
+	  </v-col>
+	
+	  <v-snackbar v-model="snackbar" :color="snackbarColor" timeout="3000" top>
+	    {{ snackbarMessage }}
+	  </v-snackbar>
+	</template>
+	
+	<script>
+	import { eventBus } from "@/utils/EventBus";
+	import axios from "axios";
+	
+	export default {
+	  data: () => ({
+	    today: new Date().toISOString().substr(0, 10),
+	    loading: false,
+	    logo: "/src/assets/Logo.svg",
+	    date: null,
+	    users: [], // Lista de usuários
+	    selectedUser: null,
+	    locale: "pt",
+	    customDateFormat: "dd/MM/yyyy",
+	    quickFilters: [
+	      { label: "Hoje", range: [new Date(), new Date()] },
+	      {
+	        label: "Últimos 3 dias",
+	        range: [new Date(Date.now() - 3 * 864e5), new Date()],
+	      },
+	      {
+	        label: "Última semana",
+	        range: [new Date(Date.now() - 7 * 864e5), new Date()],
+	      },
+	      {
+	        label: "Último mês",
+	        range: [new Date(Date.now() - 30 * 864e5), new Date()],
+	      },
+	    ],
+	    selectedQuickFilter: null,
+	    dateInputDisabled: false,
+	    geoAreas: [],
+	    selectedGeoArea: null,
+	    latitude: null,
+	    longitude: null,
+	    radius: null,
+	    circleDrawn: false,
+	    snackbar: false,
+	    snackbarColor: "success",
+	    snackbarMessage: "",
+	  }),
+	
+	  mounted() {
+	    this.fetchUsers();
+	    this.fetchGeoAreas();
+	    eventBus.on("clearSelectedGeoArea", this.clearSelectedGeoArea);
+	    eventBus.on("stopIsLoading", this.stopIsLoading);
+	    eventBus.on("reloadGeoArea", this.reloadGeoArea);
+	    eventBus.on("novoLogo", this.change);
+	    eventBus.on("clearFields", this.clearFields);
+	  },
+	
+	  computed: {
+	    disableDrawButton() {
+	      return this.selectedGeoArea !== null;
+	    },
+	
+	    ButtonDisabled() {
+	      const cachedDetails = localStorage.getItem("cachedCircleDetails");
+	      const cachedCircle = JSON.parse(cachedDetails);
+	
+	
+	
+	      return (
+	        !this.selectedUser ||
+	        !this.date ||
+	        (!this.selectedGeoArea && !cachedCircle)
+	      );
+	    },
+	  },
+	
+	  methods: {
+	    showSnackbar(message, color = "success") {
+	      this.snackbarMessage = message; // Define a mensagem
+	      this.snackbarColor = color; // Define a cor
+	      this.snackbar = true; // Torna o snackbar visível
+	    },
+	
+	    clearSelectedGeoArea() {
+	      this.selectedGeoArea = null;
+	    },
+	    change(newLogo) {
+	      this.logo = newLogo;
+	    },
+	
+	    stopIsLoading() {
+	      this.loading = false;
+	    },
+	
+	    async reloadGeoArea() {
+	      this.selectedGeoArea = null;
+	      this.fetchGeoAreas();
+	    },
+	
+	    async fetchUsers() {
+	      try {
+	        const response = await axios.get(
+	          "http://localhost:8080/filters/users?page=0&qtdPage=1000"
+	        );
+	        const data = response.data;
+	
+	        // Mapeando a resposta da API para o formato correto
+	        this.users = data.listUsers.map((user) => ({
+	          name: user.userName.toUpperCase(), // Nome do usuário
+	          deviceId: user.idDevice, // ID do dispositivo associado
+	          device: user.deviceName,
+	        }));
+	
+	
+	      } catch (error) {
+	
+	      }
+	    },
+	
+	    async fetchGeoAreas() {
+	      try {
+	        const response = await axios.get("http://localhost:8080/zone");
+	        const data = response.data;
+	        this.geoAreas = data.map((area) => ({
+	          id: area.id,
+	          name: area.name,
+	          latitude: area.center.latitude,
+	          longitude: area.center.longitude,
+	          radius: area.radius,
+	        }));
+	
+	      } catch (error) {
+	
+	      }
+	    },
+	
+	    async handleGeoAreaChange() {
+	      if (!this.selectedGeoArea) {
+	
+	        this.$emit("removeCircle");
+	        return; // Interrompe a execução da função
+	      }
+	
+	      const cachedDetails = localStorage.getItem("cachedCircleDetails");
+	      const cachedCircle = JSON.parse(cachedDetails);
+	
+	      const selectedArea = this.geoAreas.find(
+	        (area) => area.id === this.selectedGeoArea.id
+	      );
+	
+	      if (!selectedArea) {
+	
+	        return;
+	      }
+	
+	      const requestData = {
+	        latitude: selectedArea.latitude,
+	        longitude: selectedArea.longitude,
+	        radius: selectedArea.radius,
+	      };
+	
+	      const dataCircleAndUser = {
+	        id: selectedArea.id,
+	        name: selectedArea.name,
+	        latitude: selectedArea.latitude,
+	        longitude: selectedArea.longitude,
+	        radius: selectedArea.radius,
+	      };
+	
+	      this.$emit("consult", dataCircleAndUser);
+	    },
+	
+	    async handleConsult() {
+	      this.loading = true;
+	      const cachedDetails = localStorage.getItem("cachedCircleDetails");
+	      const cachedCircle = JSON.parse(cachedDetails);
+	      let selectedArea = null;
+	
+	      if (
+	        !this.selectedUser ||
+	        !this.date ||
+	        (!this.selectedGeoArea && !cachedCircle)
+	      ) {
+	
+	        this.loading = false;
+	        return;
+	      }
+	
+	      if (this.selectedGeoArea) {
+	        selectedArea = this.geoAreas.find(
+	          (area) => area.id === this.selectedGeoArea.id
+	        );
+	        if (!selectedArea) {
+	
+	          this.loading = false;
+	          return;
+	        }
+	      } else {
+	        selectedArea = cachedCircle;
+	        selectedArea.latitude = selectedArea.center.latitude;
+	        selectedArea.longitude = selectedArea.center.longitude;
+	
+	      }
+	
+	      const qtddias = Math.round(
+	        (new Date(this.date[this.date.length - 1]) - new Date(this.date[0])) /
+	        (1000 * 60 * 60 * 24)
+	      );
+	
+	      if (qtddias > 31) {
+	        this.showSnackbar("Mais que 31 dias selecionados", "error");
+	        this.loading = false;
+	        return;
+	      }
+	
+	      const requestData = {
+	        deviceId: this.selectedUser.deviceId,
+	        startDate: new Date(this.date[0]).toLocaleDateString("en-CA"),
+	        finalDate: new Date(this.date[this.date.length - 1]).toLocaleDateString(
+	          "en-CA"
+	        ),
+	        latitude: selectedArea.latitude,
+	        longitude: selectedArea.longitude,
+	        radius: selectedArea.radius,
+	      };
+	
+	
+	
+	      const url = `http://localhost:8080/stoppointsession/pointsInSession?deviceId=${requestData.deviceId}&startDate=${requestData.startDate}&endDate=${requestData.finalDate}&latitude=${requestData.latitude}&longitude=${requestData.longitude}&radius=${requestData.radius}`;
+	
+	
+	
+	      try {
+	        const response = await axios.get(url);
+	        if (response.status === 200) {
+	          const data = await response.data;
+	
+	
+	
+	          const dataCircleAndUser = {
+	            id: selectedArea.id,
+	            userName: this.selectedUser.name,
+	            name: selectedArea.name,
+	            latitude: selectedArea.latitude,
+	            longitude: selectedArea.longitude,
+	            radius: selectedArea.radius,
+	          };
+	
+	          const coord = data.stopPoints;
+	
+	          const dados = {
+	            userName: this.selectedUser.name,
+	            device: this.selectedUser.device,
+	            coords: coord, // Definindo corretamente um array para coordenadas
+	          };
+	
+	
+	
+	          // Dados enviados para plotar o círculo escolhido
+	          this.$emit("consult", dataCircleAndUser);
+	          this.$emit("stopPointsReceived", dados);
+	        }
+	      } catch (error) {
+	
+	        this.showSnackbar(error.response.data.message, "error");
+	        this.loading = false;
+	      }
+	    },
+	
+	    clearFields() {
+	      this.date = null;
+	      this.selectedUser = null;
+	      this.devices = [];
+	      this.selectedQuickFilter = null;
+	      this.selectedGeoArea = null;
+	      this.latitude = null;
+	      this.longitude = null;
+	      this.radius = null;
+	      this.circleDrawn = false;
+	
+	
+	
+	      localStorage.removeItem("circleDetailsCached");
+	      localStorage.removeItem("cachedCircleDetails");
+	
+	      if (this.logo == "/src/assets/LogoWhite.svg") {
+	        this.$emit("initializeMapDark");
+	        eventBus.emit("clearStopPointsInformation");
+	      } else {
+	        this.$emit("initializeMap");
+	        eventBus.emit("clearStopPointsInformation");
+	      }
+	    },
+	
+	    drawCircle() {
+	      this.$emit("drawCircle");
+	    },
+	
+	    setQuickFilter(range, index) {
+	      if (this.selectedQuickFilter === index) {
+	        this.selectedQuickFilter = null;
+	        this.date = null;
+	        this.dateInputDisabled = false;
+	      } else {
+	        this.selectedQuickFilter = index;
+	        this.date = range.map((date) => date.toISOString().substr(0, 10));
+	        this.dateInputDisabled = true;
+	      }
+	    },
+	  },
+	};
+	</script>
+	
+	<style scoped>
+	.icon-container {
+	  position: relative;
+	}
+	
+	.plus-icon {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  font-size: 16px;
+	  color: terceary;
+	}
+	
+	.title-text {
+	  font-weight: bold;
+	  font-size: 16px;
+	}
+	
+	.no-shadow {
+	  box-shadow: none !important;
+	}
+	
+	.rounded {
+	  border-radius: 0 !important;
+	}
+	</style>
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes 2</summary>
+  
+  ~~~~vue
+	<template>
+	  <div class="modal-content">
+	    <h1 class="modal-title">Áreas Geográficas</h1>
+	
+	    <!-- Página 1 -->
+	    <div v-if="currentPage === 1">
+	      <p>
+	        Sejam bem-vindos ao GeoTrack! Essa página está destinada a solucionar
+	        possíveis dúvidas sobre como utilizar nossa aplicação. Aqui temos o filtro de Áreas Geográficas, onde você pode criar, editar, deletar Áreas Geograficas e buscar pelos usuários que contém pontos de parada dentro de uma área específica.
+	      </p>
+	      <div class="image-container">
+	        <img
+	          src="../../assets/infoImgs/GeographicAreasModal/AGInterface.png"
+	          alt="Menu Áreas Geográficas"
+	        />
+	        <p class="image-caption">Menu Áreas Geográficas</p>
+	      </div>
+	    </div>
+	
+	    <!-- Página 2 -->
+	    <div v-else-if="currentPage === 2">
+	      <p>
+	        Para criar uma nova Área Geográfica, clique no ícone (+) e
+	        desenhe um círculo no mapa. Após verificar os detalhes, clique em
+	        "Salvar" para registrar a área criada.
+	      </p>
+	      <div class="image-grid">
+	        <div class="image-item">
+	          <img
+	            src="../../assets/infoImgs/GeographicAreasModal/AGCriarArea.png"
+	            alt="Criação de Área Geográfica"
+	          />
+	          <p class="image-caption">Exemplo de Criação de Área Geográfica</p>
+	        </div>
+	        <div class="image-item">
+	          <img
+	            src="../../assets/infoImgs/GeographicAreasModal/AGSalvarZona.png"
+	            alt="Salvando Área Geográfica"
+	          />
+	          <p class="image-caption">Salvando Área Geográfica</p>
+	        </div>
+	      </div>
+	    </div>
+	
+	    <!-- Página 3 -->
+	    <div v-else-if="currentPage === 3">
+	      <p>
+	        Com a Área Geográfica ativa, selecione um usuário e use os filtros
+	        rápidos de data ou o calendário para escolher um período de até 31 dias.
+	        Após isso, clique em "Consultar" e aguarde os resultados.
+	      </p>
+	      <div class="image-grid">
+	        <div class="image-item">
+	          <img
+	            src="../../assets/infoImgs/GeographicAreasModal/AGSelecionarUsuario.png"
+	            alt="Selecionar Usuário"
+	          />
+	          <p class="image-caption">Selecionar Usuário</p>
+	        </div>
+	        <div class="image-item">
+	          <img
+	            src="../../assets/infoImgs/GeographicAreasModal/AGSelecionarData.png"
+	            alt="Selecionar Data"
+	          />
+	          <p class="image-caption">Selecionar Data</p>
+	        </div>
+	      </div>
+	    </div>
+	
+	    <!-- Página 4 -->
+	    <div v-else-if="currentPage === 4">
+	      <p>
+	        Aqui você vê o resultado da consulta. Os Pontos de Parada são exibidos
+	        no mapa, e abaixo do menu, você encontrará os detalhes sobre onde o usuário passou, a data e quanto tempo ficou
+	        parado naquele lugar.
+	      </p>
+	      <div class="image-container">
+	        <img
+	          src="../../assets/infoImgs/GeographicAreasModal/AGDados.png"
+	          alt="Dados na Tela"
+	        />
+	        <p class="image-caption">Dados na Tela</p>
+	      </div>
+	    </div>
+	
+	    <!-- Navegação -->
+	    <div class="modal-navigation">
+	      <v-btn
+	        :disabled="currentPage === 1"
+	        @click="currentPage--"
+	        class="nav-btn"
+	      >
+	        Anterior
+	      </v-btn>
+	      <v-btn
+	        :disabled="currentPage === totalPages"
+	        @click="currentPage++"
+	        class="nav-btn"
+	      >
+	        Próximo
+	      </v-btn>
+	    </div>
+	
+	    <!-- Botão de fechar -->
+	    <v-btn @click="$emit('close')">Fechar</v-btn>
+	  </div>
+	</template>
+	
+	<script setup lang="ts">
+	import { ref } from "vue";
+	
+	const currentPage = ref(1);
+	const totalPages = 4;
+	</script>
+	
+	<style scoped>
+	.modal-content {
+	  background: rgba(255, 255, 255, 0.9);
+	  padding: 20px;
+	  border-radius: 10px;
+	  text-align: center;
+	}
+	.modal-title {
+	  font-size: 24px;
+	  margin-bottom: 16px;
+	  color: #333;
+	}
+	.modal-navigation {
+	  display: flex;
+	  justify-content: space-between;
+	  margin: 20px 0;
+	}
+	.nav-btn {
+	  margin: 0 10px;
+	}
+	p {
+	  font-size: 18px;
+	  line-height: 1.6;
+	  color: #444;
+	}
+	.image-grid {
+	  display: flex;
+	  justify-content: space-around;
+	  gap: 20px;
+	  margin-top: 20px;
+	}
+	.image-item {
+	  text-align: center;
+	}
+	.image-container img,
+	.image-item img {
+	  width: 90%;
+	  max-width: 600px;
+	  max-height: 400px;
+	  height: auto;
+	  border-radius: 8px;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+	.image-caption {
+	  font-size: 16px;
+	  color: #666;
+	  margin-top: 8px;
+	}
+	</style>
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes 3</summary>
+
+  ~~~~vue
+	<template>
+	  <v-card class="stop-points-card" width="400px" height="300px" rounded="xl" elevation="4" color="primary">
+	    <template v-if="geoStopPoints && Object.keys(geoStopPoints).length > 0">
+	      <v-list class="scrollable-container bg-primary">
+	        <v-list-item>
+	          <v-sheet class="pa-2 mb-2" color="primary_light" elevation="0" rounded>
+	            <v-row align="center" justify="space-between" style="padding: 5px 12px;">
+	              <span style="font-weight: bold; font-size: 16px;">
+	                {{ getUserInitials(geoStopPoints.userName) }}
+	              </span>
+	              <span outlined>
+	                {{ geoStopPoints.device.toUpperCase() }}
+	              </span>
+	            </v-row>
+	          </v-sheet>
+	          <v-list-item v-for="(coord, coordIndex) in geoStopPoints.coords" :key="coordIndex"
+	            @click="navigateToStopPoint(coord)" style="padding: 0;" color="primary">
+	            <v-row align="start" no-gutters class="px-2 py-1">
+	              <v-col cols="1">
+	                <v-icon color="secondary" class="mr-1 mt-1">mdi-map-marker</v-icon>
+	              </v-col>
+	              <v-col cols="11">
+	                <v-list-item-title>
+	                  {{ displayedAddresses[coordIndex] }}
+	                </v-list-item-title>
+	                <v-list-item-subtitle>
+	                  {{ formatDateRange(coord.startDate, coord.endDate) }}
+	                </v-list-item-subtitle>
+	                <v-list-item-subtitle>
+	                  Tempo parado: {{ calculateStopDuration(coord.startDate, coord.endDate) }}
+	                </v-list-item-subtitle>
+	              </v-col>
+	            </v-row>
+	            <v-divider v-if="coordIndex < geoStopPoints.coords.length"></v-divider>
+	          </v-list-item>
+	        </v-list-item>
+	      </v-list>
+	    </template>
+	    <template v-else>
+	      <v-row justify="center" align="center">
+	        <v-icon color="grey">mdi-alert</v-icon>
+	        <span>Nenhum ponto de parada encontrado.</span>
+	      </v-row>
+	    </template>
+	  </v-card>
+	</template>
+	
+	<script setup lang="ts">
+	import { defineEmits, defineProps, ref, watch } from 'vue';
+	
+	const props = defineProps<{
+	  geoStopPoints: {
+	    userName: string;
+	    device: string;
+	    coords: Array<{
+	      latitude: number;
+	      longitude: number;
+	      startDate: string;
+	      endDate: string;
+	    }>;
+	  }
+	}>();
+	
+	const emit = defineEmits<{
+	  (e: 'navigate-to-stop-point', coordinates: [number, number]): void;
+	}>();
+	
+	const addresses = ref<string[][]>([]);
+	const displayedAddresses = ref<string[][]>([]);
+	
+	const getUserInitials = (fullName: string) => {
+	  const names = fullName.split(' ');
+	  return names.slice(0, 2).join(' '); // Retorna os dois primeiros nomes
+	};
+	
+	const getFormattedAddress = async (lat: number, lng: number) => {
+	  const apiKey = 'AIzaSyD7OMuCxvuTi0AfzyZLoChSWkjUzNQj8Lk';
+	  const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${apiKey}&language=BR&region`;
+	
+	  try {
+	    const response = await fetch(url);
+	    const data = await response.json();
+	
+	
+	    const formattedAddress = data.results.length > 0 ? data.results[0].formatted_address : 'Endereço não encontrado';
+	
+	    return formattedAddress;
+	  } catch (error) {
+	
+	    return 'Erro ao buscar endereço';
+	  }
+	};
+	
+	const fetchAddresses = async () => {
+	  addresses.value = [];
+	  displayedAddresses.value = [];
+	  for (const coord of props.geoStopPoints.coords) {
+	    const address = await getFormattedAddress(coord.latitude, coord.longitude);
+	    addresses.value.push([address]); // Inicializa cada endereço como array de strings
+	    displayedAddresses.value.push(address); // Exibe inicialmente apenas o primeiro endereço
+	  }
+	};
+	
+	const formatDateRange = (startDate: string, endDate: string) => {
+	  const parseDate = (date: string) => new Date(date);
+	  const formatDatePart = (date: Date) =>
+	    date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+	  const formatTimePart = (date: Date) =>
+	    date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+	
+	  const start = parseDate(startDate);
+	  const end = parseDate(endDate);
+	
+	  return `${formatDatePart(start)}, ${formatTimePart(start)} - ${formatTimePart(end)}`;
+	};
+	
+	const calculateStopDuration = (startDate: string, endDate: string) => {
+	  const start = new Date(startDate).getTime();
+	  const end = new Date(endDate).getTime();
+	  const durationMinutes = Math.floor((end - start) / (1000 * 60));
+	
+	  const hours = Math.floor(durationMinutes / 60);
+	  const minutes = durationMinutes % 60;
+	
+	  return `${hours} hora${hours !== 1 ? 's' : ''} e ${minutes} minuto${minutes !== 1 ? 's' : ''}`;
+	};
+	
+	const navigateToStopPoint = (coord: { latitude: number; longitude: number }) => {
+	
+	  emit('navigate-to-stop-point', [coord.latitude, coord.longitude]);
+	};
+	
+	watch(
+	  () => props.geoStopPoints,
+	  fetchAddresses,
+	  { immediate: true }
+	);
+	</script>
+	
+	<style scoped>
+	.stop-points-card {
+	  box-shadow: none;
+	  border-radius: 0;
+	  position: fixed;
+	  margin-top: 15px;
+	}
+	
+	.scrollable-container {
+	  max-height: 300px;
+	  /* Ajuste a altura conforme necessário */
+	  overflow-y: auto;
+	  overflow-x: hidden;
+	}
+	
+	.scrollable-container::-webkit-scrollbar {
+	  width: 10px;
+	}
+	
+	.scrollable-container::-webkit-scrollbar-track {
+	  background: #f0f0f5;
+	  border-radius: 5px;
+	}
+	
+	.scrollable-container::-webkit-scrollbar-thumb {
+	  background: linear-gradient(180deg, #c7c9ff, #7a7de9);
+	  border-radius: 10px;
+	}
+	
+	.scrollable-container::-webkit-scrollbar-thumb:hover {
+	  background: linear-gradient(180deg, #6b6fe1, #4f51d3);
+	}
+	
+	.v-list-item-title {
+	  word-wrap: break-word;
+	  white-space: normal;
+	}
+	</style>
+  ~~~~~
+</details>
+
+### 5. **Desenvolvimento do Filtro e Visualizador de "Pontos de Parada"**
+  - Implementei a funcionalidade de "Pontos de Parada", que inclui um painel de filtros inteligente com atalhos de data e um painel de resultados interativo. Este último utiliza a API do Google para transformar coordenadas de GPS em endereços reais e apresenta os dados com um sistema de "carregar mais" para melhor performance e experiência do usuário.
+
+<details>
+  <summary>Detalhes 1</summary>
+  
+  ~~~~vue
+	<template>
+	  <v-card
+	    class="mx-auto"
+	    width="100%"
+	    style="box-shadow: none; border-radius: 0 0 20px 20px; margin-bottom: 0px"
+	    color="primary"
+	  >
+	    <v-col style="padding: 5px 20px 0 20px">
+	      <v-row style="align-items: center; padding: 0px 0 7px 0; position: relative;">
+	        <!-- Texto "Pontos de Parada" centralizado -->
+	        <v-col cols="12" style="text-align: center;">
+	          <span style="font-size: 23px; font-weight: bold;" color="primary">
+	            Pontos de Parada
+	          </span>
+	        </v-col>
+	        <!-- Botão do Painel de Informações no extremo direito -->
+	        <v-col cols="auto" style="position: absolute; right: 0px; top: 32%; transform: translateY(-40%);">
+	          <InfoPanel></InfoPanel>
+	        </v-col>
+	      </v-row>
+	      <!-- Users selection -->
+	      <v-combobox
+	        v-model="selectedUsers"
+	        :items="users"
+	        label="Usuário"
+	        item-title="name"
+	        prepend-icon="mdi-filter-variant"
+	        chips
+	        clearable
+	        multiple
+	        color="secondary"
+	      >
+	        <template v-slot:selection="{ attrs, item, select, selected }">
+	          <v-chip
+	            v-bind="attrs"
+	            :model-value="selected"
+	            closable
+	            @click="select"
+	            @click:close="remove(item)"
+	          >
+	          </v-chip>
+	        </template>
+	      </v-combobox>
+	
+	      <!-- Date selection -->
+	      <v-date-input
+	        v-model="date"
+	        label="Selecione o período"
+	        multiple="range"
+	        color="secondary"
+	        :max="today"
+	        :locale="locale"
+	        :format="customDateFormat"
+	        placeholder="dd/MM/yyyy"
+	        :readonly="dateInputDisabled"
+	        tooltip-data="Limite máximo de 30 dias"
+	      ></v-date-input>
+	
+	      <!-- Quick date filters using chips -->
+	      <v-col style="padding: 0px; display: flex; justify-content: space-evenly">
+	        <v-chip
+	          v-for="(filter, index) in quickFilters"
+	          :key="filter.label"
+	          @click="setQuickFilter(filter.range, index)"
+	          :color="selectedQuickFilter === index ? 'primary' : 'primary_light'"
+	          :active="selectedQuickFilter === index"
+	          filter
+	          variant="flat"
+	          size="small"
+	        >
+	          {{ filter.label }}
+	        </v-chip>
+	      </v-col>
+	    </v-col>
+	
+	    <v-card-actions class="d-flex" style="padding: 20px 20px 10px 20px">
+	      <v-row class="d-flex" no-gutters style="justify-content: space-around">
+	        <v-col cols="7">
+	          <v-btn
+	            :loading="loading"
+	            :disabled="ButtonDisabled || loading"
+	            class="text-none"
+	            color="secondary"
+	            size="large"
+	            variant="flat"
+	            block
+	            rounded="xl"
+	            @click="handleConsult"
+	          >
+	            Consultar
+	          </v-btn>
+	        </v-col>
+	        <v-col cols="4">
+	          <v-btn
+	            class="text-none"
+	            color="primary_light"
+	            size="large"
+	            variant="flat"
+	            block
+	            rounded="xl"
+	            @click="clearFields"
+	          >
+	            Limpar
+	          </v-btn>
+	        </v-col>
+	      </v-row>
+	    </v-card-actions>
+	  </v-card>
+	
+	  <v-snackbar v-model="snackbar" :color="snackbarColor" timeout="3000" top>
+	    {{ snackbarMessage }}
+	  </v-snackbar>
+	</template>
+	
+	<script>
+	import { eventBus } from "@/utils/EventBus";
+	import axios from "axios";
+	import InfoPanel from "../Info/InfoPanel.vue";
+	
+	export default {
+	  data: () => ({
+	    today: new Date().toISOString().substr(0, 10),
+	    loading: false,
+	    logo: "/src/assets/Logo.svg",
+	    date: null,
+	    users: [], // Lista de usuários
+	    selectedUsers: [], // Armazena múltiplos usuários selecionados
+	    devices: [],
+	    locale: "pt",
+	    customDateFormat: "dd/MM/yyyy",
+	    quickFilters: [
+	      { label: "Hoje", range: [new Date(), new Date()] },
+	      {
+	        label: "Últimos 3 dias",
+	        range: [new Date(Date.now() - 3 * 864e5), new Date()],
+	      },
+	      {
+	        label: "Última semana",
+	        range: [new Date(Date.now() - 7 * 864e5), new Date()],
+	      },
+	      {
+	        label: "Último mês",
+	        range: [new Date(Date.now() - 30 * 864e5), new Date()],
+	      },
+	    ],
+	    selectedQuickFilter: null,
+	    dateInputDisabled: false,
+	
+	    snackbar: false,
+	    snackbarColor: "success",
+	    snackbarMessage: "",
+	  }),
+	
+	  emits: ["consult"],
+	
+	  mounted() {
+	    this.fetchUsers();
+	    eventBus.on("stopIsLoading", this.stopIsLoading);
+	    eventBus.on("novoLogo", this.change);
+	    eventBus.on("clearFields", this.clearFields);
+	  },
+	
+	  computed: {
+	    ButtonDisabled() {
+	      return this.selectedUsers.length === 0 || !this.date;
+	    },
+	  },
+	
+	  methods: {
+	    change(newLogo) {
+	      this.logo = newLogo;
+	    },
+	
+	    stopIsLoading() {
+	      this.loading = false;
+	    },
+	
+	    showSnackbar(message, color = "success") {
+	      this.snackbarMessage = message; // Define a mensagem
+	      this.snackbarColor = color; // Define a cor
+	      this.snackbar = true; // Torna o snackbar visível
+	    },
+	
+	    async fetchUsers() {
+	      try {
+	        const response = await axios.get(
+	          "http://localhost:8080/filters/users?page=0&qtdPage=1000"
+	        );
+	        const data = response.data;
+	
+	        // Mapeando a resposta da API para o formato correto
+	        this.users = data.listUsers.map((user) => ({
+	          name: user.userName.toUpperCase(), // Nome do usuário
+	          deviceId: user.idDevice, // ID do dispositivo
+	        }));
+	
+	
+	      } catch (error) {
+	
+	      }
+	    },
+	
+	    async handleConsult() {
+	      if (this.selectedUsers.length === 0 || !this.date) return;
+	
+	      this.loading = true;
+	
+	      // Extraindo os IDs dos dispositivos dos usuários selecionados
+	      const deviceIds = this.selectedUsers.map((user) => user.deviceId);
+	
+	      const qtddias = Math.round(
+	        (new Date(this.date[this.date.length - 1]) - new Date(this.date[0])) /
+	          (1000 * 60 * 60 * 24)
+	      );
+	
+	      if (qtddias > 31) {
+	        this.showSnackbar("Mais que 31 dias selecionados", "error");
+	        this.loading = false;
+	        return;
+	      }
+	
+	      // Preparando os dados da requisição com todos os devices como um array e as datas uma única vez
+	      const requestData = {
+	        devices: deviceIds, // Array de IDs dos dispositivos
+	        startDate: new Date(this.date[0]).toLocaleDateString("en-CA"), // Data de início
+	        finalDate: new Date(this.date[this.date.length - 1]).toLocaleDateString("en-CA"), // Data de fim
+	      };
+	
+	
+	      this.$emit("consult", requestData); // Certifique-se de emitir o evento com os dados
+	
+	      // Simulação do retorno dos postos de parada
+	      setTimeout(() => {
+	        this.showStopPointsInformation = true; // Exibe o novo componente
+	        this.loadingPage = false;
+	      }, 2000); // Simulando o tempo de resposta
+	    },
+	
+	    clearFields() {
+	      this.date = null;
+	      this.selectedUsers = [];
+	      this.devices = [];
+	      this.selectedQuickFilter = null;
+	
+	
+	
+	      if (this.logo == "/src/assets/LogoWhite.svg") {
+	        this.$emit("initializeMapDark");
+	        eventBus.emit("clearStopPointsInformation");
+	      } else {
+	        this.$emit("initializeMap");
+	        eventBus.emit("clearStopPointsInformation");
+	      }
+	    },
+	
+	    setQuickFilter(range, index) {
+	      if (this.selectedQuickFilter === index) {
+	        this.selectedQuickFilter = null;
+	        this.date = null;
+	        this.dateInputDisabled = false;
+	      } else {
+	        this.selectedQuickFilter = index;
+	        this.date = range.map((date) => date.toISOString().substr(0, 10));
+	        this.dateInputDisabled = true;
+	      }
+	    },
+	
+	    remove(item) {
+	      this.selectedUsers = this.selectedUsers.filter(
+	        (user) => user.id !== item.id
+	      );
+	    },
+	
+	    // Método para exibir o snackbar
+	    showSnackbar(message, color = "success") {
+	      this.snackbarMessage = message;
+	      this.snackbarColor = "error";
+	      this.snackbar = true;
+	    },
+	
+	  },
+	
+	  watch: {
+	    selectedUsers(newValue) {
+	      if (newValue.length > 5) {
+	        this.selectedUsers = newValue.slice(0, 5);
+	      }
+	
+	    },
+	  },
+	};
+	</script>
+	
+	<style scoped></style>
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes 2</summary>
+  
+  ~~~~vue
+	<template>
+	  <div class="modal-content">
+	    <!-- Página 1 -->
+	    <div v-if="currentPage === 1">
+	      <h1 class="modal-title">Pontos de Parada</h1>
+	      <p>
+	        Sejam bem-vindos ao GeoTrack! Essa página está destinada a solucionar
+	        possíveis dúvidas sobre como utilizar nossa aplicação. A imagem abaixo é
+	        referente ao filtro de Pontos de Parada, onde você pode buscar os Pontos
+	        de Parada de até cinco usuários diferentes dentro de um período de
+	        31 dias.
+	      </p>
+	      <div class="image-container">
+	        <img src="../../assets/infoImgs/StopPointsModal/interfaceClean.png" alt="Menu Pontos de Parada" />
+	        <p class="image-caption">Menu Pontos de Parada</p>
+	      </div>
+	    </div>
+	
+	    <!-- Página 2 -->
+	    <div v-else-if="currentPage === 2">
+	      <h1 class="modal-title">Pontos de Parada</h1>
+	      <p>
+	        Para iniciar a busca, selecione até cinco usuários. Em seguida, use os
+	        filtros de data ou escolha um período de até 31 dias no calendário.
+	        Depois, clique em "Consultar" e aguarde os resultados.
+	      </p>
+	      <div class="image-grid">
+	        <div class="image-item">
+	          <p class="image-caption">Selecionar Usuários</p>
+	          <img src="../../assets/infoImgs/StopPointsModal/selecionarUsuarios.png" alt="Selecionar Usuários" />
+	        </div>
+	        <div class="image-item">
+	          <p class="image-caption">Selecionar Data</p>
+	          <img src="../../assets/infoImgs/StopPointsModal/selecionarData.png" alt="Selecionar Data" />
+	        </div>
+	      </div>
+	    </div>
+	
+	    <!-- Página 3 -->
+	    <div v-else-if="currentPage === 3">
+	      <h1 class="modal-title">Pontos de Parada</h1>
+	      <p>
+	        Aqui você vê o resultado da consulta. Os Pontos de Parada são exibidos
+	        no mapa, e abaixo do menu, você encontrará os detalhes sobre onde o usuário passou, a data e quanto tempo ficou
+	        parado naquele lugar.
+	      </p>
+	      <div class="image-grid">
+	        <div class="image-item">
+	          <p class="image-caption">Dados na Tela</p>
+	          <img src="../../assets/infoImgs/StopPointsModal/dadosNaTela.png" alt="Dados na Tela" />
+	        </div>
+	        <div class="image-item">
+	          <p class="image-caption">Informações Pontos de Parada</p>
+	          <img src="../../assets/infoImgs/StopPointsModal/informacoesPontosParada.png"
+	            alt="Informações Pontos de Parada" />
+	        </div>
+	      </div>
+	    </div>
+	
+	    <!-- Botões de navegação -->
+	    <div class="modal-navigation">
+	      <v-btn :disabled="currentPage === 1" @click="currentPage--" class="nav-btn">
+	        Anterior
+	      </v-btn>
+	      <v-btn :disabled="currentPage === totalPages" @click="currentPage++" class="nav-btn">
+	        Próximo
+	      </v-btn>
+	    </div>
+	
+	    <!-- Botão de fechar -->
+	    <v-btn @click="$emit('close')">Fechar</v-btn>
+	  </div>
+	</template>
+	
+	<script setup lang="ts">
+	import { ref } from "vue";
+	
+	const currentPage = ref(1);
+	const totalPages = 3;
+	</script>
+	
+	<style scoped>
+	.modal-content {
+	  background: rgba(255, 255, 255, 0.9);
+	  padding: 20px;
+	  border-radius: 10px;
+	  text-align: center;
+	}
+	
+	.modal-title {
+	  font-size: 24px;
+	  margin-bottom: 16px;
+	  color: #333;
+	}
+	
+	.modal-navigation {
+	  display: flex;
+	  justify-content: space-between;
+	  margin: 20px 0;
+	}
+	
+	.nav-btn {
+	  margin: 0 10px;
+	}
+	
+	p {
+	  font-size: 18px;
+	  line-height: 1.6;
+	  color: #444;
+	}
+	
+	.image-grid {
+	  display: flex;
+	  justify-content: space-around;
+	  gap: 20px;
+	  margin-top: 20px;
+	}
+	
+	.image-item {
+	  text-align: center;
+	}
+	
+	.image-container img,
+	.image-item img {
+	  width: 90%;
+	  max-width: 600px;
+	  max-height: 400px;
+	  height: auto;
+	  border-radius: 8px;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+	
+	.image-caption {
+	  font-size: 16px;
+	  color: #666;
+	  margin-top: 8px;
+	}
+	</style>
+  ~~~~~
+</details>
+
+<details>
+  <summary>Detalhes 3</summary>
+  
+  ~~~~vue
+	<template>
+	    <v-card class="stop-points-card" width="400px" height="300px" rounded="xl" elevation="4" color="primary">
+	        <template v-if="stopPoints && stopPoints.length > 0">
+	            <v-list class="stop-points-list bg-primary">
+	                <v-list-item v-for="(address, index) in addresses" :key="index" class="mb-1">
+	                    <v-sheet class="pa-2 mb-2" color="primary_light" elevation="0" rounded>
+	                        <v-row align="center" justify="space-between" style="padding: 5px 12px;">
+	                            <span style="font-weight: bold; font-size: 16px;">
+	                                {{ getUserInitials(stopPoints[index].user) }}
+	                            </span>
+	                            <span outlined>
+	                                {{ stopPoints[index].device }}
+	                            </span>
+	                        </v-row>
+	                    </v-sheet>
+	                    <v-list style="padding: 0;" class="bg-primary">
+	                        <v-list-item v-for="(featureAddress, featureIndex) in displayedAddresses[index]"
+	                            :key="featureIndex"
+	                            @click="goToLocation(stopPoints[index].geoJsonDTO.features[featureIndex].geometry.coordinates)"
+	                            style="padding: 0;" color="primary">
+	                            <v-row align="start" no-gutters class="px-2 py-1" style="padding: 0;">
+	                                <v-col cols="1">
+	                                    <v-icon color="secondary" class="mt-1">mdi-map-marker</v-icon>
+	                                </v-col>
+	                                <v-col cols="11">
+	                                    <v-list-item-title>
+	                                        {{ featureAddress }}
+	                                    </v-list-item-title>
+	                                     <v-list-item-subtitle>
+	                                        {{ "Data: " }}{{
+	                                            formatDate(stopPoints[index].geoJsonDTO.features[featureIndex].geometry.startDate)
+	                                        }},
+	                                        {{
+	                                            formatTime(stopPoints[index].geoJsonDTO.features[featureIndex].geometry.startDate)
+	                                        }} -
+	                                        {{
+	                                            formatTime(stopPoints[index].geoJsonDTO.features[featureIndex].geometry.endDate)
+	                                        }}
+	                                    </v-list-item-subtitle>
+	                                    <v-list-item-subtitle>
+	                                        Tempo parado: {{ " " }}{{
+	                                            getStopDuration(stopPoints[index].geoJsonDTO.features[featureIndex].geometry.startDate,
+	                                                stopPoints[index].geoJsonDTO.features[featureIndex].geometry.endDate) }}
+	                                    </v-list-item-subtitle>
+	                                </v-col>
+	                            </v-row>
+	                            <v-divider v-if="featureIndex < displayedAddresses[index].length"></v-divider>
+	                        </v-list-item>
+	                    </v-list>
+	
+	                    <v-btn v-if="remainingPoints(index) > 0" color="secondary" variant="text"
+	                        @click="showNextAddress(index)">
+	                        + {{ remainingPoints(index) }} ponto<span v-if="remainingPoints(index) > 1">s</span> de
+	                        parada
+	                    </v-btn>
+	                </v-list-item>
+	            </v-list>
+	        </template>
+	        <template v-else>
+	            <v-row justify="center">
+	                <v-icon color="grey">mdi-alert</v-icon>
+	                <span>Nenhum ponto de parada encontrado.</span>
+	            </v-row>
+	        </template>
+	    </v-card>
+	</template>
+	
+	<script setup lang="ts">
+	import { defineEmits, defineProps, ref, watch } from 'vue';
+	
+	const props = defineProps<{
+	    stopPoints: Array<{
+	        user: string;
+	        device: string;
+	        geoJsonDTO: {
+	            features: Array<{
+	                geometry: {
+	                    coordinates: [number, number];
+	                    startDate: string;
+	                    endDate: string;
+	                };
+	            }>;
+	        };
+	    }>;
+	}>();
+	
+	const emit = defineEmits<{
+	    (event: 'go-to-location', coordinates: [number, number]): void;
+	}>();
+	
+	const addresses = ref<string[][]>([]);
+	const displayedAddresses = ref<string[][]>([]);
+	
+	const getUserInitials = (fullName: string) => {
+	    const names = fullName.split(' ');
+	    return names.slice(0, 2).join(' '); // Retorna os dois primeiros nomes
+	};
+	
+	const getFormattedAddress = async (lat: number, lng: number) => {
+	    const apiKey = 'AIzaSyD7OMuCxvuTi0AfzyZLoChSWkjUzNQj8Lk';
+	    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lng},${lat}&key=${apiKey}&language=BR&region`;
+	
+	    try {
+	        const response = await fetch(url);
+	        const data = await response.json();
+	
+	
+	        const formattedAddress = data.results.length > 0 ? data.results[0].formatted_address : 'Endereço não encontrado';
+	
+	        return formattedAddress;
+	    } catch (error) {
+	
+	        return 'Erro ao buscar endereço';
+	    }
+	};
+	
+	const remainingPoints = (index: number) => {
+	    return addresses.value[index].length - displayedAddresses.value[index].length;
+	};
+	
+	const showNextAddress = (index: number) => {
+	    const nextIndex = displayedAddresses.value[index].length;
+	    if (nextIndex < addresses.value[index].length) {
+	        displayedAddresses.value[index].push(addresses.value[index][nextIndex]);
+	    }
+	};
+	
+	const formatDate = (date: string) => {
+	    const parsedDate = new Date(date);
+	    const options: Intl.DateTimeFormatOptions = {
+	        day: '2-digit', month: '2-digit', year: 'numeric'
+	    };
+	    return parsedDate.toLocaleDateString('pt-BR', options);
+	};
+	
+	const formatTime = (date: string) => {
+	    const parsedDate = new Date(date);
+	    const options: Intl.DateTimeFormatOptions = {
+	        hour: '2-digit', minute: '2-digit'
+	    };
+	    return parsedDate.toLocaleTimeString('pt-BR', options);
+	};
+	
+	const getStopDuration = (startDate: string, endDate: string) => {
+	  const start = new Date(startDate).getTime();
+	  const end = new Date(endDate).getTime();
+	  const durationMinutes = Math.floor((end - start) / (1000 * 60));
+	
+	  const hours = Math.floor(durationMinutes / 60);
+	  const minutes = durationMinutes % 60;
+	
+	  return `${hours} hora${hours !== 1 ? 's' : ''} e ${minutes} minuto${minutes !== 1 ? 's' : ''}`;
+	};
+	
+	const goToLocation = (coordinates: [number, number]) => {
+	    emit('go-to-location', coordinates);
+	};
+	
+	watch(
+	    () => props.stopPoints,
+	    async (newStopPoints) => {
+	        addresses.value = []; // Limpa endereços antes de cada nova atualização
+	        displayedAddresses.value = []; // Inicializa endereços exibidos
+	        for (const point of newStopPoints) {
+	            const featureAddresses: string[] = [];
+	            for (const feature of point.geoJsonDTO.features) {
+	                const [lat, lng] = feature.geometry.coordinates;
+	                const address = await getFormattedAddress(lat, lng);
+	                featureAddresses.push(address);
+	            }
+	            addresses.value.push(featureAddresses);
+	            displayedAddresses.value.push(featureAddresses.slice(0, 1)); // Mostra inicialmente apenas o primeiro endereço
+	        }
+	    },
+	    { immediate: true }
+	);
+	</script>
+	
+	<style scoped>
+	.stop-points-card {
+	    box-shadow: none;
+	    border-radius: 0;
+	    position: fixed;
+	    margin-top: 15px;
+	}
+	
+	.stop-points-list {
+	    max-height: 300px;
+	    overflow-y: auto;
+	}
+	
+	.stop-points-list::-webkit-scrollbar {
+	    width: 10px;
+	}
+	
+	.stop-points-list::-webkit-scrollbar-track {
+	    background: #f0f0f5;
+	    border-radius: 5px;
+	}
+	
+	.stop-points-list::-webkit-scrollbar-thumb {
+	    background: linear-gradient(180deg, #c7c9ff, #7a7de9);
+	    border-radius: 10px;
+	}
+	
+	.stop-points-list::-webkit-scrollbar-thumb:hover {
+	    background: linear-gradient(180deg, #6b6fe1, #4f51d3);
+	    border-radius: 10px;
+	}
+	
+	.v-list-item-title {
+	    word-wrap: break-word;
+	    white-space: normal;
+	}
+	</style>
   ~~~~~
 </details>
 
